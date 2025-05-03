@@ -1,4 +1,7 @@
 package com.nlu.fit.viewmodel;
 
-public record LoginReponse() {
+import lombok.Builder;
+
+@Builder
+public record LoginReponse(String token) {
 }

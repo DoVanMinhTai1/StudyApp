@@ -43,4 +43,8 @@ public class FirebaseConfig {
             FirebaseApp.initializeApp(options);
         }
     }
+    @Bean
+    public FirebaseAuth firebaseAuth() {
+        return FirebaseAuth.getInstance();
+    }
 }
