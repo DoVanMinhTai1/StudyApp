@@ -2,11 +2,11 @@ package com.nlu.fit.controller;
 
 import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.FirebaseToken;
-import com.google.firebase.auth.UserRecord;
 import com.nlu.fit.service.FirebaseAuthService;
-import com.nlu.fit.viewmodel.*;
+import com.nlu.fit.viewmodel.user.LoginReponse;
+import com.nlu.fit.viewmodel.user.LoginRequest;
+import com.nlu.fit.viewmodel.user.TokenReponse;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;

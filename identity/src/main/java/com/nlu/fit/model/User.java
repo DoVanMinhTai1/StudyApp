@@ -11,6 +11,4 @@ import lombok.*;
 public class User {
     private String uId;
     private String email;
-
-
 }

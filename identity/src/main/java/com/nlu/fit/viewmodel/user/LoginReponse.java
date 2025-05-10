@@ -1,4 +1,4 @@
-package com.nlu.fit.viewmodel;
+package com.nlu.fit.viewmodel.user;
 
 import lombok.Builder;
 
