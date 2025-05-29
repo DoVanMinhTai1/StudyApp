@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:text="Chọn Lộ Trình Học"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+<!--    <TextView-->
+<!--        android:id="@+id/goals_label"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/title"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:text="Mục Tiêu Điểm Số" />-->
+
+    <EditText
+        android:id="@+id/goal_input"
+        android:layout_width="282dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        android:hint="Nhập mục tiêu điểm số"
+        android:inputType="number"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_marginBottom="20dp"
+        />
+
+<!--    <TextView-->
+<!--        android:id="@+id/study_time_label"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/goal_input"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:text="Thời Gian Học" />-->
+
+    <EditText
+        android:id="@+id/study_time_input"
+        android:layout_width="278dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        android:hint="Nhập thời gian học"
+        android:inputType="number"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp" />
+
+    <Button
+        android:id="@+id/submit_button"
+        android:layout_width="183dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/study_time_input"
+
+        android:layout_marginTop="30dp"
+        android:text="Xác Nhận" />
+</LinearLayout>

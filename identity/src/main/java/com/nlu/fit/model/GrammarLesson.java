@@ -1,5 +1,6 @@
 package com.nlu.fit.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.nlu.fit.enumeration.LessonType;
 import jakarta.persistence.*;
 import lombok.*;
@@ -15,7 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 public class GrammarLesson {
 
-    @Id()
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -24,15 +25,15 @@ public class GrammarLesson {
     @Enumerated(EnumType.STRING)
     private LessonType lessonType;
 
-    @ManyToOne(fetch = FetchType.LAZY,optional = false)
+    @OneToOne()
     @JoinColumn(name = "grammar_topic_id")
+    @JsonIgnore
     private GrammarTopic grammar_topic;
 
-    @OneToOne(optional = true)
-    @JoinColumn(name = "grammar_explanations_id")
+    @OneToOne(mappedBy = "grammarLesson",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private GrammarExplanation grammarExplanations;
 
-    @OneToMany(mappedBy = "grammar_lesson")
+    @OneToMany(mappedBy = "grammar_lesson",cascade = CascadeType.ALL)
     private List<GrammarExerciseQuestion> grammarExerciseQuestions;
 
 }

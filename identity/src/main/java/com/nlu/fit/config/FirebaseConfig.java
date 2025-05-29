@@ -12,6 +12,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.PostConstruct;
+
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -35,6 +37,9 @@ public class FirebaseConfig {
 
         if (FirebaseApp.getApps().isEmpty()) {
             InputStream inputStream = FirebaseConfig.class.getClassLoader().getResourceAsStream(accountPath);
+                if (inputStream == null) {
+            throw new FileNotFoundException("Service account file not found at: " + accountPath);
+        }
             FirebaseOptions options = new FirebaseOptions.Builder()
                     .setCredentials(GoogleCredentials.fromStream(inputStream))
                     .setDatabaseUrl(databaseUrl)

@@ -1,14 +1,22 @@
 package com.nlu.fit.model;
 
+import jakarta.persistence.*;
 import lombok.*;
 
 @Builder
-@AllArgsConstructor
-@NoArgsConstructor
+@Table(name = "user")
+@Entity()
 @Getter
 @Setter
 @ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
-    private String uId;
+
+    @Id
+    private String uid;
+
+    private String name;
+
     private String email;
 }

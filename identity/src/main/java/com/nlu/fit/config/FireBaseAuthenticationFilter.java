@@ -31,7 +31,7 @@ public class FireBaseAuthenticationFilter extends OncePerRequestFilter {
             try {
                 FirebaseToken auth = FirebaseAuth.getInstance().verifyIdToken(token);
                 String userId = auth.getUid();
-                User user = new User(userId, auth.getEmail());
+                User user = new User(userId, auth.getEmail(), auth.getName());
                 UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(user, null, null);
 
                 SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
