@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-StudyAppApplication<fit>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.nlu.fit.StudyAppApplication",
+            "projectName": "fit",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

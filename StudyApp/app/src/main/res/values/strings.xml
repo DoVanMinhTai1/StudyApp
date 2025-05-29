@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">StudyApp</string>
+    <!-- Login Screen -->
+    <string name="login_title">Đăng nhập</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Mật khẩu</string>
+    <string name="login_button">ĐĂNG NHẬP</string>
+    <string name="forgot_password">Quên mật khẩu?</string>
+    <string name="or_login_with">Hoặc đăng nhập bằng</string>
+    <string name="register_account">Chưa có tài khoản? Đăng ký ngay</string>
+    <string name="login_with_google">Đăng nhập bằng Google</string>
+    <string name="login_with_facebook">Đăng nhập bằng Facebook</string>
+    <string name="app_logo">Logo ứng dụng học tiếng Anh</string>
+    <string name="previous">Previous</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet...</string>
+>>>>>>> Stashed changes:StudyApp/app/src/main/res/values/strings.xml
+    <string name="action_settings">Settings</string>
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="register_title">Đăng ký tài khoản</string>
+    <string name="full_name_hint">Họ và tên</string>
+    <string name="confirm_password_hint">Xác nhận mật khẩu</string>
+    <string name="register_button">ĐĂNG KÝ</string>
+    <string name="already_have_account">Đã có tài khoản? Đăng nhập ngay</string>
+    <string name="forgot_password_title">Quên mật khẩu</string>
+    <string name="forgot_password_instruction">Nhập email đã đăng ký để nhận liên kết đặt lại mật khẩu</string>
+    <string name="send_request">Gửi yêu cầu</string>
+    <string name="back_to_login">Quay lại đăng nhập</string>
+    <string name="reset_link_sent">Đã gửi liên kết đặt lại mật khẩu đến email của bạn</string>
+    <string name="email_not_registered">Email chưa được đăng ký</string>
+</resources>

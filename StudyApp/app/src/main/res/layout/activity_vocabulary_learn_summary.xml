@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Header -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tổng Kết Buổi Học"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kết quả học tập"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Summary Items -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include layout="@layout/activity_vocabulary_learn_item_summary"
+                android:id="@+id/item_topic"
+                android:tag="Chủ đề|Du lịch" />
+
+            <include layout="@layout/activity_vocabulary_learn_item_summary"
+                android:id="@+id/item_level"
+                android:tag="Cấp độ|Cơ bản" />
+
+            <include layout="@layout/activity_vocabulary_learn_item_summary"
+                android:id="@+id/item_method"
+                android:tag="Phương pháp|Flashcard" />
+
+            <include layout="@layout/activity_vocabulary_learn_item_summary"
+                android:id="@+id/item_total_words"
+                android:tag="Tổng số từ trong buổi|10 từ" />
+
+            <include layout="@layout/activity_vocabulary_learn_item_summary"
+                android:id="@+id/item_correct"
+                android:tag="Số từ đã học/đúng|8 từ" />
+
+            <include layout="@layout/activity_vocabulary_learn_item_summary"
+                android:id="@+id/item_incorrect"
+                android:tag="Số từ chưa thuộc/sai|2 từ" />
+        </LinearLayout>
+
+        <!-- Suggestion Box -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Gợi ý: Bạn có 2 từ chưa thuộc. Hãy xem lại chúng! Các từ đã học sẽ được đưa vào lịch ôn tập để bạn ghi nhớ tốt hơn."
+            android:textSize="16sp"
+            android:padding="12dp"
+            android:background="#FFF8E1"
+            android:textColor="#E65100"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Buttons -->
+        <Button
+            android:id="@+id/button_home"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Về Trang chủ"
+            android:layout_marginBottom="12dp" />
+
+        <Button
+            android:id="@+id/button_new_session"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bắt đầu buổi học mới"
+            android:backgroundTint="#BDC3C7"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+</ScrollView>

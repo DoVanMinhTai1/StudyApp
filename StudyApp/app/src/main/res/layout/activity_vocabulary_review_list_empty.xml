@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <!-- Header -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ôn Tập Từ Vựng"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Empty State Icon -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🎉"
+            android:textSize="60sp"
+            android:textColor="#AEAEB2"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Main Message -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tuyệt vời!"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#3C3C43"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Subtext -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Không có từ vựng nào cần ôn tập ngay bây giờ."
+            android:textSize="15sp"
+            android:textColor="#8E8E93"
+            android:layout_marginBottom="32dp" />
+
+        <!-- Section Title -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tùy chọn khác"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:background="#F0F2F5"
+            android:padding="12dp"
+            android:textColor="#6D6D72"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Buttons -->
+        <Button
+            android:id="@+id/button_review_free"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ôn tập tự do (Tất cả từ đã học)"
+            android:layout_marginBottom="12dp" />
+
+        <Button
+            android:id="@+id/button_review_topic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ôn tập chủ đề Du Lịch"
+            android:layout_marginBottom="12dp" />
+
+        <Button
+            android:id="@+id/button_review_difficult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ôn tập các từ khó" />
+    </LinearLayout>
+</ScrollView>

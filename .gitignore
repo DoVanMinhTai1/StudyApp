@@ -13,3 +13,6 @@
 .externalNativeBuild
 .cxx
 local.properties
+# Ignore all target folders in all subdirectories
+**/target/
+.idea/

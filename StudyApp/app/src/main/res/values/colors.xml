@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Màu cơ bản -->
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+    <color name="gray">#FF9E9E9E</color>
+
+    <!-- Màu chủ đạo -->
+    <color name="primary_color">#FF4285F4</color>  <!-- Google Blue -->
+    <color name="primary_dark">#FF3367D6</color>
+    <color name="primary_light">#FFE8F0FE</color>
+
+    <!-- Màu phụ -->
+    <color name="secondary_color">#FF34A853</color>  <!-- Google Green -->
+    <color name="accent_color">#FFEA4335</color>    <!-- Google Red -->
+
+    <!-- Màu nút và các thành phần UI -->
+    <color name="button_background">@color/primary_color</color>
+    <color name="button_text">@color/white</color>
+    <color name="primary_light_color">#E3F2FD</color> <!-- ví dụ: xanh dương nhạt -->
+    <color name="nav_item_text_color">#212121</color>
+    <color name="nav_item_icon_color">#3F51B5</color> <!-- hoặc màu bạn thích -->
+
+
+    <!-- Màu cho social icons -->
+    <color name="facebook_color">#1877F2</color>
+    <color name="google_color">#4285F4</color>
+
+    <!-- Màu cho text input -->
+    <color name="text_input_stroke">#808080</color>
+    <color name="text_input_background">@color/white</color>
+    <!--    <color name="primary_color">#6200EE</color>-->
+    <!--    <color name="primary_dark">#3700B3</color>-->
+    <!--    <color name="white">#FFFFFF</color>-->
+    <color name="white_70">#B3FFFFFF</color>
+    <!--    <color name="black">#FF000000</color>-->
+    <color name="gray_dark">#757575</color>
+</resources>
