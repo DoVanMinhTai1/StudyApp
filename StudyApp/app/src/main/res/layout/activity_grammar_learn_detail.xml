@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/background_light_gray"
     android:orientation="vertical"
-    tools:context=".GrammarLessonActivity"> <!-- Replace with your Activity name -->
+    tools:context=".activity.grammar.GrammarLearnActivity"> <!-- Replace with your Activity name -->
 
     <!-- Header Toolbar (Consistent with previous screen) -->
     <com.google.android.material.appbar.MaterialToolbar

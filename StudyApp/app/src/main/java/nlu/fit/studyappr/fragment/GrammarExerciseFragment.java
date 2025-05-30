@@ -8,13 +8,10 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
 import nlu.fit.studyappr.R;
-import nlu.fit.studyappr.adapter.GrammarQuestionAdapter;
 import nlu.fit.studyappr.model.GrammarExcerciseQuestion;
 import nlu.fit.studyappr.model.GrammarLesson;
 
@@ -31,13 +28,13 @@ public class GrammarExerciseFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_grammar_learn_exercise, container, false);
+        View view = inflater.inflate(R.layout.activity_grammar_learn_detail, container, false);
         GrammarLesson grammarLesson = (GrammarLesson) getArguments().getSerializable("lesson");
         List<GrammarExcerciseQuestion> grammarExcerciseQuestionList = grammarLesson.getGrammarExcerciseQuestionList();
-        RecyclerView recyclerView = view.findViewById(R.id.grammarRecyclerView);
-        GrammarQuestionAdapter adapter = new GrammarQuestionAdapter(grammarExcerciseQuestionList);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(adapter);
+//        RecyclerView recyclerView = view.findViewById(R.id.grammarRecyclerView);
+//        GrammarQuestionAdapter adapter = new GrammarQuestionAdapter(grammarExcerciseQuestionList);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+//        recyclerView.setAdapter(adapter);
         return view;
     }
 }

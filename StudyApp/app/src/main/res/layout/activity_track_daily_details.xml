@@ -45,7 +45,7 @@
             android:layout_marginBottom="8dp"/>
 
     </LinearLayout>
-    
+
     <!-- RecyclerView for the list of dates and activities -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/dailyDetailsRecyclerView"

@@ -282,4 +282,7 @@
     <color name="activityItemBackground">#FFFFFF</color>
     <color name="activityItemTitleText">#1c1e21</color> <!-- Assuming default text color -->
     <color name="activityItemDetailText">#6c757d</color> <!-- Grey for details -->
+
+
+    <color name="purple_500">#FF6200EE</color> <!-- Standard Material purple -->
 </resources>

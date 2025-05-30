@@ -1,4 +1,4 @@
-package nlu.fit.studyappr.adapter;
+package nlu.fit.studyappr.adapter.home;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;

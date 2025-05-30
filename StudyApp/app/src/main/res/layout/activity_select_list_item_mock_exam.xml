@@ -44,7 +44,7 @@
             android:id="@+id/mockExamActionIcon"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/ic_arrow_forward"
+            android:src="@drawable/ic_search"
             app:tint="@color/mockExamListItemActionIconColor"
             android:layout_marginStart="12dp"
             android:contentDescription="Chọn bài thi thử"/>

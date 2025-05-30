@@ -6,160 +6,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/quizBodyBackground"
-    tools:context=".QuizReviewActivity"> <!-- Replace with your Activity name -->
+    tools:context=".activity.grammar.GrammarExerciseActivity"> <!-- Replace with your Activity name -->
 
     <!-- Header Toolbar -->
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/toolbar_quizq"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/quizHeaderBackground"
-        app:title="Ôn tập Ngữ pháp"
-        app:titleTextColor="@color/quizHeaderText"
-        app:titleCentered="true"
-        app:navigationIcon="@drawable/ic_search"
-        app:navigationIconTint="@color/quizHeaderText"
-        android:elevation="4dp"/> <!-- Simulates box-shadow -->
+<!--    <com.google.android.material.appbar.MaterialToolbar-->
+<!--        android:id="@+id/toolbar_quizq"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="?attr/actionBarSize"-->
+<!--        android:background="@color/quizHeaderBackground"-->
+<!--        app:title="Ôn tập Ngữ pháp"-->
+<!--        app:titleTextColor="@color/quizHeaderText"-->
+<!--        app:titleCentered="true"-->
+<!--        app:navigationIcon="@drawable/ic_search"-->
+<!--        app:navigationIconTint="@color/quizHeaderText"-->
+<!--        android:elevation="4dp"/> -->
+    <!-- Simulates box-shadow -->
 
-    <!-- Quiz Content Area -->
-    <ScrollView
-        android:id="@+id/quiz_scroll_view1"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/questionsRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/actions_footer_layout"
-        android:padding="16dp"
-        android:clipToPadding="false">
-<!--        android:layout_below="@id/toolbar_quiz1"-->
 
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:clipToPadding="false"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/activity_grammar_list_item_grammar_question_review_card"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/quizTopicTitleTextView1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:text="Thì Hiện tại đơn"
-                android:textSize="22sp"
-                android:textStyle="bold"
-                android:textColor="@color/quizTopicTitleColor"
-                android:gravity="center"
-                android:layout_marginBottom="8dp"/>
-
-            <TextView
-                android:id="@+id/quizProgressTextView1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:text="Câu hỏi 1 / 3"
-                android:textSize="14sp"
-                android:textColor="@color/quizProgressTextColor"
-                android:gravity="center"
-                android:layout_marginBottom="16dp"/>
-
-            <!-- Question Card 1 (Repeat this structure or use RecyclerView for dynamic questions) -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="2dp"
-                app:cardBackgroundColor="@color/quizCardBackground"
-                android:layout_marginBottom="15dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <TextView
-                        style="@style/QuizQuestionText"
-                        tools:text="1. She _______ English very well."/>
-
-                    <RadioGroup
-                        android:id="@+id/radioGroupQ1e"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <RadioButton
-                            android:id="@+id/q1_option_aq"
-                            style="@style/QuizRadioButton"
-                            android:text="speak"/>
-                        <RadioButton
-                            android:id="@+id/q1_option_be"
-                            style="@style/QuizRadioButton"
-                            android:text="speaks"/>
-                        <RadioButton
-                            android:id="@+id/q1_option_cq"
-                            style="@style/QuizRadioButton"
-                            android:text="is speaking"/>
-                        <RadioButton
-                            android:id="@+id/q1_option_d1"
-                            style="@style/QuizRadioButton"
-                            android:text="speaking"/>
-                    </RadioGroup>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- Question Card 2 -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="2dp"
-                app:cardBackgroundColor="@color/quizCardBackground"
-                android:layout_marginBottom="15dp">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-                    <TextView
-                        style="@style/QuizQuestionText"
-                        tools:text="2. They _______ to the cinema on Fridays."/>
-                    <RadioGroup
-                        android:id="@+id/radioGroupQ21"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <RadioButton style="@style/QuizRadioButton" android:text="go"/>
-                        <RadioButton style="@style/QuizRadioButton" android:text="goes"/>
-                        <RadioButton style="@style/QuizRadioButton" android:text="are going"/>
-                        <RadioButton style="@style/QuizRadioButton" android:text="went"/>
-                    </RadioGroup>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- Question Card 3 -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="2dp"
-                app:cardBackgroundColor="@color/quizCardBackground"
-                android:layout_marginBottom="15dp">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-                    <TextView
-                        style="@style/QuizQuestionText"
-                        tools:text="3. Water _______ at 100 degrees Celsius."/>
-                    <RadioGroup
-                        android:id="@+id/radioGroupQ31"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <RadioButton style="@style/QuizRadioButton" android:text="boil"/>
-                        <RadioButton style="@style/QuizRadioButton" android:text="boils"/>
-                        <RadioButton style="@style/QuizRadioButton" android:text="is boiling"/>
-                        <RadioButton style="@style/QuizRadioButton" android:text="boiled"/>
-                    </RadioGroup>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-        </LinearLayout>
-    </ScrollView>
+    <!--        android:layout_below="@id/header_info_layout12"-->
+    <!--        android:layout_above="@+id/actions_footer_layout_review211"-->
 
     <!-- Actions Footer -->
     <LinearLayout
@@ -183,6 +58,41 @@
             android:id="@+id/quizSubmitButton1"
             style="@style/QuizSubmitButton"
             android:text="Nộp bài"/>
+    </LinearLayout>
+    <!-- Inside your root RelativeLayout, likely before the RecyclerView -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/errorTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Error loading data"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="16sp"
+        android:visibility="gone"
+        android:padding="16dp"
+        android:gravity="center"/>
+
+    <!-- Wrap your existing header_info_layout and questionsRecyclerView in this LinearLayout -->
+    <LinearLayout
+        android:id="@+id/contentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible">
+<!--        android:layout_below="@id/toolbar_quiz_review"-->
+<!--        android:layout_above="@+id/actions_footer_layout_review"-->
+         <!-- Initially visible or set in code -->
+
+        <!-- Your existing LinearLayout with id header_info_layout goes here -->
+        <!-- Your existing RecyclerView with id questionsRecyclerView goes here -->
+
     </LinearLayout>
 
 </RelativeLayout>

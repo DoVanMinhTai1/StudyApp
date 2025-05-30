@@ -14,41 +14,45 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.AppEnglishNew"
             tools:targetApi="31">
-<!--        <activity-->
-<!--            android:name=".activity.home.HomeActivity"-->
-<!--            android:exported="true"-->
-<!--            android:theme="@style/Theme.AppEnglishNew">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-<!--        </activity>-->
-
         <activity
-                android:name=".activity.home.HomeActivity"
-                android:exported="true"
-                android:theme="@style/Theme.AppEnglishNew">
+            android:name=".activity.home.HomeActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppEnglishNew">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
+
+<!--        <activity-->
+<!--                android:name=".activity.home.HomeActivity"-->
+<!--                android:exported="true"-->
+<!--                android:theme="@style/Theme.AppEnglishNew">-->
+<!--        </activity>-->
          <activity android:name=".activity.vocabulary.VocabularyLearnSetupActivity" />
         <activity android:name=".activity.vocabulary.VocabularyLearnItemSummaryActivity" />
         <activity android:name=".activity.vocabulary.VocabularyLearnSummaryActivity" />
         <activity android:name=".activity.vocabulary.VocabularyLearnFlashCardActivity" />
         <activity android:name=".activity.vocabulary.VocabularyLearnQuizActivity" />
         <activity android:name=".activity.vocabulary.VocabularyLearnRewriteActivity" />
+        <activity android:name=".activity.vocabulary.VocabularyReviewList" />
 
-        <activity android:name=".activity.grammar.GrammarDetailActivity" />
+
+        <activity android:name=".activity.grammar.GrammarLearnActivity" />
         <activity android:name=".activity.grammar.GrammarTopicLearn" />
         <activity android:name=".activity.grammar.GrammarExerciseActivity" />
+        <activity android:name=".activity.grammar.GrammarTopicReview" />
+        <activity android:name=".activity.grammar.GrammarExerciseResult" />
         <activity
                 android:name=".activity.login.ForgotPasswordActivity"
                 android:exported="true"
                 android:theme="@style/Theme.AppEnglishNew">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
         </activity>
         <activity
                 android:name=".activity.login.RegisterActivity"
