@@ -22,8 +22,8 @@ public class GrammarTopic {
 
     private int lesson_order;
 
-    @OneToMany(mappedBy = "grammar_topic")
-    private List<GrammarLesson> grammarLessons;
+    @OneToOne(mappedBy = "grammar_topic",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private GrammarLesson grammarLessons;
 
 
 }

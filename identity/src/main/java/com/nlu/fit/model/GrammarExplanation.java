@@ -1,9 +1,10 @@
 package com.nlu.fit.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Table(name = "grammar_lesson")
+@Table(name = "grammar_explanation")
 @Entity()
 @Getter
 @Setter
@@ -29,6 +30,7 @@ public class GrammarExplanation {
 
     @OneToOne
     @JoinColumn(name = "grammar_lesson_id", referencedColumnName = "id", nullable = false)
+    @JsonIgnore
     private GrammarLesson grammarLesson;
 
 }

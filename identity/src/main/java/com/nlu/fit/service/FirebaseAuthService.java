@@ -4,21 +4,22 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.FirebaseToken;
 import com.google.firebase.auth.UserRecord;
-import com.nlu.fit.viewmodel.user.LoginReponse;
+import com.nlu.fit.viewmodel.user.LoginResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+
 @Service
 @AllArgsConstructor
 public class FirebaseAuthService {
 
     private final FirebaseAuth firebaseAuth;
 
-    public LoginReponse loginWithEmailPassword(String email, String password) throws FirebaseAuthException {
+    public LoginResponse loginWithEmailPassword(String email, String password) throws FirebaseAuthException {
         UserRecord userRecord = firebaseAuth.getUserByEmail(email);
 
         String token = firebaseAuth.createCustomToken(userRecord.getUid());
 
-        return LoginReponse.builder().token(token).build();
+        return LoginResponse.builder().token(token).build();
     }
 
     public FirebaseToken verifyToken(String token) throws FirebaseAuthException {

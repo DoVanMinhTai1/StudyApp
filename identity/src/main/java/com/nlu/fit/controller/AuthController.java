@@ -3,8 +3,8 @@ package com.nlu.fit.controller;
 import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.FirebaseToken;
 import com.nlu.fit.service.FirebaseAuthService;
-import com.nlu.fit.viewmodel.user.LoginReponse;
 import com.nlu.fit.viewmodel.user.LoginRequest;
+import com.nlu.fit.viewmodel.user.LoginResponse;
 import com.nlu.fit.viewmodel.user.TokenReponse;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -17,12 +17,12 @@ import java.util.Map;
 @RestController
 @AllArgsConstructor
 public class AuthController {
-    private final FirebaseAuthService firebaseAuthService;
+    private FirebaseAuthService firebaseAuthService;
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
         try {
-            LoginReponse response = firebaseAuthService.loginWithEmailPassword(loginRequest.email(),loginRequest.password());
+            LoginResponse response = firebaseAuthService.loginWithEmailPassword(loginRequest.email(),loginRequest.password());
             return ResponseEntity.ok(response);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("Error","Invalid Email Or Password"));
@@ -41,7 +41,7 @@ public class AuthController {
         if(user == null) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
-        return ResponseEntity.ok("User UUID" + user.getEmail());
+        return ResponseEntity.ok("User UUID" + user.getUid());
     }
 
 }

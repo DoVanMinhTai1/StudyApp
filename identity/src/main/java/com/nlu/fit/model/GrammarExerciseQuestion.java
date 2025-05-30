@@ -1,5 +1,6 @@
 package com.nlu.fit.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -33,7 +34,8 @@ public class GrammarExerciseQuestion {
     private String explanation;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "grammar_lesson_id")
+    @JoinColumn(name = "grammar_lesson_id", nullable = false)
+    @JsonIgnore
     private GrammarLesson grammar_lesson;
 
 }
