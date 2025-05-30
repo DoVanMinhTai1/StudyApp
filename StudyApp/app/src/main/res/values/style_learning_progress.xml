@@ -1,0 +1,118 @@
+<!-- res/values/styles.xml or style_path_selection.xml -->
+<resources>
+    <!-- ... other styles ... -->
+    <style name="PathSelectionFormGroup">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">20dp</item>
+    </style>
+
+    <style name="PathSelectionFormLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item> <!-- font-weight: 500 -->
+        <item name="android:textColor">@color/pathSelectionFormGroupLabelText</item>
+        <item name="android:layout_marginBottom">8dp</item>
+    </style>
+
+    <style name="PathSelectionSpinner" parent="Widget.AppCompat.Spinner.Underlined">
+        <!-- Or parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu" for Material look -->
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:paddingStart">8dp</item> <!-- Adjust padding as needed -->
+        <item name="android:paddingEnd">8dp</item>
+        <item name="android:background">@drawable/spinner_background</item> <!-- See drawable -->
+        <item name="android:textSize">16sp</item> <!-- 1em -->
+    </style>
+
+    <style name="PathSelectionSeekBar" parent="Widget.AppCompat.SeekBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="PathSelectionRangeValue">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/pathSelectionRangeValueText</item>
+        <item name="android:layout_marginTop">5dp</item>
+    </style>
+
+    <style name="PathSelectionButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="backgroundTint">@color/pathSelectionButtonBackground</item>
+        <item name="android:textColor">@color/pathSelectionButtonText</item>
+        <item name="cornerRadius">6dp</item>
+    </style>
+
+
+    <style name="PathSummaryTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/pathSummaryTitleText</item>
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+
+    <style name="PathSummaryText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">16sp</item> <!-- 1.0em -->
+        <item name="android:textColor">@color/pathSummaryNormalText</item>
+        <item name="android:layout_marginBottom">8dp</item>
+    </style>
+
+    <style name="TopicListContainerTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/topicListContainerTitleText</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+
+    <style name="SuggestedTopicText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/suggested_topic_background</item> <!-- See drawable -->
+        <item name="android:padding">10dp</item>
+        <item name="android:textSize">15sp</item> <!-- 0.95em -->
+        <item name="android:textColor">@color/suggestedTopicText</item>
+        <item name="android:layout_marginBottom">8dp</item>
+    </style>
+
+    <style name="PathProposalButtonBase" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="cornerRadius">6dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+    </style>
+
+    <style name="ButtonAdjustPath" parent="PathProposalButtonBase">
+        <item name="android:backgroundTint">@color/buttonAdjustPathBackground</item>
+        <item name="android:textColor">@color/buttonAdjustPathText</item>
+    </style>
+
+    <style name="ButtonStartPath" parent="PathProposalButtonBase">
+        <item name="android:backgroundTint">@color/buttonStartPathBackground</item>
+        <item name="android:textColor">@color/buttonStartPathText</item>
+    </style>
+</resources>

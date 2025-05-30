@@ -1,0 +1,46 @@
+<!-- res/values/styles.xml or themes.xml -->
+<resources>
+    <style name="LessonHeading3">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:layout_marginBottom">8dp</item>
+    </style>
+
+    <style name="LessonParagraph">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:lineSpacingMultiplier">1.2</item> <!-- Simulates line-height: 1.6 -->
+        <item name="android:layout_marginBottom">12dp</item>
+    </style>
+
+    <style name="PreformattedText">
+        <item name="android:background">@drawable/preformatted_text_background</item> <!-- See drawable below -->
+        <item name="android:padding">10dp</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">15sp</item> <!-- Slightly smaller for code/examples -->
+        <item name="android:fontFamily">monospace</item> <!-- For pre-like text -->
+        <item name="android:layout_marginBottom">12dp</item>
+    </style>
+
+    <style name="AppButton" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item> <!-- Adjust as needed, e.g., 0dp with layout_weight -->
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingEnd">20dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:textSize">16sp</item> <!-- 1em equivalent -->
+        <item name="cornerRadius">5dp</item>
+    </style>
+
+    <style name="CompleteButton" parent="AppButton">
+        <item name="android:backgroundTint">@color/button_complete_background</item>
+        <item name="android:textColor">@color/button_complete_text</item>
+    </style>
+
+    <style name="ExitButton" parent="AppButton">
+        <item name="android:backgroundTint">@color/button_exit_background</item>
+        <item name="android:textColor">@color/button_exit_text</item>
+    </style>
+</resources>

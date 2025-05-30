@@ -1,0 +1,188 @@
+<!-- res/layout/activity_grammar_lesson.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light_gray"
+    android:orientation="vertical"
+    tools:context=".GrammarLessonActivity"> <!-- Replace with your Activity name -->
+
+    <!-- Header Toolbar (Consistent with previous screen) -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        app:navigationIcon="@drawable/ic_search"
+        app:title="Học Ngữ Pháp"
+        app:titleTextColor="@color/white" /> <!-- Ensure ic_arrow_back.xml exists -->
+
+    <!-- Content Area -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="16dp"> <!-- Main padding for the "container" area -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/grammar_card_background_with_shadow"
+            android:orientation="vertical"
+            android:padding="16dp"> <!-- Inner padding for the white card -->
+
+
+            <!-- Back Link -->
+            <TextView
+                android:id="@+id/backToTopicListLink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="« Quay lại danh sách chủ điểm"
+                android:textColor="@color/colorAccent"
+                android:textSize="14sp" />
+
+            <!-- Lesson Title -->
+            <TextView
+                android:id="@+id/lessonTitleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:text="Chủ điểm: Thì Hiện tại đơn (Present Simple)" />
+
+            <!-- Lesson Content Section -->
+            <LinearLayout
+                android:id="@+id/lessonContentLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:orientation="vertical">
+
+                <!-- Section 1: Cách dùng -->
+                <TextView
+                    style="@style/LessonHeading3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1. Cách dùng" />
+
+                <TextView
+                    style="@style/LessonParagraph"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Thì Hiện tại đơn được dùng để diễn tả:" />
+                <!-- For <ul><li> items, you can use TextViews with bullet characters or SpannableStrings -->
+                <TextView
+                    style="@style/LessonParagraph"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="\u2022 Một hành động, sự việc diễn ra thường xuyên, lặp đi lặp lại theo thói quen." />
+
+                <TextView
+                    style="@style/LessonParagraph"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="\u2022 Một chân lý, một sự thật hiển nhiên." />
+
+                <TextView
+                    style="@style/LessonParagraph"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="u2022 Lịch trình, thời gian biểu (tàu, xe, phim ảnh...)./" />
+
+                <!-- Section 2: Cấu trúc -->
+                <TextView
+                    style="@style/LessonHeading3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2. Cấu trúc" />
+
+                <TextView
+                    style="@style/LessonParagraph"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Khẳng định: S + V(s/es)" /> <!-- Use Spannable for bold part in Java/Kotlin -->
+                <TextView
+                    style="@style/PreformattedText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ví dụ: I go to school every day. She learns English." />
+
+                <TextView
+                    style="@style/LessonParagraph"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Phủ định: S + do/does + not + V" />
+
+                <TextView
+                    style="@style/PreformattedText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ví dụ: I do not (don't) go to school on Sunday. She does not (doesn't) learn French." />
+
+                <TextView
+                    style="@style/LessonParagraph"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Nghi vấn: Do/Does + S + V?" />
+
+                <TextView
+                    style="@style/PreformattedText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="Ví dụ: Do you go to school? Does she learn English?" />
+
+                <!-- Section 3: Dấu hiệu nhận biết -->
+                <TextView
+                    style="@style/LessonHeading3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3. Dấu hiệu nhận biết" />
+
+                <TextView
+                    style="@style/LessonParagraph"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Thường đi kèm với các trạng từ chỉ tần suất: always, usually, often, sometimes, seldom, rarely, never, every day/week/month..." />
+
+            </LinearLayout> <!-- End of lessonContentLayout -->
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Action Buttons Footer -->
+    <LinearLayout
+        android:id="@+id/actionsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/lesson_content_background"
+        android:gravity="end"
+        android:orientation="horizontal"
+        android:padding="16dp"> <!-- White background for footer -->
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/exitButton"
+            style="@style/ExitButton"
+            android:layout_marginEnd="8dp"
+            android:text="Thoát" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/completeButton"
+            style="@style/CompleteButton"
+            android:text="Hoàn thành" />
+    </LinearLayout>
+
+    <!-- Note: The Modal for exit confirmation would typically be an AlertDialog
+         or a custom DialogFragment in Android, not part of the main layout XML directly.
+         You would create and show it from your Java/Kotlin code. -->
+
+</LinearLayout>

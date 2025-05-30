@@ -37,7 +37,7 @@ public class GrammarExerciseActivity extends AppCompatActivity {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.fragment_grammar_learn_exercise);
+        setContentView(R.layout.activity_grammar_learn_exercise);
         GrammarLesson grammarLesson = (GrammarLesson) getIntent().getSerializableExtra("lesson");
         Button button = findViewById(R.id.submitAll);
         ProgressBar progressBar = findViewById(R.id.submitProgress);

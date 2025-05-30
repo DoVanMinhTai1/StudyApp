@@ -31,7 +31,7 @@ public class GrammarExerciseFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_grammar_learn_exercise, container, false);
+        View view = inflater.inflate(R.layout.activity_grammar_learn_exercise, container, false);
         GrammarLesson grammarLesson = (GrammarLesson) getArguments().getSerializable("lesson");
         List<GrammarExcerciseQuestion> grammarExcerciseQuestionList = grammarLesson.getGrammarExcerciseQuestionList();
         RecyclerView recyclerView = view.findViewById(R.id.grammarRecyclerView);

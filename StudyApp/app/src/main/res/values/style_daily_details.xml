@@ -1,0 +1,31 @@
+<!-- res/values/styles.xml or style_daily_details.xml -->
+<resources>
+    <!-- ... other styles ... -->
+    <style name="DateHeaderTextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">18sp</item> <!-- 1.2em -->
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/dateHeaderTextColor</item>
+        <item name="android:paddingTop">16dp</item> <!-- Add padding if not grouped -->
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <!-- Border bottom can be achieved with a View below it or a background drawable -->
+    </style>
+
+    <style name="ActivityItemTitleText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item> <!-- font-weight: 500 -->
+        <item name="android:textColor">@color/activityItemTitleText</item>
+    </style>
+
+    <style name="ActivityItemDetailText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14sp</item> <!-- 0.9em -->
+        <item name="android:textColor">@color/activityItemDetailText</item>
+        <item name="android:layout_marginTop">2dp</item>
+    </style>
+</resources>

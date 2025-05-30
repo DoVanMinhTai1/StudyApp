@@ -1,0 +1,175 @@
+<!-- res/layout/activity_take_exam.xml -->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/examBodyBackground"
+    tools:context=".TakeExamActivity">
+
+    <!-- Header Toolbar with Custom Layout -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar_take_exam"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/examHeaderBackground"
+        app:contentInsetStart="0dp"
+        app:contentInsetEnd="0dp"
+        android:elevation="4dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/toolbarExamExitButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Thoát"
+                android:textColor="@color/examHeaderText"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"/>
+
+            <TextView
+                android:id="@+id/toolbarExamTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Đang thi: Đề Số 1"
+                android:textColor="@color/examHeaderText"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_centerInParent="true"/>
+
+            <TextView
+                android:id="@+id/toolbarExamTimer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="60:00"
+                android:textColor="@color/examHeaderText"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="16dp"/>
+        </RelativeLayout>
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <!-- Main Content Area -->
+    <ScrollView
+        android:id="@+id/exam_content_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar_take_exam"
+        android:layout_above="@+id/actions_footer_take_exam_layout"
+        android:padding="16dp"
+        android:clipToPadding="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Question Palette -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/examPaletteBackground"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="1dp"
+                android:layout_marginBottom="16dp">
+
+                <GridLayout
+                    android:id="@+id/questionPaletteGridLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:columnCount="8"
+                    android:rowCount="7"
+                    android:orientation="horizontal"
+                    android:alignmentMode="alignMargins"
+                    android:useDefaultMargins="false"/>
+                <!-- columnCount and rowCount are illustrative, adjust based on max questions
+                     Items will be added programmatically to this GridLayout -->
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Current Question Display Area (similar to Do Exercise screen) -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/currentExamQuestionCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/examQuestionCardBackground">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/examQuestionHeaderTextView"
+                        style="@style/DoExerciseQuestionHeaderText"
+                        tools:text="Câu 1 / 50"/>
+
+                    <TextView
+                        android:id="@+id/examQuestionTextTextView"
+                        style="@style/DoExerciseQuestionText"
+                        tools:text="Đây là nội dung câu hỏi số 1 của bài thi..."/>
+
+                    <RadioGroup
+                        android:id="@+id/examQuestionOptionsRadioGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <!-- RadioButtons will be added/updated programmatically -->
+                        <RadioButton style="@style/DoExerciseRadioButton" tools:text="Lựa chọn A"/>
+                        <RadioButton style="@style/DoExerciseRadioButton" tools:text="Lựa chọn B"/>
+                        <RadioButton style="@style/DoExerciseRadioButton" tools:text="Lựa chọn C"/>
+                        <RadioButton style="@style/DoExerciseRadioButton" tools:text="Lựa chọn D"/>
+                    </RadioGroup>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Actions Footer -->
+    <LinearLayout
+        android:id="@+id/actions_footer_take_exam_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/examFooterBackground"
+        android:padding="12dp"
+        android:elevation="4dp"
+        android:layout_alignParentBottom="true"
+        android:divider="@drawable/spacer_small"
+        android:showDividers="middle">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/prevExamQuestionButton"
+            style="@style/ExamButtonSecondary"
+            android:text="Câu trước"
+            android:enabled="false"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/nextExamQuestionButton"
+            style="@style/ExamButtonPrimary"
+            android:text="Câu tiếp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/submitExamButton"
+            style="@style/ExamButtonPrimary"
+            android:text="Nộp bài"/>
+        <!-- Visibility of next/submit buttons will be managed in code -->
+    </LinearLayout>
+</RelativeLayout>

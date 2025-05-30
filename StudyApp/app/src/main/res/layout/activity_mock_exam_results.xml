@@ -1,0 +1,118 @@
+<!-- res/layout/activity_mock_exam_results.xml -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/mockExamResultsBodyBackground"
+    tools:context=".MockExamResultsActivity">
+
+    <!-- Header Toolbar -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar_mock_exam_results1"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/mockExamResultsHeaderBackground"
+        app:title="Kết quả thi thử"
+        app:titleTextColor="@color/mockExamResultsHeaderText"
+        app:titleCentered="true"
+        app:navigationIcon="@drawable/ic_search"
+        app:navigationIconTint="@color/mockExamResultsHeaderText"
+        android:elevation="4dp"/>
+
+    <!-- Main Content (Summary + RecyclerView for question review) -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Summary Section -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/mockExamResultsContainerBackground"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:id="@+id/mockExamScoreTitleTextView1"
+                        style="@style/MockExamResultsScoreTitle"
+                        tools:text="Điểm của bạn: 35 / 50"/>
+
+                    <TextView
+                        android:id="@+id/mockExamTimeTakenTextView2"
+                        style="@style/MockExamResultsTimeText"
+                        tools:text="Thời gian làm bài: 45 phút 30 giây"/>
+
+                    <TextView
+                        android:id="@+id/mockExamScoreMessageTextView3"
+                        style="@style/MockExamResultsInfoText"
+                        tools:text="Kết quả rất tốt!"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Question Review Section Header -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Xem lại bài làm:"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/mockExamResultsTextColor"
+                android:layout_marginBottom="10dp"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"/>
+
+            <!-- RecyclerView for Detailed Question Review -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/examReviewRecyclerView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:nestedScrollingEnabled="false"
+                tools:listitem="@layout/activity_select_list_item_question_review"
+                tools:itemCount="3"/>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Actions Footer -->
+    <LinearLayout
+        android:id="@+id/actions_footer_mock_exam_results"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/mockExamResultsContainerBackground"
+        android:padding="12dp"
+        android:elevation="4dp"
+        android:divider="@drawable/spacer_large"
+        android:showDividers="middle">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonRetryExam"
+            style="@style/ButtonRetryExam"
+            android:text="Thi lại"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonSelectOtherExam"
+            style="@style/ButtonSelectOtherExam"
+            android:text="Chọn đề khác"/>
+    </LinearLayout>
+</LinearLayout>

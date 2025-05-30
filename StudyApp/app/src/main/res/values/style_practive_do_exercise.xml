@@ -1,0 +1,42 @@
+<!-- res/values/styles.xml or style_do_exercise.xml -->
+<resources>
+    <!-- ... other styles ... -->
+    <style name="DoExerciseQuestionHeaderText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#606770</item> <!-- Color for "Câu X" -->
+        <item name="android:layout_marginBottom">8dp</item>
+    </style>
+
+    <style name="DoExerciseQuestionText" parent="QuizQuestionText"> <!-- Inherit from QuizQuestionText if similar -->
+        <item name="android:textColor">@color/doExerciseQuestionTextColor</item>
+    </style>
+
+    <style name="DoExerciseRadioButton" parent="QuizRadioButton"> <!-- Inherit from QuizRadioButton if similar -->
+        <item name="android:background">@drawable/practice_do_exercise_option_selector</item> <!-- New selector if needed -->
+    </style>
+
+    <style name="DoExerciseButtonBase" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="cornerRadius">6dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+    </style>
+
+    <style name="ButtonSecondary" parent="DoExerciseButtonBase">
+        <item name="android:backgroundTint">@color/buttonSecondaryBackground</item>
+        <item name="android:textColor">@color/buttonSecondaryText</item>
+    </style>
+
+    <style name="ButtonPrimary" parent="DoExerciseButtonBase">
+        <item name="android:backgroundTint">@color/buttonPrimaryBackground</item>
+        <item name="android:textColor">@color/buttonPrimaryText</item>
+    </style>
+</resources>

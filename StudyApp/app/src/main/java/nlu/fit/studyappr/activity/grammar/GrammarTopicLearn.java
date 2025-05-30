@@ -31,7 +31,7 @@ public class GrammarTopicLearn extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_grammar_learn_topic_list);
+        setContentView(R.layout.activity_grammar_learn_topic_list);
 
         listView = findViewById(R.id.listview);
 

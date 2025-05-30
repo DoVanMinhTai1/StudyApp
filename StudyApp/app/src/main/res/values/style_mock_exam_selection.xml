@@ -1,0 +1,19 @@
+<!-- res/values/styles.xml or style_mock_exam_selection.xml -->
+<resources>
+    <!-- ... other styles ... -->
+    <style name="MockExamListItemTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/mockExamListItemTitleText</item>
+    </style>
+
+    <style name="MockExamListItemDetails">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/mockExamListItemDetailsText</item>
+        <item name="android:layout_marginTop">2dp</item>
+    </style>
+</resources>

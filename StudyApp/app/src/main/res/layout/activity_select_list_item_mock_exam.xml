@@ -1,0 +1,53 @@
+<!-- res/layout/list_item_mock_exam.xml -->
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="4dp"
+    android:layout_marginEnd="4dp"
+    android:layout_marginTop="6dp"
+    android:layout_marginBottom="6dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="2dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackgroundBorderless"> <!-- Ripple effect -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical"
+        android:background="@color/mockExamListItemBackground">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/mockExamTitleTextView"
+                style="@style/MockExamListItemTitle"
+                tools:text="Đề thi thử THPT Quốc Gia 2024 - Số 1"/>
+
+            <TextView
+                android:id="@+id/mockExamDetailsTextView"
+                style="@style/MockExamListItemDetails"
+                tools:text="Thời gian: 60 phút - 50 câu"/>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/mockExamActionIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_arrow_forward"
+            app:tint="@color/mockExamListItemActionIconColor"
+            android:layout_marginStart="12dp"
+            android:contentDescription="Chọn bài thi thử"/>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

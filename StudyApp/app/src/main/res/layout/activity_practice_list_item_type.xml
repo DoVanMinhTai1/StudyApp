@@ -1,0 +1,59 @@
+<!-- res/layout/list_item_practice_type.xml -->
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="4dp"
+    android:layout_marginEnd="4dp"
+    android:layout_marginTop="6dp"
+    android:layout_marginBottom="6dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="2dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackgroundBorderless"> <!-- Ripple effect -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical"
+        android:background="@color/practiceListItemBackground">
+        <!-- The selector drawable can be applied here if CardView's foreground isn't sufficient
+             or if you want more complex background changes than just ripple.
+             For simple ripple on white, CardView's foreground is fine.
+             If you used the <item> background in the selector, apply it to this LinearLayout.
+             android:background="@drawable/list_item_practice_selector"
+        -->
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/practiceItemTitleTextView1"
+                style="@style/PracticeListItemTitle"
+                tools:text="Đọc hiểu"/>
+
+            <TextView
+                android:id="@+id/practiceItemDetailsTextView1"
+                style="@style/PracticeListItemDetails"
+                tools:text="Rèn luyện kỹ năng đọc và trả lời câu hỏi."/>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/practiceItemActionIcon1"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_search"
+            app:tint="@color/practiceListItemActionIconColor"
+            android:layout_marginStart="12dp"
+            android:contentDescription="Chọn dạng bài"/>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

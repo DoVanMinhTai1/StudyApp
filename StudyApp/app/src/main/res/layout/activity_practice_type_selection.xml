@@ -1,0 +1,36 @@
+<!-- res/layout/activity_practice_type_selection.xml -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/practiceBodyBackground"
+    tools:context=".PracticeTypeSelectionActivity"> <!-- Replace with your Activity name -->
+
+    <!-- Header Toolbar -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar_practice_type"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/practiceHeaderBackground"
+        app:title="Luyện theo dạng bài"
+        app:titleTextColor="@color/practiceHeaderText"
+        app:titleCentered="true"
+        app:navigationIcon="@drawable/ic_search"
+        app:navigationIconTint="@color/practiceHeaderText"
+        android:elevation="4dp"/>
+
+    <!-- Content Container for the list -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/practiceTypeRecyclerView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="12dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/activity_practice_list_item_type"/>
+    <!-- clipToPadding="false" might be useful if you have padding on RecyclerView
+         and want shadows from CardViews to draw outside the padding -->
+
+</LinearLayout>

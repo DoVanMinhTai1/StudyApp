@@ -1,0 +1,79 @@
+<!-- res/layout/activity_select_grammar_topic.xml -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_light_gray"
+    tools:context=".SelectGrammarTopicActivity"> <!-- Replace with your Activity name -->
+
+    <!-- Header Toolbar -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        app:title="Học Ngữ Pháp"
+        app:titleTextColor="@color/white"
+        app:navigationIcon="@drawable/ic_search" /> <!-- Create ic_arrow_back.xml (vector drawable) -->
+
+    <!-- Container for content below toolbar (mimics your div.container) -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"> <!-- Similar to your container padding, remove margin for full width -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/grammar_card_background_with_shadow"
+            android:padding="16dp"> <!-- Or use CardView for the whole container -->
+
+
+            <!-- Back Link - In Android, this is typically part of the Toolbar or a separate button -->
+            <!-- The Toolbar's navigationIcon handles this. If you need it in content: -->
+            <TextView
+                android:id="@+id/backLinkTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="« Quay lại Trang chủ"
+                android:textColor="@color/colorAccent"
+                android:textSize="14sp"
+                android:layout_marginBottom="16dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground" />
+
+            <TextView
+                android:id="@+id/titleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Danh sách chủ điểm ngữ pháp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/descriptionTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vui lòng chọn một chủ điểm để bắt đầu học:"
+                android:textSize="16sp"
+                android:textColor="@color/text_primary"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- List of Topics - Using RecyclerView -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/topicsRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/activity_grammar_list_item_grammar_topic"/>
+            <!-- tools:listitem is for preview in Android Studio -->
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

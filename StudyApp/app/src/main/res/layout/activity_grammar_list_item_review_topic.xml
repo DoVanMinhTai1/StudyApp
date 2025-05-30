@@ -1,0 +1,40 @@
+<!-- res/layout/list_item_review_topic.xml -->
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/reviewTopicCardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="2dp">
+    <!-- The foreground for ripple will be set dynamically or via a style selector based on state -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:id="@+id/itemContentLayout"
+        android:background="@color/listItemReviewBackground"> <!-- Default background -->
+
+        <TextView
+            android:id="@+id/reviewTopicNameTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@color/listItemReviewText"
+            tools:text="Thì Hiện tại đơn (Present Simple)"/>
+
+        <TextView
+            android:id="@+id/reviewTopicStatusTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:layout_marginTop="4dp"
+            tools:text="Đã học"
+            tools:textColor="@color/colorPrimaryDark"/> <!-- Example, color changes with status -->
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

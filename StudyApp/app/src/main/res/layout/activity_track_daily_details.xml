@@ -1,0 +1,61 @@
+<!-- res/layout/activity_daily_details.xml -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/dailyDetailBodyBackground"
+    tools:context=".DailyDetailsActivity">
+
+    <!-- Header Toolbar -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar_daily_details"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/dailyDetailHeaderBackground"
+        app:title="Chi tiết học theo ngày"
+        app:titleTextColor="@color/dailyDetailHeaderText"
+        app:titleCentered="true"
+        app:navigationIcon="@drawable/ic_search"
+        app:navigationIconTint="@color/dailyDetailHeaderText"
+        android:elevation="4dp"/>
+
+    <!-- res/layout/list_item_date_header.xml -->
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="16dp"> <!-- Add top padding for spacing if it's the first item in a group -->
+
+        <TextView
+            android:id="@+id/dateHeaderTextView"
+            style="@style/DateHeaderTextView"
+            tools:text="Hôm nay (26/07/2024)"/>
+
+        <!-- Optional: A simple View for the bottom border -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/dateHeaderBorderColor"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="8dp"/>
+
+    </LinearLayout>
+    
+    <!-- RecyclerView for the list of dates and activities -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/dailyDetailsRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="8dp"
+        android:clipToPadding="false"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/activity_track_list_item_activity_detail"/> <!-- Can also use tools:listitem for header -->
+
+</LinearLayout>

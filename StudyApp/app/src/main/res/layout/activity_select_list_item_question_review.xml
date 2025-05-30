@@ -1,0 +1,65 @@
+<!-- res/layout/list_item_question_review.xml -->
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ReviewQuestionCard"> <!-- Apply the CardView style -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/reviewQuestionHeader"
+            style="@style/ReviewQuestionHeaderText"
+            tools:text="Câu 1 (Đúng)"/>
+
+        <TextView
+            android:id="@+id/reviewQuestionText"
+            style="@style/ReviewQuestionText"
+            tools:text="This is the question text..."/>
+
+        <!-- Options Container -->
+        <LinearLayout
+            android:id="@+id/reviewOptionsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <!-- TextViews for options will be added programmatically or use placeholders -->
+            <TextView
+                android:id="@+id/reviewOptionA"
+                style="@style/ReviewAnswerOptionBase"
+                tools:text="A. Option A"
+                tools:background="@drawable/review_option_default_bg"/>
+            <TextView
+                android:id="@+id/reviewOptionB"
+                style="@style/ReviewAnswerOptionBase"
+                tools:text="B. Option B (Correct)"
+                tools:background="@drawable/review_option_correct_bg"/>
+            <TextView
+                android:id="@+id/reviewOptionC"
+                style="@style/ReviewAnswerOptionBase"
+                tools:text="C. Option C (User selected, incorrect)"
+                tools:background="@drawable/review_option_selected_incorrect_bg"/>
+            <TextView
+                android:id="@+id/reviewOptionD"
+                style="@style/ReviewAnswerOptionBase"
+                tools:text="D. Option D"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/reviewQuestionExplanation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:background="@drawable/review_explanation_background"
+            android:textColor="@color/mockExamResultsTextColor"
+            android:textSize="14sp"
+            android:visibility="gone"
+        tools:text="Giải thích: This is the explanation for the correct answer."
+        tools:visibility="visible"/>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

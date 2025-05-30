@@ -1,0 +1,40 @@
+<!-- res/values/styles.xml or style_taking_exam.xml -->
+<resources>
+    <!-- ... (reuse DoExerciseQuestionHeaderText, DoExerciseQuestionText, DoExerciseRadioButton if applicable) ... -->
+
+    <style name="ExamPaletteItem">
+        <item name="android:layout_width">36dp</item> <!-- Adjusted for better touch and appearance -->
+        <item name="android:layout_height">36dp</item>
+        <item name="android:background">@drawable/exam_palette_item_default_bg</item> <!-- See drawable -->
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/examPaletteItemDefaultText</item>
+        <item name="android:textSize">13sp</item> <!-- font-size: 0.8em -->
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_margin">2dp</item> <!-- Simulates gap -->
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <style name="ExamButtonBase" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="cornerRadius">6dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+    </style>
+
+    <style name="ExamButtonSecondary" parent="ExamButtonBase">
+        <item name="android:backgroundTint">@color/examButtonSecondaryBackground</item>
+        <item name="android:textColor">@color/examButtonSecondaryText</item>
+    </style>
+
+    <style name="ExamButtonPrimary" parent="ExamButtonBase">
+        <item name="android:backgroundTint">@color/examButtonPrimaryBackground</item>
+        <item name="android:textColor">@color/examButtonPrimaryText</item>
+    </style>
+</resources>

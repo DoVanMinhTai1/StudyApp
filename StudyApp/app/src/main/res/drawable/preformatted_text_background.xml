@@ -1,0 +1,6 @@
+<!-- res/drawable/preformatted_text_background.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/preformatted_background"/>
+    <corners android:radius="4dp"/>
+</shape>
