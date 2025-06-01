@@ -1,0 +1,77 @@
+<!-- res/layout/activity_select_review_topic.xml -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_light_gray"
+    tools:context=".activity.grammar.GrammarTopicReview"> <!-- Replace with your Activity name -->
+
+    <!-- Header Toolbar -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar_review1"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/reviewHeaderBackground"
+        app:title="Ôn Tập Ngữ Pháp"
+        app:titleTextColor="@color/reviewHeaderText"
+        app:navigationIcon="@drawable/ic_search"
+        app:navigationIconTint="@color/reviewHeaderText" /> <!-- Tint for back arrow -->
+
+    <!-- Container for content below toolbar -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/grammar_review_container_card_background"
+            android:padding="16dp">
+
+            <!-- Back Link -->
+            <TextView
+                android:id="@+id/backLinkReviewTextView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="« Quay lại Trang chủ"
+                android:textColor="@color/colorAccent"
+                android:textSize="14sp"
+                android:layout_marginBottom="16dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground" />
+
+            <TextView
+                android:id="@+id/titleReviewTextView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chọn chủ điểm để ôn tập"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/reviewTitleText"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/descriptionReviewTextView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chỉ các chủ điểm bạn đã học mới có thể ôn tập."
+                android:textSize="16sp"
+                android:textColor="@color/text_primary"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- List of Topics - Using RecyclerView -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/reviewTopicsRecyclerView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/activity_grammar_list_item_review_topic"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,22 @@
+<!-- res/values/arrays.xml -->
+<resources>
+    <string-array name="target_score_options">
+        <item>-- Chọn mục tiêu --</item>
+        <item>IELTS 6.5</item>
+        <item>IELTS 7.0</item>
+        <item>IELTS 7.5+</item>
+        <item>TOEIC 750+</item>
+        <item>TOEIC 900+</item>
+        <item>Cấp độ B1 (Trung cấp)</item>
+        <item>Cấp độ B2 (Trung-Cao cấp)</item>
+        <item>Cấp độ C1 (Cao cấp)</item>
+    </string-array>
+
+    <string-array name="study_duration_options">
+        <item>-- Chọn thời gian --</item>
+        <item>3 tháng</item>
+        <item>6 tháng</item>
+        <item>9 tháng</item>
+        <item>12 tháng</item>
+    </string-array>
+</resources>

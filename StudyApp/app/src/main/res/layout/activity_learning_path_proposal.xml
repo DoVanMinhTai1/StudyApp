@@ -1,0 +1,147 @@
+<!-- res/layout/activity_learning_path_proposal.xml -->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pathProposalBodyBackground"
+    tools:context=".activity.progress.LearningPathProposalActivity">
+
+    <!-- Header Toolbar -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar_path_proposal"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/pathProposalHeaderBackground"
+        app:title="Lộ trình học đề xuất"
+        app:titleTextColor="@color/pathProposalHeaderText"
+        app:titleCentered="true"
+        app:navigationIcon="@drawable/ic_search"
+        app:navigationIconTint="@color/pathProposalHeaderText"
+        android:elevation="4dp"/>
+
+    <!-- Loading/Error State or Content -->
+    <FrameLayout
+        android:id="@+id/pathProposalContentFrame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar_path_proposal"
+        android:layout_above="@+id/actions_footer_path_proposal1">
+
+        <!-- Progress Bar for loading -->
+        <ProgressBar
+            android:id="@+id/progressBarPathProposal"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            tools:visibility="visible"/>
+
+        <!-- Error Message TextView -->
+        <TextView
+            android:id="@+id/textViewPathError"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="16dp"
+            android:textAlignment="center"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="16sp"
+            android:visibility="gone"
+            tools:text="Không thể tạo lộ trình với các lựa chọn hiện tại. Vui lòng điều chỉnh."
+            tools:visibility="gone"/>
+
+        <!-- Actual Content (initially hidden, shown when data loads) -->
+        <ScrollView
+            android:id="@+id/scrollViewPathContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Path Summary Section -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/path_summary_background"
+                    android:padding="16dp"
+                    android:layout_marginBottom="20dp">
+
+                    <TextView
+                        style="@style/PathSummaryTitle"
+                        android:text="Tóm tắt lộ trình cho bạn:"/>
+
+                    <TextView
+                        android:id="@+id/summaryTargetTextView"
+                        style="@style/PathSummaryText"
+                        tools:text="Mục tiêu: IELTS 7.0"/>
+                    <TextView
+                        android:id="@+id/summaryDurationTextView"
+                        style="@style/PathSummaryText"
+                        tools:text="Thời gian: 6 tháng"/>
+                    <TextView
+                        android:id="@+id/summaryLessonsPerDayTextView"
+                        style="@style/PathSummaryText"
+                        tools:text="Số bài học mỗi ngày (dự kiến): 2 bài"/>
+                    <TextView
+                        android:id="@+id/summaryTimePerDayTextView"
+                        style="@style/PathSummaryText"
+                        tools:text="Thời lượng học mỗi ngày (dự kiến): 1.5 giờ"/>
+                </LinearLayout>
+
+                <!-- Topic List Container -->
+                <LinearLayout
+                    android:id="@+id/topicListContainer1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/TopicListContainerTitle"
+                        android:text="Các chủ đề/bài học chính:"/>
+
+                    <!-- Suggested topics will be added here programmatically -->
+                    <!-- Example of one for preview: -->
+                    <TextView
+                        style="@style/SuggestedTopicText"
+                        tools:text="Ôn tập thì Hiện tại đơn Quá khứ đơn"/>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
+
+    <!-- Actions Footer -->
+    <LinearLayout
+        android:id="@+id/actions_footer_path_proposal1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/pathProposalFooterBackground"
+        android:padding="12dp"
+        android:elevation="4dp"
+        android:layout_alignParentBottom="true"
+        android:divider="@drawable/grammar_review_spacer_medium"
+        android:showDividers="middle">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonAdjustInputs1"
+            style="@style/ButtonAdjustPath"
+            android:text="Điều chỉnh mục tiêu"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonConfirmAndStartPath1"
+            style="@style/ButtonStartPath"
+            android:text="Bắt đầu lộ trình"/>
+    </LinearLayout>
+
+    <!-- Modal for "No Path Found" would be an AlertDialog shown from Java/Kotlin -->
+</RelativeLayout>

@@ -1,0 +1,64 @@
+<!-- res/layout/list_item_practice_set.xml -->
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="4dp"
+    android:layout_marginTop="6dp"
+    android:layout_marginEnd="4dp"
+    android:layout_marginBottom="6dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackgroundBorderless"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="2dp"> <!-- Ripple effect -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/practiceSetListItemBackground"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/practiceSetTitleTextView"
+                style="@style/PracticeSetListItemTitle"
+                tools:text="Bài tập đọc hiểu 1 (10 câu)" />
+
+            <TextView
+                android:id="@+id/practiceSetDetailsTextView"
+                style="@style/PracticeSetListItemDetails"
+                tools:text="Chủ đề: Môi trường" />
+
+            <!-- Optional: TextView for completion status -->
+            <TextView
+                android:id="@+id/practiceSetStatusTextView"
+                style="@style/PracticeSetListItemStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                tools:text="Đã hoàn thành (7/10)"
+                tools:textColor="@color/practiceSetListItemStatusCompletedText"
+                tools:visibility="visible" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/practiceSetActionIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="12dp"
+            android:contentDescription="Chọn bài làm"
+            android:src="@drawable/ic_search"
+            app:tint="@color/practiceSetListItemActionIconColor" />
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

@@ -14,8 +14,11 @@ import java.util.List;
 import nlu.fit.studyappr.R;
 import nlu.fit.studyappr.activity.grammar.GrammarTopicLearn;
 import nlu.fit.studyappr.activity.grammar.GrammarTopicReview;
+import nlu.fit.studyappr.activity.practice.PracticeList;
+import nlu.fit.studyappr.activity.progress.ProgressSetup;
 import nlu.fit.studyappr.activity.vocabulary.VocabularyLearnSetupActivity;
-import nlu.fit.studyappr.adapter.LearningOptionAdapter;
+import nlu.fit.studyappr.activity.vocabulary.VocabularyReviewList;
+import nlu.fit.studyappr.adapter.home.LearningOptionAdapter;
 import nlu.fit.studyappr.model.LearningOption;
 
 public class HomeActivity extends AppCompatActivity {
@@ -35,6 +38,7 @@ public class HomeActivity extends AppCompatActivity {
         optionList.add(new LearningOption("Ôn Tập Ngữ Pháp", R.drawable.ic_review));
         optionList.add(new LearningOption("Học Từ Vựng", R.drawable.ic_vocabulary));
         optionList.add(new LearningOption("Ôn tập Từ Vựng", R.drawable.ic_vocabulary));
+        optionList.add(new LearningOption("Luyện Theo Dạng Bài", R.drawable.ic_test));
         optionList.add(new LearningOption("Thi Thử", R.drawable.ic_test));
         optionList.add(new LearningOption("Lộ Trình Học", R.drawable.ic_journey));
 
@@ -53,9 +57,15 @@ public class HomeActivity extends AppCompatActivity {
                 case "Học Từ Vựng":
                     startActivity(new Intent(this, VocabularyLearnSetupActivity.class));
                     break;
-//                case "Ôn tập Từ Vựng":
-//                    startActivity(new Intent(this, VocabularyLearnSetupActivity.class));
-//                    break;
+                case "Ôn tập Từ Vựng":
+                    startActivity(new Intent(this, VocabularyReviewList.class));
+                    break;
+                case "Thi Thử":
+                    startActivity(new Intent(this, PracticeList.class));
+                    break;
+                case "Lộ Trình Học":
+                    startActivity(new Intent(this, ProgressSetup.class));
+                    break;
             }
         });
     }

@@ -1,0 +1,30 @@
+<!-- res/layout/list_item_activity_detail.xml -->
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    app:cardCornerRadius="6dp"
+    app:cardElevation="1dp"
+    app:cardBackgroundColor="@color/activityItemBackground">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/activityTitleTextView"
+            style="@style/ActivityItemTitleText"
+            tools:text="Bài học: Thì Hiện tại Hoàn thành"/>
+
+        <TextView
+            android:id="@+id/activityDetailTextView"
+            style="@style/ActivityItemDetailText"
+            tools:text="Hoàn thành - 30 phút"/>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

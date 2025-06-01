@@ -6,8 +6,10 @@ import com.nlu.fit.model.GrammarReviewResult;
 import com.nlu.fit.model.GrammarTopic;
 import com.nlu.fit.repository.GrammarExerciseQuestionRepository;
 import com.nlu.fit.repository.GrammarReviewResultRepository;
+import com.nlu.fit.repository.GrammarTopicRepository;
 import com.nlu.fit.viewmodel.grammarexercise.AnswerSubmissionRequest;
 import com.nlu.fit.viewmodel.grammarexercise.ExerciseResult;
+import com.nlu.fit.viewmodel.grammarexercise.GrammarReviewResultViewModel;
 import com.nlu.fit.viewmodel.grammarexercise.InCorrectDetail;
 import lombok.AllArgsConstructor;
 
@@ -24,6 +26,7 @@ import java.util.stream.Collectors;
 public class GrammarExerciseService {
     private final GrammarExerciseQuestionRepository grammarExerciseQuestionRepository;
     private final GrammarReviewResultRepository grammarReviewResultRepository;
+    private final GrammarTopicRepository grammarTopicRepository;
 
     public ExerciseResult checkAnswer(List<AnswerSubmissionRequest> questions) {
         List<Long> ids = questions.stream().map(AnswerSubmissionRequest::id).toList();
@@ -53,11 +56,6 @@ public class GrammarExerciseService {
     }
 
     public GrammarReviewResult saveGrammarReviewResult(GrammarReviewResult grammarReviewResult) {
-        Long grammarTopicId = grammarReviewResultRepository.findById(grammarReviewResult.getGrammarTopic().getId())
-                .get().getId();
-        if (grammarTopicId == null) {
-            throw new NotFoundException("Not Found Exception", null, null, false);
-        }
         return grammarReviewResultRepository.save(grammarReviewResult);
     }
 }

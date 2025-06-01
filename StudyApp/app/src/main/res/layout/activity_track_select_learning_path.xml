@@ -1,0 +1,95 @@
+<!-- res/layout/activity_select_learning_path.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pathSelectionBodyBackground"
+    android:orientation="vertical"
+    tools:context=".activity.progress.ProgressSetup">
+
+    <!-- Header Toolbar -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar_select_path"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/pathSelectionHeaderBackground"
+        android:elevation="4dp"
+        app:navigationIcon="@drawable/ic_search"
+        app:navigationIconTint="@color/pathSelectionHeaderText"
+        app:title="Thiết lập Lộ trình học"
+        app:titleCentered="true"
+        app:titleTextColor="@color/pathSelectionHeaderText" />
+
+    <!-- Content Container for the form -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Form Group: Target Score -->
+            <LinearLayout style="@style/PathSelectionFormGroup">
+
+                <TextView
+                    style="@style/PathSelectionFormLabel"
+                    android:text="Mục tiêu điểm số (Ví dụ: IELTS, TOEIC, hoặc Cấp độ)" />
+
+               <!-- See string array below -->
+            </LinearLayout>
+            <Spinner
+                android:id="@+id/spinnerTargetScore"
+                style="@style/PathSelectionSpinner"
+                android:entries="@array/target_score_options" />
+
+            <!-- Form Group: Study Duration -->
+            <LinearLayout style="@style/PathSelectionFormGroup">
+
+                <TextView
+                    style="@style/PathSelectionFormLabel"
+                    android:text="Thời gian học dự kiến" />
+
+                <Spinner
+                    android:id="@+id/spinnerStudyDuration"
+                    style="@style/PathSelectionSpinner"
+                    android:entries="@array/study_duration_options" /> <!-- See string array below -->
+            </LinearLayout>
+
+            <!-- Form Group: Hours Per Week -->
+            <LinearLayout style="@style/PathSelectionFormGroup">
+
+                <TextView
+                    style="@style/PathSelectionFormLabel"
+                    android:text="Số giờ học mỗi tuần (ước tính)" />
+
+                <SeekBar
+                    android:id="@+id/seekBarHoursPerWeek"
+                    style="@style/PathSelectionSeekBar"
+                    android:max="18"
+                    android:progress="3" />
+
+                <TextView
+                    android:id="@+id/textViewHoursValue"
+                    style="@style/PathSelectionRangeValue"
+                    tools:text="5 giờ / tuần" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Submit Button (outside ScrollView to be always visible) -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonSubmitPathRequest"
+        style="@style/PathSelectionButton"
+        android:layout_gravity="bottom"
+        android:layout_margin="16dp"
+        android:text="Đề xuất lộ trình" />
+
+    <!-- Modal for missing info would be an AlertDialog shown from Java/Kotlin -->
+
+</LinearLayout>

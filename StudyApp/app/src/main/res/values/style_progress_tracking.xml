@@ -1,0 +1,42 @@
+<!-- res/values/styles.xml or style_progress_tracking.xml -->
+<resources>
+    <!-- ... other styles ... -->
+    <style name="StatCardValue">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">26sp</item> <!-- 1.8em -->
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/statValueText</item>
+        <item name="android:layout_marginBottom">4dp</item>
+    </style>
+
+    <style name="StatCardLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14sp</item> <!-- 0.9em -->
+        <item name="android:textColor">@color/statLabelText</item>
+    </style>
+
+    <style name="ProgressSectionTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">17sp</item> <!-- 1.1em -->
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/progressSectionTitleText</item>
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+
+    <style name="DetailLinkButton" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:textSize">15sp</item>
+        <item name="backgroundTint">@color/detailLinkButtonBackground</item>
+        <item name="android:textColor">@color/detailLinkButtonText</item>
+        <item name="cornerRadius">6dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+    </style>
+</resources>

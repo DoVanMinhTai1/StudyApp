@@ -24,6 +24,7 @@ public class LearningSession {
 
     private Long topicId;
 
+    @Enumerated(EnumType.STRING)
     private LevelTypeVocabulary levelTypeVocabulary;
 
     private String method;
@@ -36,7 +37,21 @@ public class LearningSession {
     @JoinColumn(name = "vocabulary_topic_id")
     private VocabularyTopic vocabularyTopic;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "review_schedule_id") // Foreign key to review_schedule table
+    private ReviewSchedule reviewSchedule;
+
     @OneToMany(mappedBy = "learningSession", cascade = CascadeType.ALL)
     private List<LearningSessionWord> learningSessionWord;
+
+    private Boolean completed;
+
+    private int timeSpent;
+
+    private int score;
+
+
+
+
 
 }

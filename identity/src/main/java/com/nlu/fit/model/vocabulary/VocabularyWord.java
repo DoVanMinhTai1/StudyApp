@@ -32,6 +32,13 @@ public class VocabularyWord {
 
     private String audioUrl;
 
+    private String quizQuestionPrompt; // e.g., "Nghĩa của từ X là gì?" or "Từ nào có nghĩa là Y?"
+    private String optionA;
+    private String optionB;
+    private String optionC;
+    private String optionD;
+    private String correctOption;
+
     @ManyToOne
     @JoinColumn(name = "vocabulary_topic_id")
     @JsonIgnore

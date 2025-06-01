@@ -1,0 +1,242 @@
+<!-- res/layout/activity_track_progress.xml -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/progressBodyBackground"
+    tools:context=".activity.progress.TrackProgressActivity">
+
+    <!-- Header Toolbar -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar_track_progress"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/progressHeaderBackground"
+        app:title="Theo dõi lộ trình"
+        app:titleTextColor="@color/progressHeaderText"
+        app:titleCentered="true"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:navigationIconTint="@color/progressHeaderText"
+        android:elevation="4dp"/>
+
+    <!-- Content Area (could be inside a FrameLayout to manage loading/empty states) -->
+    <ScrollView
+        android:id="@+id/progress_content_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:id="@+id/progressOverviewContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Stats Grid - Using GridLayout -->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:rowCount="2"
+                android:layout_marginBottom="20dp"
+                android:useDefaultMargins="true"
+                android:alignmentMode="alignMargins"> <!-- useDefaultMargins true adds small gaps -->
+
+                <!-- Stat Card 1 -->
+                <androidx.cardview.widget.CardView
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="2dp"
+                    app:cardBackgroundColor="@color/statCardBackground"
+                    android:layout_margin="4dp"> <!-- Adjust margin for gap -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp"
+                        android:gravity="center">
+                        <TextView
+                            android:id="@+id/statLearnedVocabValue"
+                            style="@style/StatCardValue"
+                            tools:text="125"/>
+                        <TextView
+                            style="@style/StatCardLabel"
+                            android:text="Từ vựng đã học"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Stat Card 2 -->
+                <androidx.cardview.widget.CardView
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="2dp"
+                    app:cardBackgroundColor="@color/statCardBackground"
+                    android:layout_margin="4dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp"
+                        android:gravity="center">
+                        <TextView
+                            android:id="@+id/statExercisesDoneValue"
+                            style="@style/StatCardValue"
+                            tools:text="30"/>
+                        <TextView
+                            style="@style/StatCardLabel"
+                            android:text="Bài đã làm"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Stat Card 3 -->
+                <androidx.cardview.widget.CardView
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="2dp"
+                    app:cardBackgroundColor="@color/statCardBackground"
+                    android:layout_margin="4dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp"
+                        android:gravity="center">
+                        <TextView
+                            android:id="@+id/statExercisesCompletedValue"
+                            style="@style/StatCardValue"
+                            tools:text="25"/>
+                        <TextView
+                            style="@style/StatCardLabel"
+                            android:text="Bài hoàn thành"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Stat Card 4 -->
+                <androidx.cardview.widget.CardView
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="2dp"
+                    app:cardBackgroundColor="@color/statCardBackground"
+                    android:layout_margin="4dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp"
+                        android:gravity="center">
+                        <TextView
+                            android:id="@+id/statPathCompletionValue"
+                            style="@style/StatCardValue"
+                            tools:text="40%"/>
+                        <TextView
+                            style="@style/StatCardLabel"
+                            android:text="Hoàn thành lộ trình"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </GridLayout>
+
+            <!-- Progress Section -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/progressSectionBackground"
+                android:layout_marginBottom="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        style="@style/ProgressSectionTitle"
+                        android:text="Tiến độ lộ trình hiện tại"/>
+
+                    <!-- ProgressBar Container and ProgressBar with Text Overlay -->
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="24dp"> <!-- Slightly taller to fit text -->
+                        <ProgressBar
+                            android:id="@+id/overallProgressBar"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:max="100"
+                            tools:progress="40"
+                            android:progressDrawable="@drawable/progress_bar_custom"/>
+                        <TextView
+                            android:id="@+id/overallProgressBarText"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            tools:text="40%"
+                            android:textColor="@color/progressBarTextColor"
+                            android:textSize="12sp"
+                            android:textStyle="bold"/>
+                    </FrameLayout>
+
+                    <!-- Chart Placeholder / Actual Chart View -->
+                    <FrameLayout
+                        android:id="@+id/chartContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/chart_placeholder_background">
+                        <!-- If using MPAndroidChart, replace TextView with:
+                        <com.github.mikephil.charting.charts.LineChart
+                            android:id="@+id/weeklyProgressChart"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"/>
+                        -->
+                        <TextView
+                            android:id="@+id/chartPlaceholderText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Biểu đồ tiến độ (Placeholder)"
+                            android:textColor="@color/chartPlaceholderText"/>
+                    </FrameLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Detail Links -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="0dp"
+                android:divider="@drawable/grammar_review_spacer_medium"
+                android:showDividers="middle">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/buttonViewByDay"
+                    style="@style/DetailLinkButton"
+                    android:text="Xem theo ngày"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/buttonViewByTopic"
+                    style="@style/DetailLinkButton"
+                    android:text="Xem theo chủ đề"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Modal for "No Active Path" would be an AlertDialog shown from Java/Kotlin -->
+</LinearLayout>

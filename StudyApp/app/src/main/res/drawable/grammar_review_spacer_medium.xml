@@ -1,0 +1,4 @@
+<!-- res/drawable/spacer_medium.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <size android:width="10dp"/> <!-- Adjust width for desired spacing -->
+</shape>

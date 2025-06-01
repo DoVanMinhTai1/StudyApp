@@ -16,6 +16,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
+import java.time.ZoneId;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -70,10 +72,11 @@ public class VocabularyService {
         List<VocabularyWord> words = vocabularyWordRepository.findAllByVocabularyTopic_Id(topicId)
                 .stream().filter(word -> word.getLevelTypeVocabulary() == levelEnum).toList();
 
+        String currentUser =  "2";
         List<LearningSessionWord> learningSessionWords = words.stream().map(item -> {
             LearningSessionWord learningSessionWord = new LearningSessionWord();
-            learningSessionWord.setUserId(getCurrentUser());
-            learningSessionWord.setAttemptAt(LocalDateTime.now());
+            learningSessionWord.setUserId(currentUser);
+            learningSessionWord.setAttemptAt(OffsetDateTime.now(ZoneId.of("Asia/Ho_Chi_Minh")));
             learningSessionWord.setStatus(LearningStatusVocabulary.NEW);
             learningSessionWord.setVocabularyWord(item);
             learningSessionWord.setLearningSession(learningSession);
@@ -85,10 +88,20 @@ public class VocabularyService {
             List<VocabularyWordViewModel> result = new ArrayList<>();
             result.add(VocabularyWordViewModel.builder().id(item.getId()).word(item.getWord()).meaning(item.getMeaning()).levelTypeVocabulary(String.valueOf(item.getLevelTypeVocabulary()))
                     .imageUrl(item.getImageUrl())
-                    .audioUrl(item.getAudioUrl()).build());
+                    .audioUrl(item.getAudioUrl())
+                    .optionA(item.getOptionA())
+                    .optionB(item.getOptionB())
+                    .optionC(item.getOptionC())
+                    .optionD(item.getOptionD())
+                    .correctOption(item.getCorrectOption())
+                    .build());
             return result;
         }).flatMap(Collection::stream).collect(Collectors.toList());
-        return StartLearningResponse.builder().sessionId(learningSession.getId()).method(method).words(wordViewModels).build();
+        return StartLearningResponse.builder().
+                sessionId(learningSession.getId())
+                .method(method).words(wordViewModels)
+                .topicId(topic.getId())
+                .title(topic.getTitle()).build();
     }
 
     private String getCurrentUser() {
@@ -96,30 +109,73 @@ public class VocabularyService {
         return result;
     }
 
+//
+//    public void completeLearning(CompleteLearningRequest request) {
+//        Long sessionId = Long.valueOf(request.sessionId());
+//        List<LearningResults> list = request.learningResults();
+//
+//        LearningSession learningSession = learningSessionRepository
+//                .findById(sessionId)
+//                .orElseThrow(() -> new RuntimeException("Session not found"));
+//
+//        for (LearningResults learningResult : list) {
+//            Optional<LearningSessionWord> optionalLSW = learningSessionWordRepository
+//                    .findByLearningSession_IdAndVocabularyWord_Id(sessionId, learningResult.vocabularyWordId());
+//
+//            LearningSessionWord lsw = optionalLSW.orElseThrow(() ->
+//                    new RuntimeException("LearningSessionWord not found for wordId: " + learningResult.vocabularyWordId())
+//            );
+//
+//            lsw.setStatus(LearningStatusVocabulary.valueOf(learningResult.status()));
+//            lsw.setAttemptAt(LocalDateTime.now());
+//            learningSessionWordRepository.save(lsw);
+//        }
+//
+//        learningSession.setEndTime(LocalDateTime.now());
+//        learningSessionRepository.save(learningSession);
+//    }
 
-    public void completeLearning(CompleteLearningRequest request) {
-        Long sessionId = Long.valueOf(request.sessionId());
-        List<LearningResults> list = request.learningResults();
+    public VocabularyEndResponse endLearningSessionEarly(VocabularyEndRequest request) {
+        int score = 0;
+        LearningSession learningSession = learningSessionRepository.findById(request.sessionId()).orElse(null);
 
-        LearningSession learningSession = learningSessionRepository
-                .findById(sessionId)
-                .orElseThrow(() -> new RuntimeException("Session not found"));
+        for (WordAnswer answer : request.wordsLearnedInSession()) {
+            VocabularyWord word = vocabularyWordRepository.findById(answer.wordId()).orElse(null);
+            String currentUser ="2";
+            LearningSessionWord log = new LearningSessionWord();
+            log.setUserId(currentUser);
+            log.setVocabularyWord(word);
+            log.setLearningSession(learningSession);
+            log.setAttemptAt(OffsetDateTime.now(ZoneId.of("Asia/Ho_Chi_Minh")));
+            log.setSelectedOption(answer.userAnswer());
+            log.setCorrect(Boolean.TRUE.equals(answer.status()));
+            log.setStatus(Boolean.TRUE.equals(answer.status()) ? LearningStatusVocabulary.REMEMBERED : LearningStatusVocabulary.NEW);
 
-        for (LearningResults learningResult : list) {
-            Optional<LearningSessionWord> optionalLSW = learningSessionWordRepository
-                    .findByLearningSession_IdAndVocabularyWord_Id(sessionId, learningResult.vocabularyWordId());
+            if (log.isCorrect()) score++;
 
-            LearningSessionWord lsw = optionalLSW.orElseThrow(() ->
-                    new RuntimeException("LearningSessionWord not found for wordId: " + learningResult.vocabularyWordId())
-            );
+            learningSessionWordRepository.save(log);
 
-            lsw.setStatus(LearningStatusVocabulary.valueOf(learningResult.status()));
-            lsw.setAttemptAt(LocalDateTime.now());
-            learningSessionWordRepository.save(lsw);
         }
-
         learningSession.setEndTime(LocalDateTime.now());
-        learningSessionRepository.save(learningSession);
+        learningSession.setCompleted(true);
+        learningSession.setTimeSpent(request.timeSpentSeconds());
+        learningSession.setScore(score);
+        LearningSession savedSession = learningSessionRepository.save(learningSession);
+
+        return new VocabularyEndResponse(savedSession.getId(),
+                request.topicType(),
+                String.valueOf(savedSession.getLevelTypeVocabulary()),
+                learningSession.getMethod(),
+                request.wordsLearnedInSession().size(),
+                score,
+                request.wordsLearnedInSession().size() - score,
+                getSuggestion(request.wordsLearnedInSession().size() - score)
+        );
+
     }
 
+    private String getSuggestion(int i) {
+        return "Bạn có" + i + "chưa thuộc. " +
+                "Hãy xem lại chúng, các từ ôn tập sẽ nằm trong phần ôn tập từ vựng để bạn ôn tập";
+    }
 }

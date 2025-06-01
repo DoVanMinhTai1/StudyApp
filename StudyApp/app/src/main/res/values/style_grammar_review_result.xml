@@ -1,0 +1,56 @@
+<!-- res/values/styles.xml or style_results_screen.xml -->
+<resources>
+    <!-- ... other styles ... -->
+    <style name="ResultsTopicNameText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/resultsTopicNameColor</item>
+        <item name="android:layout_marginBottom">12dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="ResultsMessageText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/resultsTextColor</item>
+        <item name="android:layout_marginBottom">20dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="ResultsScoreText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">28sp</item> <!-- 2em equivalent for score -->
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/resultsScoreColor</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:layout_marginBottom">20dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="ResultsActionButton" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="android:layout_width">0dp</item> <!-- For use with layout_weight -->
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="cornerRadius">5dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:textAllCaps">false</item> <!-- To match web button text case -->
+    </style>
+
+    <style name="ButtonBackToList" parent="ResultsActionButton">
+        <item name="android:backgroundTint">@color/buttonBackToListBackground</item>
+        <item name="android:textColor">@color/buttonBackToListText</item>
+    </style>
+
+    <style name="ButtonBackToHome" parent="ResultsActionButton">
+        <item name="android:backgroundTint">@color/buttonBackToHomeBackground</item>
+        <item name="android:textColor">@color/buttonBackToHomeText</item>
+    </style>
+</resources>

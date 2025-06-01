@@ -5,6 +5,8 @@ import com.nlu.fit.service.*;
 import com.nlu.fit.viewmodel.grammarexercise.AnswerSubmissionRequest;
 import com.nlu.fit.viewmodel.grammarexercise.ExerciseResult;
 import com.nlu.fit.viewmodel.grammarexercise.GrammarLessonVm;
+import com.nlu.fit.viewmodel.grammarexercise.GrammarReviewResultViewModel;
+
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

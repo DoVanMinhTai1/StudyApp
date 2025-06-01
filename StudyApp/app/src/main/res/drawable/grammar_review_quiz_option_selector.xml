@@ -1,0 +1,22 @@
+<!-- res/drawable/quiz_option_selector.xml -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/quizOptionBackgroundSelected"/>
+            <corners android:radius="6dp"/>
+            <stroke android:width="1dp" android:color="@color/quizHeaderBackground"/> <!-- Border when selected -->
+        </shape>
+    </item>
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <solid android:color="#e4e6eb"/> <!-- Hover/pressed color -->
+            <corners android:radius="6dp"/>
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/quizOptionBackground"/>
+            <corners android:radius="6dp"/>
+        </shape>
+    </item>
+</selector>

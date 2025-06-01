@@ -22,6 +22,10 @@
     <color name="nav_item_icon_color">#3F51B5</color> <!-- hoặc màu bạn thích -->
 
 
+    <color name="colorSuccess">#27ae60</color>
+    <color name="colorError">#e74c3c</color>
+
+
     <!-- Màu cho social icons -->
     <color name="facebook_color">#1877F2</color>
     <color name="google_color">#4285F4</color>
@@ -35,4 +39,254 @@
     <color name="white_70">#B3FFFFFF</color>
     <!--    <color name="black">#FF000000</color>-->
     <color name="gray_dark">#757575</color>
+
+
+    <!--    Grammar-->
+    <color name="colorPrimary">#28a745</color> <!-- Green from header -->
+    <color name="colorPrimaryDark">#218838</color> <!-- Darker green for status bar or accents -->
+    <color name="colorAccent">#007bff</color> <!-- Blue from back-link -->
+    <!--    <color name="white">#FFFFFF</color>-->
+    <!--    <color name="black">#000000</color>-->
+    <color name="text_primary">#333333</color>
+    <color name="background_light_gray">#f4f4f4</color>
+    <color name="list_item_background">#e9ecef</color>
+    <color name="list_item_text_color">#333333</color>
+    <color name="list_item_background_hover">#28a745</color> <!-- For ripple or pressed state -->
+    <color name="list_item_text_color_hover">#FFFFFF</color>
+
+    <!--    Grammar detail-->
+    <!-- res/values/colors.xml (additions or ensure they exist) -->
+    <color name="lesson_content_background">#FFFFFF</color> <!-- div.container background -->
+    <color name="preformatted_background">#e9ecef</color> <!-- pre tag background -->
+    <color name="button_complete_background">#28a745</color>
+    <color name="button_complete_text">#FFFFFF</color>
+    <color name="button_exit_background">#dc3545</color>
+    <color name="button_exit_text">#FFFFFF</color>
+
+    <!--    grammar review-->
+    <color name="reviewHeaderBackground">#ffc107</color> <!-- Yellow from header -->
+    <color name="reviewHeaderText">#333333</color>
+    <color name="reviewTitleText">#cc9a06</color> <!-- Darker yellow for h2 -->
+
+    <color name="listItemReviewBackground">#e9ecef</color>
+    <color name="listItemReviewText">#333333</color>
+    <color name="listItemReviewBackgroundHover">#ffc107</color> <!-- Hover for review items -->
+    <color name="listItemReviewTextHover">#333333</color>
+
+    <color name="listItemNotLearnedBackground">#f8f9fa
+    </color> <!-- Background for not-learned items -->
+    <color name="listItemNotLearnedText">#AAAAAA
+    </color>     <!-- Text color for not-learned items -->
+
+
+    <!-- ... other colors ... -->
+    <color name="quizHeaderBackground">#007bff</color> <!-- Primary blue for app -->
+    <color name="quizHeaderText">#FFFFFF</color>
+    <color name="quizBodyBackground">#f0f2f5</color>
+    <color name="quizTextColor">#1c1e21</color>
+    <color name="quizTopicTitleColor">#0056b3</color> <!-- Darker blue -->
+    <color name="quizProgressTextColor">#606770</color>
+    <color name="quizCardBackground">#FFFFFF</color>
+    <color name="quizOptionBackground">#f0f2f5</color>
+    <color name="quizOptionBackgroundSelected">#cfe2ff</color> <!-- Light blue for selected -->
+    <color name="quizFooterBackground">#FFFFFF</color>
+    <color name="quizBorderColor">#dddfe2</color>
+
+    <color name="quizButtonSubmitBackground">#007bff</color>
+    <color name="quizButtonSubmitText">#FFFFFF</color>
+    <color name="quizButtonExitBackground">#e4e6eb</color>
+    <color name="quizButtonExitText">#1c1e21</color>
+    <color name="quizButtonConfirmExitBackground">#dc3545</color>
+
+
+    <color name="resultsHeaderBackground">#ffc107</color> <!-- Yellow from header -->
+    <color name="resultsHeaderText">#333333</color>
+    <color name="resultsBodyBackground">#f4f4f4</color>
+    <color name="resultsContainerBackground">#FFFFFF</color>
+    <color name="resultsTopicNameColor">#cc9a06</color> <!-- Darker yellow for h2 -->
+    <color name="resultsScoreColor">#28a745</color>    <!-- Green for score -->
+    <color name="resultsTextColor">#333333</color>
+
+    <color name="buttonBackToListBackground">#007bff</color>
+    <color name="buttonBackToListText">#FFFFFF</color>
+    <color name="buttonBackToHomeBackground">#6c757d</color>
+    <color name="buttonBackToHomeText">#FFFFFF</color>
+
+
+    <color name="practiceHeaderBackground">#007bff
+    </color> <!-- Primary Blue from app-header example -->
+    <color name="practiceHeaderText">#FFFFFF</color>
+    <color name="practiceBodyBackground">#f0f2f5</color> <!-- Assuming from body style -->
+    <color name="practiceListItemBackground">#FFFFFF</color>
+    <color name="practiceListItemTitleText">#1c1e21</color> <!-- Assuming from body text color -->
+    <color name="practiceListItemDetailsText">#606770</color>
+    <color name="practiceListItemActionIconColor">#007bff</color> <!-- Blue for arrow -->
+    <color name="practiceListItemHoverBackground">#e9ecef</color>
+
+
+    !-- ... (reuse colors from the previous "Practice Type Selection" screen if the theme is the
+    same) ... -->
+    <color name="practiceSetHeaderBackground">#007bff</color> <!-- Or your specific header color -->
+    <color name="practiceSetHeaderText">#FFFFFF</color>
+
+    <color name="practiceSetListItemBackground">#FFFFFF</color>
+    <color name="practiceSetListItemTitleText">#1c1e21</color>
+    <color name="practiceSetListItemDetailsText">#606770</color>
+    <color name="practiceSetListItemStatusCompletedText">#28a745
+    </color> <!-- Green for completed status -->
+    <color name="practiceSetListItemActionIconColor">#007bff</color>
+    <color name="practiceSetListItemHoverBackground">#e9ecef</color>
+
+
+    <!-- res/values/colors.xml -->
+    <!-- ... other colors ... -->
+    <color name="doExerciseHeaderBackground">#007bff
+    </color> <!-- Example, match your app's theme -->
+    <color name="doExerciseHeaderText">#FFFFFF</color>
+    <color name="doExerciseBodyBackground">#f0f2f5</color>
+    <color name="doExerciseQuestionCardBackground">#FFFFFF</color>
+    <color name="doExerciseQuestionTextColor">#1c1e21</color>
+    <color name="doExerciseOptionBackground">#f0f2f5</color>
+    <color name="doExerciseOptionBackgroundSelected">#cfe2ff</color>
+    <color name="doExerciseFooterBackground">#FFFFFF</color>
+
+    <color name="buttonSecondaryBackground">#6c757d</color> <!-- For "Câu trước" -->
+    <color name="buttonSecondaryText">#FFFFFF</color>
+    <color name="buttonPrimaryBackground">#007bff</color> <!-- For "Câu tiếp", "Nộp bài" -->
+    <color name="buttonPrimaryText">#FFFFFF</color>
+    <color name="buttonDangerBackground">#dc3545</color> <!-- For modal "Đồng ý thoát" -->
+
+
+
+    <color name="mockExamHeaderBackground">#007bff</color> <!-- Or your app's primary color -->
+    <color name="mockExamHeaderText">#FFFFFF</color>
+    <color name="mockExamBodyBackground">#f0f2f5</color>
+    <color name="mockExamListItemBackground">#FFFFFF</color>
+    <color name="mockExamListItemTitleText">#1c1e21</color>
+    <color name="mockExamListItemDetailsText">#606770</color>
+    <color name="mockExamListItemActionIconColor">#007bff</color>
+    <color name="mockExamListItemHoverBackground">#e9ecef</color>
+
+
+    <!-- ... other colors ... -->
+    <color name="examHeaderBackground">#007bff</color> <!-- Or your app's primary color -->
+    <color name="examHeaderText">#FFFFFF</color>
+    <color name="examBodyBackground">#f0f2f5</color>
+
+    <color name="examPaletteBackground">#FFFFFF</color>
+    <color name="examPaletteItemBorder">#CCCCCC</color>
+    <color name="examPaletteItemAnsweredBackground">#cfe2ff</color>
+    <color name="examPaletteItemAnsweredBorder">#007bff</color>
+    <color name="examPaletteItemCurrentBackground">#007bff</color>
+    <color name="examPaletteItemCurrentText">#FFFFFF</color>
+    <color name="examPaletteItemDefaultText">#333333</color>
+
+    <color name="examQuestionCardBackground">#FFFFFF</color>
+    <color name="examQuestionTextColor">#1c1e21</color>
+    <color name="examOptionBackground">#f0f2f5</color>
+    <color name="examOptionBackgroundSelected">#cfe2ff</color>
+    <color name="examFooterBackground">#FFFFFF</color>
+
+    <color name="examButtonSecondaryBackground">#6c757d</color>
+    <color name="examButtonSecondaryText">#FFFFFF</color>
+    <color name="examButtonPrimaryBackground">#007bff</color>
+    <color name="examButtonPrimaryText">#FFFFFF</color>
+
+    sources>
+    <!-- ... other colors ... -->
+    <color name="mockExamResultsHeaderBackground">#ffc107</color> <!-- Yellow -->
+    <color name="mockExamResultsHeaderText">#333333</color>
+    <color name="mockExamResultsBodyBackground">#f4f4f4</color>
+    <color name="mockExamResultsContainerBackground">#FFFFFF</color>
+    <color name="mockExamResultsScoreColor">#28a745</color>    <!-- Green for score -->
+    <color name="mockExamResultsTextColor">#333333</color>
+    <color name="mockExamResultsTimeColor">#555555</color> <!-- Slightly different for time -->
+
+    <color name="buttonRetryExamBackground">#6c757d</color> <!-- Secondary button color -->
+    <color name="buttonRetryExamText">#FFFFFF</color>
+    <color name="buttonSelectOtherExamBackground">#007bff</color> <!-- Primary button color -->
+    <color name="buttonSelectOtherExamText">#FFFFFF</color>
+
+    <!-- Colors for question review items (correct, incorrect, selected) -->
+    <color name="reviewOptionCorrectBackground">#d1e7dd</color>
+    <color name="reviewOptionCorrectBorder">#198754</color>
+    <color name="reviewOptionIncorrectBackground">#f8d7da</color>
+    <color name="reviewOptionIncorrectBorder">#dc3545</color>
+    <color name="reviewOptionSelectedBackground">#cfe2ff</color> <!-- If showing user's selection distinctly -->
+    <color name="reviewExplanationBackground">#e9ecef</color>
+
+    <!-- ... other colors ... -->
+    <color name="pathSelectionHeaderBackground">#007bff</color> <!-- Or your app's primary color -->
+    <color name="pathSelectionHeaderText">#FFFFFF</color>
+    <color name="pathSelectionBodyBackground">#f0f2f5</color>
+    <color name="pathSelectionFormGroupLabelText">#333333</color>
+    <color name="pathSelectionRangeValueText">#007bff</color>
+    <color name="pathSelectionSpinnerBackground">#FFFFFF</color> <!-- Background for Spinner dropdown items -->
+    <color name="pathSelectionInputBorder">#CCCCCC</color>
+    <color name="pathSelectionButtonBackground">#007bff</color>
+    <color name="pathSelectionButtonText">#FFFFFF</color>
+
+
+    <color name="pathProposalHeaderBackground">#007bff</color> <!-- Or your app's primary color -->
+    <color name="pathProposalHeaderText">#FFFFFF</color>
+    <color name="pathProposalBodyBackground">#f0f2f5</color>
+
+    <color name="pathSummaryBackground">#e9f5ff</color>
+    <color name="pathSummaryBorder">#b3d7ff</color>
+    <color name="pathSummaryTitleText">#0056b3</color>
+    <color name="pathSummaryStrongText">#004085</color>
+    <color name="pathSummaryNormalText">#333333</color>
+
+    <color name="topicListContainerTitleText">#333333</color>
+    <color name="suggestedTopicBackground">#f8f9fa</color>
+    <color name="suggestedTopicBorder">#EEEEEE</color>
+    <color name="suggestedTopicText">#444444</color>
+
+    <color name="pathProposalFooterBackground">#FFFFFF</color>
+    <color name="buttonAdjustPathBackground">#6c757d</color> <!-- Secondary -->
+    <color name="buttonAdjustPathText">#FFFFFF</color>
+    <color name="buttonStartPathBackground">#007bff</color> <!-- Primary -->
+    <color name="buttonStartPathText">#FFFFFF</color>
+
+
+    <color name="progressHeaderBackground">#007bff</color> <!-- Or your app's primary color -->
+    <color name="progressHeaderText">#FFFFFF</color>
+    <color name="progressBodyBackground">#f0f2f5</color>
+
+    <color name="statCardBackground">#FFFFFF</color>
+    <color name="statValueText">#007bff</color> <!-- Primary color for stat value -->
+    <color name="statLabelText">#606770</color>
+
+    <color name="progressSectionBackground">#FFFFFF</color>
+    <color name="progressSectionTitleText">#333333</color>
+    <color name="progressBarContainerBackground">#e9ecef</color>
+    <color name="progressBarColor">#28a745</color> <!-- Green -->
+    <color name="progressBarTextColor">#FFFFFF</color>
+
+    <color name="chartPlaceholderBackground">#f0f0f0</color>
+    <color name="chartPlaceholderBorder">#CCCCCC</color>
+    <color name="chartPlaceholderText">#999999</color>
+
+    <color name="detailLinkButtonBackground">#6c757d</color> <!-- Secondary button color -->
+    <color name="detailLinkButtonText">#FFFFFF</color>
+
+    <!-- For Modal (if not already defined) -->
+    <color name="modalButtonSecondaryBackground">#6c757d</color>
+    <color name="modalButtonPrimaryBackground">#007bff</color>
+
+
+    <!-- ... other colors ... -->
+    <color name="dailyDetailHeaderBackground">#007bff</color> <!-- Or your app's primary color -->
+    <color name="dailyDetailHeaderText">#FFFFFF</color>
+    <color name="dailyDetailBodyBackground">#f0f2f5</color>
+
+    <color name="dateHeaderTextColor">#0056b3</color> <!-- Blue for date headers -->
+    <color name="dateHeaderBorderColor">#EEEEEE</color>
+
+    <color name="activityItemBackground">#FFFFFF</color>
+    <color name="activityItemTitleText">#1c1e21</color> <!-- Assuming default text color -->
+    <color name="activityItemDetailText">#6c757d</color> <!-- Grey for details -->
+
+
+    <color name="purple_500">#FF6200EE</color> <!-- Standard Material purple -->
 </resources>

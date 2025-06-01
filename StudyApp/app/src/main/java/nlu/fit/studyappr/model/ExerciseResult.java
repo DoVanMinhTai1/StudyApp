@@ -1,8 +1,9 @@
 package nlu.fit.studyappr.model;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class ExerciseResult {
+public class ExerciseResult  implements Serializable {
     int correct;
     int total;
     List<InCorrectDetail> inCorrectDetailList;

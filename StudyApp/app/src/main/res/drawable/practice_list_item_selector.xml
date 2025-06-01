@@ -1,0 +1,22 @@
+<!-- res/drawable/list_item_practice_selector.xml -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/practiceListItemHoverBackground"/>
+            <corners android:radius="8dp"/>
+        </shape>
+    </item>
+    <item android:state_focused="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/practiceListItemHoverBackground"/>
+            <corners android:radius="8dp"/>
+            <stroke android:width="2dp" android:color="@color/practiceListItemActionIconColor"/>
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/practiceListItemBackground"/>
+            <corners android:radius="8dp"/>
+        </shape>
+    </item>
+</selector>

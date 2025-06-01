@@ -4,6 +4,7 @@ import java.util.List;
 
 public record StartLearningRevewRequest(
         String method,
-        List<VocabularyWordsReviewList> vocabularyWordsReviewLists
+        String userId
+
 ) {
 }

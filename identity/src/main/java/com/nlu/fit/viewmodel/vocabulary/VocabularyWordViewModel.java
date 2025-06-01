@@ -12,6 +12,12 @@ public record VocabularyWordViewModel(
         String meaning,
         String levelTypeVocabulary,
         String imageUrl,
-        String audioUrl
-) {
+        String audioUrl,
+        String quizQuestionPrompt, // e.g., "Nghĩa của từ X là gì?" or "Từ nào có nghĩa là Y?"
+        String optionA,
+        String optionB,
+        String optionC,
+        String optionD,
+        String correctOption
+        ) {
 }

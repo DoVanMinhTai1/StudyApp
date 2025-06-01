@@ -1,0 +1,159 @@
+<!-- res/layout/activity_do_exercise.xml -->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/doExerciseBodyBackground"
+    tools:context=".DoExerciseActivity"> <!-- Replace with your Activity name -->
+
+    <!-- Header Toolbar -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar_do_exercise1"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/doExerciseHeaderBackground"
+        app:titleTextColor="@color/doExerciseHeaderText"
+        android:elevation="4dp">
+
+        <!-- Custom layout for Toolbar content to include Exit and Progress -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- "Thoát" button - using a TextView for more control over appearance -->
+            <TextView
+                android:id="@+id/toolbarExitButton1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Thoát"
+                android:textColor="@color/doExerciseHeaderText"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"/>
+
+            <TextView
+                android:id="@+id/toolbarTitle11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Đọc hiểu - Bài 1"
+                android:textColor="@color/doExerciseHeaderText"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_centerInParent="true"/>
+
+            <TextView
+                android:id="@+id/toolbarQuestionProgress1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="1/10"
+                android:textColor="@color/doExerciseHeaderText"
+                android:textSize="14sp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="16dp"/>
+        </RelativeLayout>
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <!-- Question Content Area (dynamically updated) -->
+    <ScrollView
+        android:id="@+id/question_scroll_view1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar_do_exercise1"
+        android:layout_above="@+id/actions_footer_do_exercise_layout"
+        android:padding="16dp"
+        android:clipToPadding="false">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/currentQuestionCard1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="2dp"
+            app:cardBackgroundColor="@color/doExerciseQuestionCardBackground"
+            android:layout_marginBottom="15dp"> <!-- Add margin if ScrollView has clipToPadding=false -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/questionHeaderTextView1"
+                    style="@style/DoExerciseQuestionHeaderText"
+                    tools:text="Câu 1"/>
+
+                <TextView
+                    android:id="@+id/questionTextTextView1"
+                    style="@style/DoExerciseQuestionText"
+                    tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit?"/>
+
+                <RadioGroup
+                    android:id="@+id/questionOptionsRadioGroup1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <!-- RadioButtons will be added/updated programmatically
+                         or you can have 4 placeholders if always 4 options -->
+                    <RadioButton
+                        android:id="@+id/optionA_radio1"
+                        style="@style/DoExerciseRadioButton"
+                        tools:text="Đáp án A"/>
+                    <RadioButton
+                        android:id="@+id/optionB_radio1"
+                        style="@style/DoExerciseRadioButton"
+                        tools:text="Đáp án B"/>
+                    <RadioButton
+                        android:id="@+id/optionC_radio1"
+                        style="@style/DoExerciseRadioButton"
+                        tools:text="Đáp án C"/>
+                    <RadioButton
+                        android:id="@+id/optionD_radio1"
+                        style="@style/DoExerciseRadioButton"
+                        tools:text="Đáp án D"/>
+                </RadioGroup>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </ScrollView>
+
+    <!-- Actions Footer -->
+    <LinearLayout
+        android:id="@+id/actions_footer_do_exercise_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/doExerciseFooterBackground"
+        android:padding="12dp"
+        android:elevation="4dp"
+        android:layout_alignParentBottom="true"
+        android:divider="@drawable/grammar_review_spacer_medium"
+        android:showDividers="middle">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/prevQuestionButton1"
+            style="@style/ButtonSecondary"
+            android:text="Câu trước"
+            android:enabled="false"/> <!-- Initially disabled -->
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/nextQuestionButton1"
+            style="@style/ButtonPrimary"
+            android:text="Câu tiếp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/submitLDBButton1"
+            style="@style/ButtonPrimary"
+            android:text="Nộp bài"
+            android:visibility="gone"/> <!-- Initially hidden -->
+    </LinearLayout>
+
+</RelativeLayout>
