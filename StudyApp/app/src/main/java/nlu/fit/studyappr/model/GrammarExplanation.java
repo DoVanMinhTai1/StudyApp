@@ -1,6 +1,8 @@
 package nlu.fit.studyappr.model;
 
-public class GrammarExplanation {
+import java.io.Serializable;
+
+public class GrammarExplanation implements Serializable {
     private Long id;
 
     private String structureImageUrl;

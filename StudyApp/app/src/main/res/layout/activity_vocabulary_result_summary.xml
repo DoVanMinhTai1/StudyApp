@@ -51,6 +51,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/value_method"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Flashcard" />
@@ -70,6 +71,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/value_total_words"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="15 từ" />
@@ -89,6 +91,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/value_remembered"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="12 từ" />
@@ -107,6 +110,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/value_to_review_again"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="3 từ" />
@@ -133,6 +137,7 @@
             android:paddingBottom="24dp">
 
             <TextView
+                android:id="@+id/next_review_times_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Thời gian ôn tập gợi ý tiếp theo:"
@@ -141,67 +146,10 @@
                 android:layout_marginBottom="12dp" />
 
             <LinearLayout
+                android:id="@+id/next_review_times_list_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingBottom="6dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Itinerary:"
-                        android:textStyle="bold"
-                        android:layout_weight="0" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Ngày mai"
-                        android:layout_marginStart="8dp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingBottom="6dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Souvenir:"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Trong 3 ngày"
-                        android:layout_marginStart="8dp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Accommodation:"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Ngày mai"
-                        android:layout_marginStart="8dp" />
-                </LinearLayout>
-            </LinearLayout>
+                android:orientation="vertical" />
         </LinearLayout>
 
         <!-- Buttons -->

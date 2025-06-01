@@ -15,6 +15,7 @@ import nlu.fit.studyappr.R;
 import nlu.fit.studyappr.activity.grammar.GrammarTopicLearn;
 import nlu.fit.studyappr.activity.grammar.GrammarTopicReview;
 import nlu.fit.studyappr.activity.practice.PracticeList;
+import nlu.fit.studyappr.activity.progress.ProgressSetup;
 import nlu.fit.studyappr.activity.vocabulary.VocabularyLearnSetupActivity;
 import nlu.fit.studyappr.activity.vocabulary.VocabularyReviewList;
 import nlu.fit.studyappr.adapter.home.LearningOptionAdapter;
@@ -63,7 +64,7 @@ public class HomeActivity extends AppCompatActivity {
                     startActivity(new Intent(this, PracticeList.class));
                     break;
                 case "Lộ Trình Học":
-                    startActivity(new Intent(this, VocabularyReviewList.class));
+                    startActivity(new Intent(this, ProgressSetup.class));
                     break;
             }
         });

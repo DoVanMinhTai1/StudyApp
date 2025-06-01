@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools">
+
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
     <application
-            android:networkSecurityConfig="@xml/network_security_config"
-            android:allowBackup="true"
-            android:dataExtractionRules="@xml/data_extraction_rules"
-            android:fullBackupContent="@xml/backup_rules"
-            android:icon="@drawable/english"
-            android:label="@string/app_name"
-            android:roundIcon="@mipmap/ic_launcher_round"
-            android:supportsRtl="true"
-            android:theme="@style/Theme.AppEnglishNew"
-            tools:targetApi="31">
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/english"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppEnglishNew"
+        tools:targetApi="31">
         <activity
             android:name=".activity.home.HomeActivity"
             android:exported="true"
@@ -25,19 +27,25 @@
             </intent-filter>
         </activity>
 
-<!--        <activity-->
-<!--                android:name=".activity.home.HomeActivity"-->
-<!--                android:exported="true"-->
-<!--                android:theme="@style/Theme.AppEnglishNew">-->
-<!--        </activity>-->
-         <activity android:name=".activity.vocabulary.VocabularyLearnSetupActivity" />
+        <!--        <activity-->
+        <!--                android:name=".activity.home.HomeActivity"-->
+        <!--                android:exported="true"-->
+        <!--                android:theme="@style/Theme.AppEnglishNew">-->
+        <!--        </activity>-->
+        <activity android:name=".activity.vocabulary.VocabularyLearnSetupActivity" />
         <activity android:name=".activity.vocabulary.VocabularyLearnItemSummaryActivity" />
         <activity android:name=".activity.vocabulary.VocabularyLearnSummaryActivity" />
         <activity android:name=".activity.vocabulary.VocabularyLearnFlashCardActivity" />
         <activity android:name=".activity.vocabulary.VocabularyLearnQuizActivity" />
         <activity android:name=".activity.vocabulary.VocabularyLearnRewriteActivity" />
         <activity android:name=".activity.vocabulary.VocabularyReviewList" />
+        <activity android:name=".activity.vocabulary.VocabularyReviewFlashCardActivity" />
+<activity android:name=".activity.vocabulary.VocabularyReviewSummaryActivity"    />
 
+
+        <activity android:name=".activity.progress.ProgressSetup" />
+        <activity android:name=".activity.progress.LearningPathProposalActivity" />
+        <!--        <activity android:name=".activity.progress.TrackProgressA" />-->
 
         <activity android:name=".activity.grammar.GrammarLearnActivity" />
         <activity android:name=".activity.grammar.GrammarTopicLearn" />
@@ -45,37 +53,36 @@
         <activity android:name=".activity.grammar.GrammarTopicReview" />
         <activity android:name=".activity.grammar.GrammarExerciseResult" />
         <activity
-                android:name=".activity.login.ForgotPasswordActivity"
-                android:exported="true"
-                android:theme="@style/Theme.AppEnglishNew">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
+            android:name=".activity.login.ForgotPasswordActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppEnglishNew">
+            <!--            <intent-filter>-->
+            <!--                <action android:name="android.intent.action.MAIN" />-->
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+            <!--            </intent-filter>-->
         </activity>
         <activity
-                android:name=".activity.login.RegisterActivity"
-                android:exported="true"
-                android:theme="@style/Theme.AppEnglishNew">
-        </activity>
+            android:name=".activity.login.RegisterActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppEnglishNew"></activity>
         <activity
             android:name=".activity.login.LoginActivity"
             android:exported="true"
             android:theme="@style/Theme.AppEnglishNew">
 
         </activity>
-<!--        <activity-->
-<!--                android:name=".activity.home.HomeActivity"-->
-<!--                android:exported="true"-->
-<!--                android:theme="@style/Theme.AppEnglishNew">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
+        <!--        <activity-->
+        <!--                android:name=".activity.home.HomeActivity"-->
+        <!--                android:exported="true"-->
+        <!--                android:theme="@style/Theme.AppEnglishNew">-->
+        <!--            <intent-filter>-->
+        <!--                <action android:name="android.intent.action.MAIN" />-->
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-<!--        </activity>-->
-    
+        <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+        <!--            </intent-filter>-->
+        <!--        </activity>-->
+
 
     </application>
 

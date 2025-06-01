@@ -8,19 +8,34 @@
     android:background="@color/quizBodyBackground"
     tools:context=".activity.grammar.GrammarExerciseActivity"> <!-- Replace with your Activity name -->
 
-    <!-- Header Toolbar -->
-<!--    <com.google.android.material.appbar.MaterialToolbar-->
-<!--        android:id="@+id/toolbar_quizq"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="?attr/actionBarSize"-->
-<!--        android:background="@color/quizHeaderBackground"-->
-<!--        app:title="Ôn tập Ngữ pháp"-->
-<!--        app:titleTextColor="@color/quizHeaderText"-->
-<!--        app:titleCentered="true"-->
-<!--        app:navigationIcon="@drawable/ic_search"-->
-<!--        app:navigationIconTint="@color/quizHeaderText"-->
-<!--        android:elevation="4dp"/> -->
-    <!-- Simulates box-shadow -->
+    <LinearLayout
+        android:id="@+id/header_info_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/quizTopicTitleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Thì Hiện tại đơn - Kết quả"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/quizTopicTitleColor"
+        android:gravity="center"
+        android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/quizScoreTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Điểm: 0 / 0"
+        android:textSize="16sp"
+        android:textColor="@color/quizProgressTextColor"
+        android:gravity="center"
+        android:layout_marginBottom="10dp"/>
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/questionsRecyclerView"

@@ -2,10 +2,7 @@ package com.nlu.fit.controller;
 
 import com.nlu.fit.model.vocabulary.VocabularyTopic;
 import com.nlu.fit.service.vocabulary.VocabularyService;
-import com.nlu.fit.viewmodel.vocabulary.CompleteLearningRequest;
-import com.nlu.fit.viewmodel.vocabulary.CompleteLearningResponse;
-import com.nlu.fit.viewmodel.vocabulary.StartLearningRequest;
-import com.nlu.fit.viewmodel.vocabulary.StartLearningResponse;
+import com.nlu.fit.viewmodel.vocabulary.*;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -85,9 +82,8 @@ public class VocabularyController {
 
      */
     @PostMapping("/vocabulary/complete-learning")
-    public ResponseEntity<Map<String, String>> completeLearning(@RequestBody CompleteLearningRequest request) {
-        vocabularyService.completeLearning(request); // chỉ gọi thực hiện, không cần trả về dữ liệu chi tiết
-        return ResponseEntity.ok(Map.of("message", "Learning progress saved."));
+    public ResponseEntity<VocabularyEndResponse> completeLearning(@RequestBody VocabularyEndRequest request) {
+        return ResponseEntity.ok(vocabularyService.endLearningSessionEarly(request));
     }
 
 

@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/progressBodyBackground"
-    tools:context=".TrackProgressActivity">
+    tools:context=".activity.progress.TrackProgressActivity">
 
     <!-- Header Toolbar -->
     <com.google.android.material.appbar.MaterialToolbar

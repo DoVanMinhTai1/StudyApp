@@ -9,6 +9,8 @@ import java.util.List;
 public record StartLearningResponse(
         Long sessionId,
         String method,
+        Long topicId,
+        String title,
         List<VocabularyWordViewModel> words
 ) {
 }

@@ -22,6 +22,10 @@
     <color name="nav_item_icon_color">#3F51B5</color> <!-- hoặc màu bạn thích -->
 
 
+    <color name="colorSuccess">#27ae60</color>
+    <color name="colorError">#e74c3c</color>
+
+
     <!-- Màu cho social icons -->
     <color name="facebook_color">#1877F2</color>
     <color name="google_color">#4285F4</color>

@@ -34,8 +34,8 @@ Response:
 }
  */
     @GetMapping("/vocabularyReview/reviewWords")
-    public ResponseEntity<VocabularyWordReview> getReviewWords() {
-        return ResponseEntity.ok(vocabularyReviewService.getReviewWords());
+    public ResponseEntity<VocabularyReviewListResponse> getReviewWords(@RequestParam String userId ) {
+        return ResponseEntity.ok(vocabularyReviewService.getReviewWords(userId));
 
     }
 
@@ -68,7 +68,7 @@ Chỉnh sửa
 
 */
     @PostMapping("/vocabularyReview/submitReviewResult")
-    public ResponseEntity<?> submitReviewResult(@RequestBody CompleteReviewRequest request) {
+    public ResponseEntity<?> submitReviewResult(@RequestBody VocabularyReviewEndRequest request) {
         return ResponseEntity.ok(vocabularyReviewService.completeLearning(request));
     }
 /*

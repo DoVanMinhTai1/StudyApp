@@ -1,8 +1,9 @@
 package nlu.fit.studyappr.model;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class GrammarTopic {
+public class GrammarTopic implements Serializable {
     private Long id;
 
     private String title;

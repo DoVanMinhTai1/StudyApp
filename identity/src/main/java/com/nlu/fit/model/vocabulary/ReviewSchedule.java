@@ -30,4 +30,7 @@ public class ReviewSchedule {
     private String status;
 
     private LocalDateTime lastReviewAt;
+
+    @OneToMany(mappedBy = "reviewSchedule", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<LearningSessionWord> learningSessionWords;
 }

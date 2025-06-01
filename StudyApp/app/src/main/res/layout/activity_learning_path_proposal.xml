@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/pathProposalBodyBackground"
-    tools:context=".LearningPathProposalActivity">
+    tools:context=".activity.progress.LearningPathProposalActivity">
 
     <!-- Header Toolbar -->
     <com.google.android.material.appbar.MaterialToolbar

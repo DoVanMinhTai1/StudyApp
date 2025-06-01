@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/pathSelectionBodyBackground"
     android:orientation="vertical"
-    tools:context=".SelectLearningPathActivity">
+    tools:context=".activity.progress.ProgressSetup">
 
     <!-- Header Toolbar -->
     <com.google.android.material.appbar.MaterialToolbar
@@ -40,11 +40,12 @@
                     style="@style/PathSelectionFormLabel"
                     android:text="Mục tiêu điểm số (Ví dụ: IELTS, TOEIC, hoặc Cấp độ)" />
 
-                <Spinner
-                    android:id="@+id/spinnerTargetScore"
-                    style="@style/PathSelectionSpinner"
-                    android:entries="@array/target_score_options" /> <!-- See string array below -->
+               <!-- See string array below -->
             </LinearLayout>
+            <Spinner
+                android:id="@+id/spinnerTargetScore"
+                style="@style/PathSelectionSpinner"
+                android:entries="@array/target_score_options" />
 
             <!-- Form Group: Study Duration -->
             <LinearLayout style="@style/PathSelectionFormGroup">

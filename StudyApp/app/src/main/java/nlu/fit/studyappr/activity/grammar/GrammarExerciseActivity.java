@@ -3,7 +3,6 @@ package nlu.fit.studyappr.activity.grammar;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,12 +22,12 @@ import nlu.fit.studyappr.R;
 import nlu.fit.studyappr.adapter.grammar.GrammarQuestionReviewAdapter;
 import nlu.fit.studyappr.api.grammar.GrammarApiService;
 import nlu.fit.studyappr.api.initRetrofit.InitializeRetrofit;
-import nlu.fit.studyappr.fragment.GrammarExerciseFragment;
 import nlu.fit.studyappr.model.AnswerSubmissionRequest;
 import nlu.fit.studyappr.model.ExerciseResult;
 import nlu.fit.studyappr.model.GrammarExcerciseQuestion;
 import nlu.fit.studyappr.model.GrammarLesson;
 import nlu.fit.studyappr.model.GrammarReviewResult;
+import nlu.fit.studyappr.model.GrammarTopic;
 import nlu.fit.studyappr.model.UserAnswer;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -64,8 +63,8 @@ public class GrammarExerciseActivity extends AppCompatActivity implements Gramma
         setContentView(R.layout.activity_grammar_review_quiz);
 
         // Initialize Views
-//        quizTopicTitleTextView = findViewById(R.id.quizTopicTitleTextView); // Uncommented and correct ID
-//        quizScoreTextView = findViewById(R.id.quizScoreTextView);         // Uncommented and correct ID
+        quizTopicTitleTextView = findViewById(R.id.quizTopicTitleTextView); // Uncommented and correct ID
+        quizScoreTextView = findViewById(R.id.quizScoreTextView);         // Uncommented and correct ID
         questionsRecyclerView = findViewById(R.id.questionsRecyclerView);
         buttonSubmit = findViewById(R.id.quizSubmitButton1); // Assuming this is the correct ID from your XML
         buttonExit = findViewById(R.id.quizExitButton); // Assuming this is the correct ID
@@ -79,7 +78,8 @@ public class GrammarExerciseActivity extends AppCompatActivity implements Gramma
         grammarApiService = InitializeRetrofit.getInstance().create(GrammarApiService.class);
 
         // Setup button listeners (can be done here or after data loads)
-        buttonSubmit.setOnClickListener(v -> handleSubmit());
+        Long grammarTopicId = getIntent().getLongExtra("grammarTopicId",-1);
+        buttonSubmit.setOnClickListener(v -> handleSubmit(grammarTopicId));
         buttonExit.setOnClickListener(v -> finish()); // Or show a confirmation dialog
 
         // Fetch Lesson Data
@@ -140,7 +140,10 @@ public class GrammarExerciseActivity extends AppCompatActivity implements Gramma
                             quizTopicTitleTextView.setText("Ôn tập Ngữ pháp");
                         }
                         // Score is usually calculated after submission, so quizScoreTextView might be initially empty or show "0/X"
-                        quizScoreTextView.setText("Trả lời các câu hỏi"); // Or "0/" + questionList.size()
+                        if(quizScoreTextView != null) {
+
+                            quizScoreTextView.setText("Trả lời các câu hỏi"); // Or "0/" + questionList.size()
+                        }
 
                         showContent();
                     } else {
@@ -159,7 +162,7 @@ public class GrammarExerciseActivity extends AppCompatActivity implements Gramma
         });
     }
 
-    private void handleSubmit() {
+    private void handleSubmit(Long grammarTopicId) {
         if (questionList == null || questionList.isEmpty()) {
             Toast.makeText(this, "Không có câu hỏi để nộp.", Toast.LENGTH_SHORT).show();
             return;
@@ -204,7 +207,7 @@ public class GrammarExerciseActivity extends AppCompatActivity implements Gramma
                     showSuccessNotification("Điểm của bạn: " + scoreValue + "/" + totalValue);
 
                     // Save result and navigate
-                    saveAndNavigateToResults(scoreValue, totalValue);
+                    saveAndNavigateToResults(scoreValue, totalValue,grammarTopicId);
 
                 } else {
                     Toast.makeText(GrammarExerciseActivity.this, "Nộp bài thất bại! Mã lỗi: " + response.code(), Toast.LENGTH_SHORT).show();
@@ -219,25 +222,27 @@ public class GrammarExerciseActivity extends AppCompatActivity implements Gramma
         });
     }
 
-    private void saveAndNavigateToResults(int score, int total) {
-        SharedPreferences preferences = getSharedPreferences("app_prefs", MODE_PRIVATE);
-        String userId = preferences.getString("user_id", null);
-
-        if (userId == null) {
-            Toast.makeText(this, "Lỗi: Không tìm thấy User ID.", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if (grammarLesson == null || grammarLesson.getGrammarTopicId() == null) {
-            Toast.makeText(this, "Lỗi: Dữ liệu bài học không đầy đủ để lưu kết quả.", Toast.LENGTH_SHORT).show();
-            return;
-        }
+    private void saveAndNavigateToResults(int score, int total, Long grammarTopicId) {
+//        SharedPreferences preferences = getSharedPreferences("app_prefs", MODE_PRIVATE);
+//        String userId = preferences.getString("user_id", null);
+//
+//        if (userId == null) {
+//            Toast.makeText(this, "Lỗi: Không tìm thấy User ID.", Toast.LENGTH_SHORT).show();
+//            return;
+//        }
+//        if (grammarLesson == null || grammarLesson.getGrammarTopicId() == null) {
+//            Toast.makeText(this, "Lỗi: Dữ liệu bài học không đầy đủ để lưu kết quả.", Toast.LENGTH_SHORT).show();
+//            return;
+//        }
 
 
         GrammarReviewResult grammarReviewResult = new GrammarReviewResult();
+        GrammarTopic grammarTopic = new GrammarTopic();
+        grammarTopic.setId(grammarTopicId);
         // Assuming score is number correct, not percentage for saving
         grammarReviewResult.setScore(score); // Use the integer score
-        grammarReviewResult.setUserId(userId);
-        grammarReviewResult.setGrammarTopic(grammarLesson.getGrammarTopicId());
+        grammarReviewResult.setUserId("2");
+        grammarReviewResult.setGrammarTopic(grammarTopic);
 
 
         this.grammarApiService.saveGrammarReviewResult(grammarReviewResult).enqueue(new Callback<GrammarReviewResult>() {
@@ -246,7 +251,7 @@ public class GrammarExerciseActivity extends AppCompatActivity implements Gramma
                 if (response.isSuccessful() && response.body() != null) {
                     GrammarReviewResult savedResult = response.body();
                     // Now save individual user answers linked to this review result ID
-                    saveUserAnswers(score, savedResult.getId()); // Pass the ID of the saved GrammarReviewResult
+                    saveUserAnswers(score, savedResult); // Pass the ID of the saved GrammarReviewResult
                 } else {
                     Toast.makeText(GrammarExerciseActivity.this, "Lưu tổng kết quả thất bại.", Toast.LENGTH_SHORT).show();
                 }
@@ -259,7 +264,7 @@ public class GrammarExerciseActivity extends AppCompatActivity implements Gramma
         });
     }
 
-    private void saveUserAnswers(double score, Long grammarReviewResultId) {
+    private void saveUserAnswers(double score, GrammarReviewResult grammarReviewResultId) {
         if (questionList == null || questionList.isEmpty()) return;
 
         List<UserAnswer> userAnswers = new ArrayList<>();
@@ -268,19 +273,20 @@ public class GrammarExerciseActivity extends AppCompatActivity implements Gramma
             // The score here might be ambiguous. Is it score per question or overall?
             // If UserAnswer stores if *this specific answer* was correct, that's different.
             // For now, let's assume it links to the overall review.
-            userAnswers.add(new UserAnswer(q.getId(), score, grammarReviewResultId));
+            userAnswers.add(new UserAnswer(q.getId(), score, grammarReviewResultId.getId()));
         }
 
         this.grammarApiService.saveUserAnswer(userAnswers).enqueue(new Callback<Boolean>() {
             @Override
             public void onResponse(Call<Boolean> call, Response<Boolean> response) {
-                if (response.isSuccessful() && Boolean.TRUE.equals(response.body())) {
+                if (response.isSuccessful()) {
                     Toast.makeText(GrammarExerciseActivity.this, "Câu trả lời đã được lưu.", Toast.LENGTH_SHORT).show();
                     // Navigate to results screen, passing the grammarLesson (which now contains user answers)
                     // and potentially the exerciseResult
                     Intent intent = new Intent(GrammarExerciseActivity.this, GrammarExerciseResult.class); // Assuming this is your results activity
                     intent.putExtra("lesson", grammarLesson); // Pass the lesson with user answers
-                    intent.putExtra("exerciseResult", (CharSequence) exerciseResult); // Pass the API result
+                    intent.putExtra("exerciseResult", exerciseResult); // Pass the API result
+                    intent.putExtra("grammarReviewResult", grammarReviewResultId);
                     startActivity(intent);
                     finish(); // Finish this activity
                 } else {

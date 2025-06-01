@@ -1,15 +1,17 @@
 package nlu.fit.studyappr.model;
 
-public class GrammarReviewResult {
+import java.io.Serializable;
+
+public class GrammarReviewResult implements Serializable {
     private Long id;
 
     private int score;
 
     private String userId;
 
-    private Long grammarTopic;
+    private GrammarTopic grammarTopic;
 
-    public GrammarReviewResult(Long id, int score, String userId, Long grammarTopic) {
+    public GrammarReviewResult(Long id, int score, String userId, GrammarTopic grammarTopic) {
         this.id = id;
         this.score = score;
         this.userId = userId;
@@ -54,11 +56,11 @@ public class GrammarReviewResult {
         this.userId = userId;
     }
 
-    public Long getGrammarTopic() {
+    public GrammarTopic getGrammarTopic() {
         return grammarTopic;
     }
 
-    public void setGrammarTopic(Long grammarTopic) {
+    public void setGrammarTopic(GrammarTopic grammarTopic) {
         this.grammarTopic = grammarTopic;
     }
 }

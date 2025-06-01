@@ -8,6 +8,9 @@ public class StartLearningResponse implements Serializable {
     String method;
     List<VocabularyWordViewModel> words;
 
+    Long topicId;
+
+    String title;
     public StartLearningResponse() {
     }
 
@@ -17,6 +20,21 @@ public class StartLearningResponse implements Serializable {
         this.words = words;
     }
 
+    public StartLearningResponse(Long sessionId, String method, List<VocabularyWordViewModel> words, Long topicId) {
+        this.sessionId = sessionId;
+        this.method = method;
+        this.words = words;
+        this.topicId = topicId;
+    }
+
+    public StartLearningResponse(Long sessionId, String method, List<VocabularyWordViewModel> words, Long topicId, String title) {
+        this.sessionId = sessionId;
+        this.method = method;
+        this.words = words;
+        this.topicId = topicId;
+        this.title = title;
+    }
+
     @Override
     public String toString() {
         return "StartLearningResponse{" +
@@ -24,6 +42,22 @@ public class StartLearningResponse implements Serializable {
                 ", method='" + method + '\'' +
                 ", words=" + words +
                 '}';
+    }
+
+    public Long getTopicId() {
+        return topicId;
+    }
+
+    public void setTopicId(Long topicId) {
+        this.topicId = topicId;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public Long getSessionId() {

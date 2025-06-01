@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 @Table(name = "learning_session_word")
 @Entity
@@ -25,7 +26,11 @@ LearningSessionWord {
     @Enumerated(EnumType.STRING)
     private LearningStatusVocabulary status;
 
-    private LocalDateTime attemptAt;
+    private OffsetDateTime attemptAt;
+
+    private String selectedOption;  // Đáp án người dùng chọn
+    private boolean isCorrect;      // Kết quả đúng/sai
+
 
     @ManyToOne
     @JoinColumn(name = "learning_session_id")
@@ -34,5 +39,10 @@ LearningSessionWord {
     @ManyToOne
     @JoinColumn(name = "vocabulary_word_id")
     private VocabularyWord vocabularyWord;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "review_schedule_id") // Foreign key to review_schedule table
+    private ReviewSchedule reviewSchedule; // This links it back
+
 
 }

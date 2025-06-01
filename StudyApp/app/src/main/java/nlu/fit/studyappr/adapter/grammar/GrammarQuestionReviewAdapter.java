@@ -134,8 +134,8 @@ public class GrammarQuestionReviewAdapter extends RecyclerView.Adapter<GrammarQu
 
         public QuizQuestionViewHolder(@NonNull View itemView) {
             super(itemView);
-            questionText = itemView.findViewById(R.id.questionTextView);
-            optionsGroup = itemView.findViewById(R.id.optionsRadioGroup);
+            questionText = itemView.findViewById(R.id.questionText);
+            optionsGroup = itemView.findViewById(R.id.radioGroup);
             optionA = itemView.findViewById(R.id.optionA);
             optionB = itemView.findViewById(R.id.optionB);
             optionC = itemView.findViewById(R.id.optionC);

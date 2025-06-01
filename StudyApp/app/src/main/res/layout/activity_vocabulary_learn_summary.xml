@@ -61,6 +61,7 @@
 
         <!-- Suggestion Box -->
         <TextView
+            android:id="@+id/text_suggestion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Gợi ý: Bạn có 2 từ chưa thuộc. Hãy xem lại chúng! Các từ đã học sẽ được đưa vào lịch ôn tập để bạn ghi nhớ tốt hơn."

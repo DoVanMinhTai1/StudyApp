@@ -47,6 +47,7 @@ public class GrammarTopicReview extends AppCompatActivity {
                         if (v.getGrammarLesson() != null) {
                             Long idG = v.getGrammarLesson().getId();
                             Intent intent = new Intent(GrammarTopicReview.this, GrammarExerciseActivity.class);
+                            intent.putExtra("grammarTopicId",v.getId());
                             intent.putExtra("grammarLessonId", idG);
                             startActivity(intent);
                         }
