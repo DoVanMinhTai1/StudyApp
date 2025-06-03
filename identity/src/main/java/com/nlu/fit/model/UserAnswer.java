@@ -1,9 +1,9 @@
 package com.nlu.fit.model;
 
+import com.nlu.fit.model.grammar.GrammarExerciseQuestion;
+import com.nlu.fit.model.grammar.GrammarReviewResult;
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.time.LocalDateTime;
 
 @Table(name = "user_answer")
 @Entity()

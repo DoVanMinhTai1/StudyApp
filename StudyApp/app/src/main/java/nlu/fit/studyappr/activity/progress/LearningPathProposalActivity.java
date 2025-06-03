@@ -23,13 +23,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.button.MaterialButton;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import nlu.fit.studyappr.R;
 //import nlu.fit.studyappr.activity.MainActivity; // Example for "Go Home"
 import nlu.fit.studyappr.api.initRetrofit.InitializeRetrofit; // Your Retrofit client
 import nlu.fit.studyappr.api.learningpath.LearningPathApiService;
-import nlu.fit.studyappr.model.ConfirmPathRequest;
-import nlu.fit.studyappr.model.LearningPathProposal;
-import nlu.fit.studyappr.model.LearningPathRequest;
+import nlu.fit.studyappr.model.learningProgress.ConfirmPathRequest;
+import nlu.fit.studyappr.model.learningProgress.LearningPathProposal;
+import nlu.fit.studyappr.model.learningProgress.LearningPathRequest;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -78,18 +81,8 @@ public class LearningPathProposalActivity extends AppCompatActivity {
         buttonAdjustInputs = findViewById(R.id.buttonAdjustInputs1); // Correct ID
         buttonConfirmAndStartPath = findViewById(R.id.buttonConfirmAndStartPath1); // Correct ID
 
-        // Setup Toolbar
-        setSupportActionBar(toolbar);
-        if (getSupportActionBar() != null) {
-            // If using ic_arrow_back, enable it:
-             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-             getSupportActionBar().setDisplayShowHomeEnabled(true);
-        }
 
-        // Initialize Retrofit Service
-        learningPathService = InitializeRetrofit.getInstance().create(LearningPathApiService.class);
 
-        // Get data from previous Activity (ProgressSetup)
         Intent intent = getIntent();
         String targetScore = intent.getStringExtra("TARGET_SCORE");
         String studyDuration = intent.getStringExtra("STUDY_DURATION");
@@ -103,6 +96,7 @@ public class LearningPathProposalActivity extends AppCompatActivity {
         }
 
         // Make API call to get path proposal
+        learningPathService = InitializeRetrofit.getInstance().create(LearningPathApiService.class);
         fetchPathProposal(targetScore, studyDuration, hoursPerWeek);
 
         buttonAdjustInputs.setOnClickListener(v -> {
@@ -145,16 +139,12 @@ public class LearningPathProposalActivity extends AppCompatActivity {
         buttonConfirmAndStartPath.setEnabled(true);
 
         // Populate Summary
-        // Using Html.fromHtml for bolding
         summaryTargetTextView.setText(Html.fromHtml("<b>Mục tiêu:</b> " + proposal.getTargetAchieved(), Html.FROM_HTML_MODE_LEGACY));
         summaryDurationTextView.setText(Html.fromHtml("<b>Thời gian:</b> " + proposal.getDurationForTarget(), Html.FROM_HTML_MODE_LEGACY));
         summaryLessonsPerDayTextView.setText(Html.fromHtml("<b>Số bài học mỗi ngày (dự kiến):</b> " + proposal.getLessonsPerDay() + " bài", Html.FROM_HTML_MODE_LEGACY));
         summaryTimePerDayTextView.setText(Html.fromHtml("<b>Thời lượng học mỗi ngày (dự kiến):</b> " + proposal.getStudyTimePerDay(), Html.FROM_HTML_MODE_LEGACY));
 
-        // Populate Topic List
-        topicListContainer.removeAllViews(); // Clear previous topics if any (e.g., on retry)
-        // Add the title "Các chủ đề/bài học chính:" back if it was part of the static layout
-        // Or add it dynamically here:
+        topicListContainer.removeAllViews();
         TextView topicsTitle = new TextView(this);
         topicsTitle.setText("Các chủ đề/bài học chính:");
         // You might want to apply R.style.TopicListContainerTitle style programmatically or define it
@@ -205,24 +195,36 @@ public class LearningPathProposalActivity extends AppCompatActivity {
         showLoadingState(true);
         LearningPathRequest request = new LearningPathRequest(targetScore, studyDuration, hoursPerWeek);
 
-        learningPathService.getLearningPathProposal(request).enqueue(new Callback<LearningPathProposal>() {
-            @Override
-            public void onResponse(@NonNull Call<LearningPathProposal> call, @NonNull Response<LearningPathProposal> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    showContentState(response.body());
-                } else {
-                    // Handle API error (e.g., no path found, server error)
-                    // You might want to parse an error body if your API provides one
-                    showNoPathFoundDialog(); // Show specific dialog for this case
-                }
-            }
-
-            @Override
-            public void onFailure(@NonNull Call<LearningPathProposal> call, @NonNull Throwable t) {
-                showErrorState("Lỗi mạng: " + t.getMessage());
-                t.printStackTrace();
-            }
-        });
+//        learningPathService.getLearningPathProposal(request).enqueue(new Callback<LearningPathProposal>() {
+//            @Override
+//            public void onResponse(@NonNull Call<LearningPathProposal> call, @NonNull Response<LearningPathProposal> response) {
+//                if (response.isSuccessful() && response.body() != null) {
+//                    showContentState(response.body());
+//                } else {
+//                    // Handle API error (e.g., no path found, server error)
+//                    // You might want to parse an error body if your API provides one
+//                    showNoPathFoundDialog(); // Show specific dialog for this case
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(@NonNull Call<LearningPathProposal> call, @NonNull Throwable t) {
+//                showErrorState("Lỗi mạng: " + t.getMessage());
+//                t.printStackTrace();
+//            }
+//        });
+        LearningPathProposal learningPathProposal1 = new LearningPathProposal();
+        learningPathProposal1.setTargetAchieved("3");
+        learningPathProposal1.setDurationForTarget("20");
+        learningPathProposal1.setLessonsPerDay(3);
+        learningPathProposal1.setStudyTimePerDay("5");
+        learningPathProposal1.setStudyTimePerDay("4");
+        List<String> list = new ArrayList<>();
+        list.add("topics1");
+        list.add("topics2");
+        learningPathProposal1.setTopics(list);
+        learningPathProposal1.setPathId("2");
+        showContentState(learningPathProposal1);
     }
 
     private void showNoPathFoundDialog() {
@@ -252,58 +254,68 @@ public class LearningPathProposalActivity extends AppCompatActivity {
         showLoadingState(true); // Show loading indicator
 
         // 1. Get User ID (from SharedPreferences or your auth manager)
-        SharedPreferences prefs = getSharedPreferences("app_prefs", MODE_PRIVATE); // Use a consistent name
-        String userId = prefs.getString("user_id", null);
-
-        if (userId == null) {
-            showLoadingState(false);
-            Toast.makeText(this, "Lỗi: Không thể xác định người dùng. Vui lòng đăng nhập lại.", Toast.LENGTH_LONG).show();
-            // Optionally, navigate to login screen
-            return;
-        }
-
+//        SharedPreferences prefs = getSharedPreferences("app_prefs", MODE_PRIVATE); // Use a consistent name
+//        String userId = prefs.getString("user_id", null);
+//
+//        if (userId == null) {
+//            showLoadingState(false);
+//            Toast.makeText(this, "Lỗi: Không thể xác định người dùng. Vui lòng đăng nhập lại.", Toast.LENGTH_LONG).show();
+//            // Optionally, navigate to login screen
+//            return;
+//        }
+        String userId = "2";
         ConfirmPathRequest confirmRequest = new ConfirmPathRequest(userId, pathIdToConfirm);
 
-        learningPathService.confirmLearningPath(confirmRequest).enqueue(new Callback<Void>() {
-            @Override
-            public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
-                showLoadingState(false);
-                if (response.isSuccessful()) {
-                    // Path confirmed and saved successfully on the backend
-                    Toast.makeText(LearningPathProposalActivity.this, "Lộ trình học đã được lưu!", Toast.LENGTH_LONG).show();
+//        learningPathService.confirmLearningPath(confirmRequest).enqueue(new Callback<Void>() {
+//            @Override
+//            public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
+//                showLoadingState(false);
+//                if (response.isSuccessful()) {
+//                    // Path confirmed and saved successfully on the backend
+//                    Toast.makeText(LearningPathProposalActivity.this, "Lộ trình học đã được lưu!", Toast.LENGTH_LONG).show();
+//
+//                    // TODO: Save essential path info LOCALLY (SharedPreferences or local DB)
+//                    // This helps the TrackProgressActivity load the current path info quickly
+//                    // without always needing an internet connection for basic display.
+//                    saveCurrentPathInfoLocally(pathIdToConfirm, learningPathProposal);
+//
+//
+//                    // Navigate to the next screen (TrackProgressActivity)
+//                    Intent intent = new Intent(LearningPathProposalActivity.this, TrackProgressActivity.class);
+//                    // Pass data that TrackProgressActivity might need immediately
+//                    intent.putExtra("ACTIVE_PATH_ID", pathIdToConfirm);
+//                    // You could also pass the entire 'proposalDetails' if it's Serializable/Parcelable
+//                    // and TrackProgressActivity can use it to display initial data while fetching fresh data.
+//                    // intent.putExtra("INITIAL_PATH_PROPOSAL", proposalDetails); // Make LearningPathProposal Serializable
+//
+//                    startActivity(intent);
+//                    finishAffinity(); // Finish this and previous path setup activities
+//                } else {
+//                    // Handle API error for confirming the path
+//                    Toast.makeText(LearningPathProposalActivity.this, "Lỗi khi lưu lộ trình. Mã: " + response.code(), Toast.LENGTH_LONG).show();
+//                    // You might want to parse an error body from response.errorBody()
+//                }
+//            }
+//
+//
+//
+//            @Override
+//            public void onFailure(@NonNull Call<Void> call, @NonNull Throwable t) {
+//                showLoadingState(false);
+//                Toast.makeText(LearningPathProposalActivity.this, "Lỗi mạng khi lưu lộ trình: " + t.getMessage(), Toast.LENGTH_LONG).show();
+//                t.printStackTrace();
+//            }
+//        });
 
-                    // TODO: Save essential path info LOCALLY (SharedPreferences or local DB)
-                    // This helps the TrackProgressActivity load the current path info quickly
-                    // without always needing an internet connection for basic display.
-                    saveCurrentPathInfoLocally(pathIdToConfirm, learningPathProposal);
+        Intent intent = new Intent(LearningPathProposalActivity.this, TrackProgressActivity.class);
+        // Pass data that TrackProgressActivity might need immediately
+        intent.putExtra("ACTIVE_PATH_ID", pathIdToConfirm);
+        // You could also pass the entire 'proposalDetails' if it's Serializable/Parcelable
+        // and TrackProgressActivity can use it to display initial data while fetching fresh data.
+        // intent.putExtra("INITIAL_PATH_PROPOSAL", proposalDetails); // Make LearningPathProposal Serializable
 
-
-                    // Navigate to the next screen (TrackProgressActivity)
-                    Intent intent = new Intent(LearningPathProposalActivity.this, TrackProgressActivity.class);
-                    // Pass data that TrackProgressActivity might need immediately
-                    intent.putExtra("ACTIVE_PATH_ID", pathIdToConfirm);
-                    // You could also pass the entire 'proposalDetails' if it's Serializable/Parcelable
-                    // and TrackProgressActivity can use it to display initial data while fetching fresh data.
-                    // intent.putExtra("INITIAL_PATH_PROPOSAL", proposalDetails); // Make LearningPathProposal Serializable
-
-                    startActivity(intent);
-                    finishAffinity(); // Finish this and previous path setup activities
-                } else {
-                    // Handle API error for confirming the path
-                    Toast.makeText(LearningPathProposalActivity.this, "Lỗi khi lưu lộ trình. Mã: " + response.code(), Toast.LENGTH_LONG).show();
-                    // You might want to parse an error body from response.errorBody()
-                }
-            }
-
-
-
-            @Override
-            public void onFailure(@NonNull Call<Void> call, @NonNull Throwable t) {
-                showLoadingState(false);
-                Toast.makeText(LearningPathProposalActivity.this, "Lỗi mạng khi lưu lộ trình: " + t.getMessage(), Toast.LENGTH_LONG).show();
-                t.printStackTrace();
-            }
-        });
+        startActivity(intent);
+        finishAffinity();
     }
     private void saveCurrentPathInfoLocally(String pathId, LearningPathProposal proposal) {
         SharedPreferences prefs = getSharedPreferences("user_active_path", MODE_PRIVATE); // Specific prefs file for active path

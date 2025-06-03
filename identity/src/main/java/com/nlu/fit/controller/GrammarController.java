@@ -1,11 +1,13 @@
 package com.nlu.fit.controller;
 
 import com.nlu.fit.model.*;
+import com.nlu.fit.model.grammar.GrammarLesson;
+import com.nlu.fit.model.grammar.GrammarReviewResult;
+import com.nlu.fit.model.grammar.GrammarTopic;
 import com.nlu.fit.service.*;
 import com.nlu.fit.viewmodel.grammarexercise.AnswerSubmissionRequest;
 import com.nlu.fit.viewmodel.grammarexercise.ExerciseResult;
 import com.nlu.fit.viewmodel.grammarexercise.GrammarLessonVm;
-import com.nlu.fit.viewmodel.grammarexercise.GrammarReviewResultViewModel;
 
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;

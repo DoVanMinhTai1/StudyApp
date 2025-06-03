@@ -1,19 +1,15 @@
 package com.nlu.fit.service;
 
-import com.google.api.gax.rpc.NotFoundException;
-import com.nlu.fit.model.GrammarExerciseQuestion;
-import com.nlu.fit.model.GrammarReviewResult;
-import com.nlu.fit.model.GrammarTopic;
-import com.nlu.fit.repository.GrammarExerciseQuestionRepository;
-import com.nlu.fit.repository.GrammarReviewResultRepository;
-import com.nlu.fit.repository.GrammarTopicRepository;
+import com.nlu.fit.model.grammar.GrammarExerciseQuestion;
+import com.nlu.fit.model.grammar.GrammarReviewResult;
+import com.nlu.fit.repository.grammar.GrammarExerciseQuestionRepository;
+import com.nlu.fit.repository.grammar.GrammarReviewResultRepository;
+import com.nlu.fit.repository.grammar.GrammarTopicRepository;
 import com.nlu.fit.viewmodel.grammarexercise.AnswerSubmissionRequest;
 import com.nlu.fit.viewmodel.grammarexercise.ExerciseResult;
-import com.nlu.fit.viewmodel.grammarexercise.GrammarReviewResultViewModel;
 import com.nlu.fit.viewmodel.grammarexercise.InCorrectDetail;
 import lombok.AllArgsConstructor;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

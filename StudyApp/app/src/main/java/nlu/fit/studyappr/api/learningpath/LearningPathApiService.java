@@ -1,8 +1,8 @@
 package nlu.fit.studyappr.api.learningpath;
 
-import nlu.fit.studyappr.model.ConfirmPathRequest;
-import nlu.fit.studyappr.model.LearningPathProposal;
-import nlu.fit.studyappr.model.LearningPathRequest;
+import nlu.fit.studyappr.model.learningProgress.ConfirmPathRequest;
+import nlu.fit.studyappr.model.learningProgress.LearningPathProposal;
+import nlu.fit.studyappr.model.learningProgress.LearningPathRequest;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.POST;

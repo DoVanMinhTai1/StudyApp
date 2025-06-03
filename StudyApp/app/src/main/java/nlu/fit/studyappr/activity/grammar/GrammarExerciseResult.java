@@ -16,10 +16,9 @@ import com.google.android.material.button.MaterialButton;
 
 import nlu.fit.studyappr.R;
 import nlu.fit.studyappr.activity.home.HomeActivity; // Assuming you have a MainActivity
-import nlu.fit.studyappr.model.ExerciseResult;
-import nlu.fit.studyappr.model.GrammarLesson;
-import nlu.fit.studyappr.model.GrammarReviewResult;
-import nlu.fit.studyappr.model.GrammarTopic; // If GrammarLesson contains GrammarTopic
+import nlu.fit.studyappr.model.grammar.ExerciseResult;
+import nlu.fit.studyappr.model.grammar.GrammarLesson;
+import nlu.fit.studyappr.model.grammar.GrammarReviewResult;
 
 public class GrammarExerciseResult extends AppCompatActivity {
 

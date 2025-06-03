@@ -20,7 +20,6 @@ public class TrackProgressActivity extends AppCompatActivity {
     private MaterialToolbar toolbar;
     private TextView statLearnedVocabValue, statExercisesDoneValue, /* ... other stat TextViews ... */ overallProgressBarText;
     private ProgressBar overallProgressBar;
-    // ... Other UI elements like chart container, buttons ...
 
     private String activePathId;
 

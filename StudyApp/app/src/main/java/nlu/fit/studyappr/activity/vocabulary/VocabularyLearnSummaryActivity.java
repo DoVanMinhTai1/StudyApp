@@ -12,11 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.material.appbar.MaterialToolbar;
-
 import nlu.fit.studyappr.R;
 import nlu.fit.studyappr.activity.home.HomeActivity;
-import nlu.fit.studyappr.model.VocabularyEndResponse;
+import nlu.fit.studyappr.model.vocabulary.VocabularyEndResponse;
 
 public class VocabularyLearnSummaryActivity extends AppCompatActivity {
 

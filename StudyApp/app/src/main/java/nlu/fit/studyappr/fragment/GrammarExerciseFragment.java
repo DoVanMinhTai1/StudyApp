@@ -12,8 +12,8 @@ import androidx.fragment.app.Fragment;
 import java.util.List;
 
 import nlu.fit.studyappr.R;
-import nlu.fit.studyappr.model.GrammarExcerciseQuestion;
-import nlu.fit.studyappr.model.GrammarLesson;
+import nlu.fit.studyappr.model.grammar.GrammarExcerciseQuestion;
+import nlu.fit.studyappr.model.grammar.GrammarLesson;
 
 public class GrammarExerciseFragment extends Fragment {
 

@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.HashMap; // For storing user answers
 
 import nlu.fit.studyappr.R;
-import nlu.fit.studyappr.model.GrammarExcerciseQuestion;
+import nlu.fit.studyappr.model.grammar.GrammarExcerciseQuestion;
 
 public class GrammarQuestionReviewAdapter extends RecyclerView.Adapter<GrammarQuestionReviewAdapter.QuizQuestionViewHolder>  {
 

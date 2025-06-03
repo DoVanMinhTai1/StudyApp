@@ -2,19 +2,17 @@ package com.nlu.fit.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import com.nlu.fit.model.GrammarExerciseQuestion;
-import com.nlu.fit.model.GrammarReviewResult;
-import com.nlu.fit.model.GrammarTopic;
-import com.nlu.fit.repository.GrammarExerciseQuestionRepository;
-import com.nlu.fit.repository.GrammarLessonRepository;
-import com.nlu.fit.repository.GrammarReviewResultRepository;
-import com.nlu.fit.repository.GrammarTopicRepository;
-import com.nlu.fit.viewmodel.grammarexercise.AnswerSubmissionRequest;
+import com.nlu.fit.model.grammar.GrammarExerciseQuestion;
+import com.nlu.fit.model.grammar.GrammarReviewResult;
+import com.nlu.fit.model.grammar.GrammarTopic;
+import com.nlu.fit.repository.grammar.GrammarExerciseQuestionRepository;
+import com.nlu.fit.repository.grammar.GrammarLessonRepository;
+import com.nlu.fit.repository.grammar.GrammarReviewResultRepository;
+import com.nlu.fit.repository.grammar.GrammarTopicRepository;
 
 import lombok.AllArgsConstructor;
 

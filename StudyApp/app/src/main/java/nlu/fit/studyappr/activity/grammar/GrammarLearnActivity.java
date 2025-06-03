@@ -13,7 +13,7 @@ import nlu.fit.studyappr.activity.home.HomeActivity;
 import nlu.fit.studyappr.R;
 import nlu.fit.studyappr.api.grammar.GrammarApiService;
 import nlu.fit.studyappr.api.initRetrofit.InitializeRetrofit;
-import nlu.fit.studyappr.model.GrammarLesson;
+import nlu.fit.studyappr.model.grammar.GrammarLesson;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

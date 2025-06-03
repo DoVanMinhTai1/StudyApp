@@ -3,8 +3,6 @@ package nlu.fit.studyappr.activity.progress; // Your package
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.LinearLayout; // For content visibility
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,10 +19,9 @@ import java.util.List;
 
 import nlu.fit.studyappr.R;
 import nlu.fit.studyappr.adapter.progress.DailyDetailsAdapter;
-import nlu.fit.studyappr.adapter.progress.DailyDetailsAdapter;
 import nlu.fit.studyappr.api.learningpath.ProgressApiService; // Your new API service
 import nlu.fit.studyappr.api.initRetrofit.InitializeRetrofit;
-import nlu.fit.studyappr.model.DailyProgressEntry;
+import nlu.fit.studyappr.model.learningProgress.DailyProgressEntry;
 
 import retrofit2.Call;
 import retrofit2.Callback;

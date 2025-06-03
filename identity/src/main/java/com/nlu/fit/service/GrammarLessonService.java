@@ -1,9 +1,8 @@
 package com.nlu.fit.service;
 
 import com.nlu.fit.enumeration.LessonType;
-import com.nlu.fit.model.GrammarLesson;
-import com.nlu.fit.model.UserAnswer;
-import com.nlu.fit.repository.GrammarLessonRepository;
+import com.nlu.fit.model.grammar.GrammarLesson;
+import com.nlu.fit.repository.grammar.GrammarLessonRepository;
 import com.nlu.fit.viewmodel.grammarexercise.GrammarLessonVm;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
