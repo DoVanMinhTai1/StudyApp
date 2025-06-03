@@ -20,20 +20,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 
-import com.google.android.material.button.MaterialButton;
-
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import nlu.fit.studyappr.R;
 import nlu.fit.studyappr.api.initRetrofit.InitializeRetrofit;
 import nlu.fit.studyappr.api.vocabulary.VocabularyApiService;
-import nlu.fit.studyappr.model.StartLearningResponse;
-import nlu.fit.studyappr.model.VocabularyEndRequest;
-import nlu.fit.studyappr.model.VocabularyEndResponse;
-import nlu.fit.studyappr.model.VocabularyWordViewModel;
-import nlu.fit.studyappr.model.WordAnswer;
+import nlu.fit.studyappr.model.vocabulary.StartLearningResponse;
+import nlu.fit.studyappr.model.vocabulary.VocabularyEndRequest;
+import nlu.fit.studyappr.model.vocabulary.VocabularyEndResponse;
+import nlu.fit.studyappr.model.vocabulary.VocabularyWordViewModel;
+import nlu.fit.studyappr.model.vocabulary.WordAnswer;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

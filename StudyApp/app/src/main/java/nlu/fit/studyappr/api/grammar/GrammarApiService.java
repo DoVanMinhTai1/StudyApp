@@ -2,12 +2,12 @@ package nlu.fit.studyappr.api.grammar;
 
 import java.util.List;
 
-import nlu.fit.studyappr.model.AnswerSubmissionRequest;
-import nlu.fit.studyappr.model.ExerciseResult;
-import nlu.fit.studyappr.model.GrammarLesson;
-import nlu.fit.studyappr.model.GrammarReviewResult;
-import nlu.fit.studyappr.model.GrammarTopic;
-import nlu.fit.studyappr.model.UserAnswer;
+import nlu.fit.studyappr.model.grammar.AnswerSubmissionRequest;
+import nlu.fit.studyappr.model.grammar.ExerciseResult;
+import nlu.fit.studyappr.model.grammar.GrammarLesson;
+import nlu.fit.studyappr.model.grammar.GrammarReviewResult;
+import nlu.fit.studyappr.model.grammar.GrammarTopic;
+import nlu.fit.studyappr.model.grammar.UserAnswer;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;

@@ -13,7 +13,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,16 +27,11 @@ import java.util.List;
 
 import nlu.fit.studyappr.R; // Your project's R class
 import nlu.fit.studyappr.api.vocabulary.VocabularyApiService;
-import nlu.fit.studyappr.model.StartLearningResponse;
-import nlu.fit.studyappr.model.StartLearningReviewResponse;
-import nlu.fit.studyappr.model.VocabularyEndResponse;
-import nlu.fit.studyappr.model.VocabularyReviewEndRequest;
-import nlu.fit.studyappr.model.VocabularyWordViewModel;
-import nlu.fit.studyappr.model.WordAnswer;
-import nlu.fit.studyappr.model.WordInteraction;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import nlu.fit.studyappr.model.vocabulary.StartLearningResponse;
+import nlu.fit.studyappr.model.vocabulary.StartLearningReviewResponse;
+import nlu.fit.studyappr.model.vocabulary.VocabularyReviewEndRequest;
+import nlu.fit.studyappr.model.vocabulary.VocabularyWordViewModel;
+import nlu.fit.studyappr.model.vocabulary.WordAnswer;
 
 public class VocabularyLearnFlashCardActivity extends AppCompatActivity {
 

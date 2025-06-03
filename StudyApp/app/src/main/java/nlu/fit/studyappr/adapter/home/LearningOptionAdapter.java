@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import nlu.fit.studyappr.R;
-import nlu.fit.studyappr.model.LearningOption;
+import nlu.fit.studyappr.model.learningProgress.LearningOption;
 
 public class LearningOptionAdapter extends RecyclerView.Adapter<LearningOptionAdapter.ViewHolder> {
 

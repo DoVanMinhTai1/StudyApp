@@ -16,11 +16,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.appbar.MaterialToolbar; // If you add a Toolbar to summary XML
 
-import java.util.List;
-
 import nlu.fit.studyappr.R;
-import nlu.fit.studyappr.model.NextReviewTimeInfo;
-import nlu.fit.studyappr.model.VocabularyReviewEndResponse;
+import nlu.fit.studyappr.model.vocabulary.NextReviewTimeInfo;
+import nlu.fit.studyappr.model.vocabulary.VocabularyReviewEndResponse;
 
 public class VocabularyReviewSummaryActivity extends AppCompatActivity {
 

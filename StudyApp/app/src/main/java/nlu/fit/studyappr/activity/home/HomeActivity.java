@@ -19,7 +19,7 @@ import nlu.fit.studyappr.activity.progress.ProgressSetup;
 import nlu.fit.studyappr.activity.vocabulary.VocabularyLearnSetupActivity;
 import nlu.fit.studyappr.activity.vocabulary.VocabularyReviewList;
 import nlu.fit.studyappr.adapter.home.LearningOptionAdapter;
-import nlu.fit.studyappr.model.LearningOption;
+import nlu.fit.studyappr.model.learningProgress.LearningOption;
 
 public class HomeActivity extends AppCompatActivity {
 

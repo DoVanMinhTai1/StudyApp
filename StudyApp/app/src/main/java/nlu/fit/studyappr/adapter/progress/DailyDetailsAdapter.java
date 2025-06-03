@@ -12,8 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import nlu.fit.studyappr.R; // Ensure correct R class
-import nlu.fit.studyappr.model.DailyActivityItem;
-import nlu.fit.studyappr.model.DailyProgressEntry;
+import nlu.fit.studyappr.model.learningProgress.DailyActivityItem;
+import nlu.fit.studyappr.model.learningProgress.DailyProgressEntry;
 
 public class DailyDetailsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 

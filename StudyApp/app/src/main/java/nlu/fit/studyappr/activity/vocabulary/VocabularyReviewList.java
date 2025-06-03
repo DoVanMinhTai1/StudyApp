@@ -1,7 +1,6 @@
 package nlu.fit.studyappr.activity.vocabulary;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -26,14 +25,12 @@ import java.util.TimeZone;
 import nlu.fit.studyappr.R;
 import nlu.fit.studyappr.api.initRetrofit.InitializeRetrofit;
 import nlu.fit.studyappr.api.vocabulary.VocabularyApiService;
-import nlu.fit.studyappr.model.ActiveSessionInfo;
-import nlu.fit.studyappr.model.ReviewableWord;
-import nlu.fit.studyappr.model.StartLearningResponse;
-import nlu.fit.studyappr.model.StartLearningRevewRequest;
-import nlu.fit.studyappr.model.StartLearningReviewRequest;
-import nlu.fit.studyappr.model.StartLearningReviewResponse;
-import nlu.fit.studyappr.model.VocabularyReviewListResponse;
-import nlu.fit.studyappr.model.VocabularyWordViewModel;
+import nlu.fit.studyappr.model.vocabulary.ActiveSessionInfo;
+import nlu.fit.studyappr.model.vocabulary.ReviewableWord;
+import nlu.fit.studyappr.model.vocabulary.StartLearningReviewRequest;
+import nlu.fit.studyappr.model.vocabulary.StartLearningReviewResponse;
+import nlu.fit.studyappr.model.vocabulary.VocabularyReviewListResponse;
+import nlu.fit.studyappr.model.vocabulary.VocabularyWordViewModel;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -241,7 +238,7 @@ public class VocabularyReviewList extends AppCompatActivity {
 
         // Mocking the StartLearningResponse structure for navigation
         currentUserId = "2";
-        StartLearningRevewRequest startLearningRevewRequest = new StartLearningRevewRequest();
+        StartLearningReviewRequest startLearningRevewRequest = new StartLearningReviewRequest();
         startLearningRevewRequest.setMethod(reviewMethod);
         startLearningRevewRequest.setUserId(currentUserId);
         StartLearningReviewRequest request = new StartLearningReviewRequest(reviewMethod, currentUserId);

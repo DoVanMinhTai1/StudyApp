@@ -1,8 +1,7 @@
 package com.nlu.fit.service;
 
-import com.nlu.fit.model.GrammarTopic;
-import com.nlu.fit.repository.GrammarTopicRepository;
-import com.nlu.fit.viewmodel.grammarexercise.ExerciseResult;
+import com.nlu.fit.model.grammar.GrammarTopic;
+import com.nlu.fit.repository.grammar.GrammarTopicRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

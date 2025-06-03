@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import nlu.fit.studyappr.R;
-import nlu.fit.studyappr.model.GrammarTopic;
+import nlu.fit.studyappr.model.grammar.GrammarTopic;
 
 public class GrammarTopicAdapter extends RecyclerView.Adapter<GrammarTopicAdapter.GrammarTopicViewHolder> {
 

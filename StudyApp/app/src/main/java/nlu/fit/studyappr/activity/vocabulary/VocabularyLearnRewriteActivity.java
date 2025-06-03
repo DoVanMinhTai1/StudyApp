@@ -1,7 +1,6 @@
 package nlu.fit.studyappr.activity.vocabulary; // Or your actual package
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -23,8 +22,8 @@ import androidx.core.content.ContextCompat;
 import java.util.List;
 
 import nlu.fit.studyappr.R;
-import nlu.fit.studyappr.model.StartLearningResponse;
-import nlu.fit.studyappr.model.VocabularyWordViewModel;
+import nlu.fit.studyappr.model.vocabulary.StartLearningResponse;
+import nlu.fit.studyappr.model.vocabulary.VocabularyWordViewModel;
 
 public class VocabularyLearnRewriteActivity extends AppCompatActivity {
 

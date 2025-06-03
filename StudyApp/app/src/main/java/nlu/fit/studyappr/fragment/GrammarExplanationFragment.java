@@ -1,17 +1,10 @@
 package nlu.fit.studyappr.fragment;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import nlu.fit.studyappr.R;
-import nlu.fit.studyappr.model.GrammarLesson;
+import nlu.fit.studyappr.model.grammar.GrammarLesson;
 
 public class GrammarExplanationFragment extends Fragment {
 

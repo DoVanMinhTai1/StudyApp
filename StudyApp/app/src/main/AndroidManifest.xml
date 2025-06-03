@@ -40,7 +40,9 @@
         <activity android:name=".activity.vocabulary.VocabularyLearnRewriteActivity" />
         <activity android:name=".activity.vocabulary.VocabularyReviewList" />
         <activity android:name=".activity.vocabulary.VocabularyReviewFlashCardActivity" />
-<activity android:name=".activity.vocabulary.VocabularyReviewSummaryActivity"    />
+        <activity android:name=".activity.vocabulary.VocabularyReviewSummaryActivity" />
+        <activity android:name=".activity.progress.TrackProgressActivity" />
+
 
 
         <activity android:name=".activity.progress.ProgressSetup" />

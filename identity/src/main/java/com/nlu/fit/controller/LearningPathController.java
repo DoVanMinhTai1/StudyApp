@@ -1,7 +1,7 @@
 package com.nlu.fit.controller;
 
 import com.nlu.fit.service.progress.ProgressService;
-import com.nlu.fit.viewmodel.learningPath.LearningPathProposal;
+import com.nlu.fit.viewmodel.learningPath.LearningPathProposalResponse;
 import com.nlu.fit.viewmodel.learningPath.LearningPathRequest;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +16,7 @@ public class LearningPathController {
 
 
     @PostMapping("/learning-path/propose")
-    public ResponseEntity<LearningPathProposal> getLearningPathProposal(@RequestBody LearningPathRequest request) {
+    public ResponseEntity<LearningPathProposalResponse> getLearningPathProposal(@RequestBody LearningPathRequest request) {
         return ResponseEntity.ok(progressService.getLearningPathProposal(request));
     }
 
@@ -24,5 +24,7 @@ public class LearningPathController {
     // public ResponseEntity<Void> confirmLearningPath(@RequestBody ConfirmPathRequest request) {
     //     return ResponseEntity.ok(progressService.confirmLearningPath(request)).build();
     // }
+
+
 
 }

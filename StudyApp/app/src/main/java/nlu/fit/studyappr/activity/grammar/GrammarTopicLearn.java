@@ -14,7 +14,7 @@ import nlu.fit.studyappr.R;
 import nlu.fit.studyappr.adapter.grammar.GrammarTopicAdapter;
 import nlu.fit.studyappr.api.grammar.GrammarApiService;
 import nlu.fit.studyappr.api.initRetrofit.InitializeRetrofit;
-import nlu.fit.studyappr.model.GrammarTopic;
+import nlu.fit.studyappr.model.grammar.GrammarTopic;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
