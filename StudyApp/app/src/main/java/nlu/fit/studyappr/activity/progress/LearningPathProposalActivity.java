@@ -30,10 +30,13 @@ import nlu.fit.studyappr.R;
 //import nlu.fit.studyappr.activity.MainActivity; // Example for "Go Home"
 import nlu.fit.studyappr.api.initRetrofit.InitializeRetrofit; // Your Retrofit client
 import nlu.fit.studyappr.api.learningpath.LearningPathApiService;
+import nlu.fit.studyappr.model.grammar.GrammarTopic;
 import nlu.fit.studyappr.model.learningProgress.ConfirmPathRequest;
 import nlu.fit.studyappr.model.learningProgress.LearningPathProposal;
 import nlu.fit.studyappr.model.learningProgress.LearningPathRequest;
 
+import nlu.fit.studyappr.model.learningProgress.UserLearningPath;
+import nlu.fit.studyappr.model.vocabulary.VocabularyTopic;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -133,6 +136,9 @@ public class LearningPathProposalActivity extends AppCompatActivity {
     }
 
     private void showContentState(LearningPathProposal proposal) {
+
+        this.learningPathProposal = proposal;
+
         showLoadingState(false);
         textViewPathError.setVisibility(View.GONE);
         scrollViewPathContent.setVisibility(View.VISIBLE);
@@ -158,15 +164,26 @@ public class LearningPathProposalActivity extends AppCompatActivity {
         topicListContainer.addView(topicsTitle);
 
 
-        if (proposal.getTopics() != null && !proposal.getTopics().isEmpty()) {
-            LayoutInflater inflater = LayoutInflater.from(this);
-            for (String topic : proposal.getTopics()) {
-                // Inflate suggested_topic_item.xml or create TextView programmatically
-                // For simplicity, creating TextView programmatically:
+        if (proposal.getGrammarTopics() != null && !proposal.getGrammarTopics().isEmpty()
+        || proposal.getVocabularyTopics() != null && !proposal.getVocabularyTopics().isEmpty()) {
+
+            List<String> learningPathProposals = new ArrayList<>();
+            if(proposal.getGrammarTopics() != null) {
+                for (GrammarTopic l : proposal.getGrammarTopics()) {
+                    learningPathProposals.add(l.getTitle());
+                }
+            }
+
+            if(proposal.getVocabularyTopics() != null) {
+                for (VocabularyTopic l : proposal.getVocabularyTopics()) {
+                    learningPathProposals.add(l.getTitle());
+                }
+            }
+
+            for(String s : learningPathProposals) {
+
                 TextView topicView = new TextView(this);
-                topicView.setText(topic);
-                // Apply R.style.SuggestedTopicText programmatically
-                // This is harder for complex styles. Inflating a layout is usually better.
+                topicView.setText(s);
                 topicView.setTextAppearance(R.style.SuggestedTopicText); // If SuggestedTopicText is a TextAppearance
                 topicView.setBackgroundResource(R.drawable.suggested_topic_background);
                 topicView.setPadding((int) (10 * getResources().getDisplayMetrics().density),
@@ -187,7 +204,7 @@ public class LearningPathProposalActivity extends AppCompatActivity {
             topicListContainer.addView(noTopicsView);
         }
 
-        currentPathId = proposal.getPathId(); // Store the path ID
+        currentPathId = proposal.getId(); // Store the path ID
     }
 
 
@@ -195,36 +212,24 @@ public class LearningPathProposalActivity extends AppCompatActivity {
         showLoadingState(true);
         LearningPathRequest request = new LearningPathRequest(targetScore, studyDuration, hoursPerWeek);
 
-//        learningPathService.getLearningPathProposal(request).enqueue(new Callback<LearningPathProposal>() {
-//            @Override
-//            public void onResponse(@NonNull Call<LearningPathProposal> call, @NonNull Response<LearningPathProposal> response) {
-//                if (response.isSuccessful() && response.body() != null) {
-//                    showContentState(response.body());
-//                } else {
-//                    // Handle API error (e.g., no path found, server error)
-//                    // You might want to parse an error body if your API provides one
-//                    showNoPathFoundDialog(); // Show specific dialog for this case
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(@NonNull Call<LearningPathProposal> call, @NonNull Throwable t) {
-//                showErrorState("Lỗi mạng: " + t.getMessage());
-//                t.printStackTrace();
-//            }
-//        });
-        LearningPathProposal learningPathProposal1 = new LearningPathProposal();
-        learningPathProposal1.setTargetAchieved("3");
-        learningPathProposal1.setDurationForTarget("20");
-        learningPathProposal1.setLessonsPerDay(3);
-        learningPathProposal1.setStudyTimePerDay("5");
-        learningPathProposal1.setStudyTimePerDay("4");
-        List<String> list = new ArrayList<>();
-        list.add("topics1");
-        list.add("topics2");
-        learningPathProposal1.setTopics(list);
-        learningPathProposal1.setPathId("2");
-        showContentState(learningPathProposal1);
+        learningPathService.getLearningPathProposal(request).enqueue(new Callback<LearningPathProposal>() {
+            @Override
+            public void onResponse(@NonNull Call<LearningPathProposal> call, @NonNull Response<LearningPathProposal> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    showContentState(response.body());
+                } else {
+                    // Handle API error (e.g., no path found, server error)
+                    // You might want to parse an error body if your API provides one
+                    showNoPathFoundDialog(); // Show specific dialog for this case
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<LearningPathProposal> call, @NonNull Throwable t) {
+                showErrorState("Lỗi mạng: " + t.getMessage());
+                t.printStackTrace();
+            }
+        });
     }
 
     private void showNoPathFoundDialog() {
@@ -266,56 +271,47 @@ public class LearningPathProposalActivity extends AppCompatActivity {
         String userId = "2";
         ConfirmPathRequest confirmRequest = new ConfirmPathRequest(userId, pathIdToConfirm);
 
-//        learningPathService.confirmLearningPath(confirmRequest).enqueue(new Callback<Void>() {
-//            @Override
-//            public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
-//                showLoadingState(false);
-//                if (response.isSuccessful()) {
-//                    // Path confirmed and saved successfully on the backend
-//                    Toast.makeText(LearningPathProposalActivity.this, "Lộ trình học đã được lưu!", Toast.LENGTH_LONG).show();
-//
-//                    // TODO: Save essential path info LOCALLY (SharedPreferences or local DB)
-//                    // This helps the TrackProgressActivity load the current path info quickly
-//                    // without always needing an internet connection for basic display.
-//                    saveCurrentPathInfoLocally(pathIdToConfirm, learningPathProposal);
-//
-//
-//                    // Navigate to the next screen (TrackProgressActivity)
-//                    Intent intent = new Intent(LearningPathProposalActivity.this, TrackProgressActivity.class);
-//                    // Pass data that TrackProgressActivity might need immediately
-//                    intent.putExtra("ACTIVE_PATH_ID", pathIdToConfirm);
-//                    // You could also pass the entire 'proposalDetails' if it's Serializable/Parcelable
-//                    // and TrackProgressActivity can use it to display initial data while fetching fresh data.
-//                    // intent.putExtra("INITIAL_PATH_PROPOSAL", proposalDetails); // Make LearningPathProposal Serializable
-//
-//                    startActivity(intent);
-//                    finishAffinity(); // Finish this and previous path setup activities
-//                } else {
-//                    // Handle API error for confirming the path
-//                    Toast.makeText(LearningPathProposalActivity.this, "Lỗi khi lưu lộ trình. Mã: " + response.code(), Toast.LENGTH_LONG).show();
-//                    // You might want to parse an error body from response.errorBody()
-//                }
-//            }
-//
-//
-//
-//            @Override
-//            public void onFailure(@NonNull Call<Void> call, @NonNull Throwable t) {
-//                showLoadingState(false);
-//                Toast.makeText(LearningPathProposalActivity.this, "Lỗi mạng khi lưu lộ trình: " + t.getMessage(), Toast.LENGTH_LONG).show();
-//                t.printStackTrace();
-//            }
-//        });
+        learningPathService.confirmLearningPath(confirmRequest).enqueue(new Callback<UserLearningPath>() {
+            @Override
+            public void onResponse(@NonNull Call<UserLearningPath> call, @NonNull Response<UserLearningPath> response) {
+                showLoadingState(false);
+                if (response.isSuccessful() && response.body() != null) {
+                    // Path confirmed and saved successfully on the backend
+                    Toast.makeText(LearningPathProposalActivity.this, "Lộ trình học đã được lưu!", Toast.LENGTH_LONG).show();
 
-        Intent intent = new Intent(LearningPathProposalActivity.this, TrackProgressActivity.class);
-        // Pass data that TrackProgressActivity might need immediately
-        intent.putExtra("ACTIVE_PATH_ID", pathIdToConfirm);
-        // You could also pass the entire 'proposalDetails' if it's Serializable/Parcelable
-        // and TrackProgressActivity can use it to display initial data while fetching fresh data.
-        // intent.putExtra("INITIAL_PATH_PROPOSAL", proposalDetails); // Make LearningPathProposal Serializable
+                    // TODO: Save essential path info LOCALLY (SharedPreferences or local DB)
+                    // This helps the TrackProgressActivity load the current path info quickly
+                    // without always needing an internet connection for basic display.
+                    saveCurrentPathInfoLocally(pathIdToConfirm, learningPathProposal);
 
-        startActivity(intent);
-        finishAffinity();
+
+                    // Navigate to the next screen (TrackProgressActivity)
+                    Intent intent = new Intent(LearningPathProposalActivity.this, TrackProgressActivity.class);
+                    // Pass data that TrackProgressActivity might need immediately
+                    intent.putExtra("ACTIVE_PATH_ID", pathIdToConfirm);
+                    // You could also pass the entire 'proposalDetails' if it's Serializable/Parcelable
+                    // and TrackProgressActivity can use it to display initial data while fetching fresh data.
+                    // intent.putExtra("INITIAL_PATH_PROPOSAL", proposalDetails); // Make LearningPathProposal Serializable
+                    intent.putExtra("learningPathProposal",learningPathProposal);
+                    startActivity(intent);
+                    finishAffinity(); // Finish this and previous path setup activities
+                } else {
+                    // Handle API error for confirming the path
+                    Log.e("API_ERROR", "Status: " + response.code());
+                    Toast.makeText(LearningPathProposalActivity.this, "Lỗi khi lưu lộ trình. Mã: " + response.code(), Toast.LENGTH_LONG).show();
+                    // You might want to parse an error body from response.errorBody()
+                }
+            }
+
+
+
+            @Override
+            public void onFailure(@NonNull Call<UserLearningPath> call, @NonNull Throwable t) {
+                showLoadingState(false);
+                Toast.makeText(LearningPathProposalActivity.this, "Lỗi mạng khi lưu lộ trình: " + t.getMessage(), Toast.LENGTH_LONG).show();
+                t.printStackTrace();
+            }
+        });
     }
     private void saveCurrentPathInfoLocally(String pathId, LearningPathProposal proposal) {
         SharedPreferences prefs = getSharedPreferences("user_active_path", MODE_PRIVATE); // Specific prefs file for active path

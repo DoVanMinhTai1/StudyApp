@@ -1,5 +1,6 @@
 package com.nlu.fit.model.progress;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.nlu.fit.model.grammar.GrammarTopic;
 import com.nlu.fit.model.vocabulary.VocabularyTopic;
 import jakarta.persistence.*;
@@ -44,6 +45,10 @@ public class LearningPathProposal {
     )
     private List<VocabularyTopic> vocabularyTopics;
 
+
+    @OneToMany(mappedBy = "learningPathProposal")
+    @JsonIgnore
+    private List<UserLearningPath> userLearningPaths;
 
 
 }

@@ -41,13 +41,12 @@
         <activity android:name=".activity.vocabulary.VocabularyReviewList" />
         <activity android:name=".activity.vocabulary.VocabularyReviewFlashCardActivity" />
         <activity android:name=".activity.vocabulary.VocabularyReviewSummaryActivity" />
+
+
         <activity android:name=".activity.progress.TrackProgressActivity" />
-
-
-
         <activity android:name=".activity.progress.ProgressSetup" />
         <activity android:name=".activity.progress.LearningPathProposalActivity" />
-        <!--        <activity android:name=".activity.progress.TrackProgressA" />-->
+        <activity android:name=".activity.progress.DailyDetailsActivity" />
 
         <activity android:name=".activity.grammar.GrammarLearnActivity" />
         <activity android:name=".activity.grammar.GrammarTopicLearn" />

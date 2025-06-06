@@ -199,12 +199,10 @@
                         android:layout_height="200dp"
                         android:layout_marginTop="16dp"
                         android:background="@drawable/chart_placeholder_background">
-                        <!-- If using MPAndroidChart, replace TextView with:
                         <com.github.mikephil.charting.charts.LineChart
                             android:id="@+id/weeklyProgressChart"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"/>
-                        -->
                         <TextView
                             android:id="@+id/chartPlaceholderText"
                             android:layout_width="wrap_content"

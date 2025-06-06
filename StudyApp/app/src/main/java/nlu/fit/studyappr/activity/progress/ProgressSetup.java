@@ -107,6 +107,7 @@ public class ProgressSetup extends AppCompatActivity {
         Log.d("ProgressSetup", "Study Duration: " + studyDuration);
         Log.d("ProgressSetup", "Hours per Week: " + hoursPerWeek);
 
+
         // Example: Navigate to LearningPathProposalActivity
          Intent intent = new Intent(ProgressSetup.this, LearningPathProposalActivity.class);
          intent.putExtra("TARGET_SCORE", targetScore);
@@ -114,15 +115,7 @@ public class ProgressSetup extends AppCompatActivity {
          intent.putExtra("HOURS_PER_WEEK", hoursPerWeek);
          startActivity(intent);
 
-        // For now, let's just show a Toast with the selection
-//        String message = "Mục tiêu: " + targetScore +
-//                "\nThời gian: " + studyDuration +
-//                "\nGiờ/tuần: " + hoursPerWeek;
-//        new AlertDialog.Builder(this)
-//                .setTitle("Lựa chọn của bạn")
-//                .setMessage(message)
-//                .setPositiveButton("OK", null)
-//                .show();
+
     }
 
     private void showMissingInfoDialog(String message) {
