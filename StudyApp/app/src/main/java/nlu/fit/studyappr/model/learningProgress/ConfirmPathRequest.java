@@ -8,4 +8,31 @@ public class ConfirmPathRequest {
         this.userId = userId;
         this.pathId = pathId;
     }
+
+    public ConfirmPathRequest() {
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getPathId() {
+        return pathId;
+    }
+
+    public void setPathId(String pathId) {
+        this.pathId = pathId;
+    }
+
+    @Override
+    public String toString() {
+        return "ConfirmPathRequest{" +
+                "userId='" + userId + '\'' +
+                ", pathId='" + pathId + '\'' +
+                '}';
+    }
 }

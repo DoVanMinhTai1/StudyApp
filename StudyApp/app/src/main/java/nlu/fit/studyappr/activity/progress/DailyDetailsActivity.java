@@ -60,9 +60,10 @@ public class DailyDetailsActivity extends AppCompatActivity {
         progressApiService = InitializeRetrofit.getInstance().create(ProgressApiService.class);
 
         // Get userId (from SharedPreferences or Intent)
-        SharedPreferences prefs = getSharedPreferences("app_prefs", MODE_PRIVATE);
-        String userId = prefs.getString("user_id", null);
+//        SharedPreferences prefs = getSharedPreferences("app_prefs", MODE_PRIVATE);
+//        String userId = prefs.getString("user_id", null);
 
+        String userId = "2";
         if (userId != null) {
             fetchDailyDetails(userId);
         } else {

@@ -8,6 +8,6 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 public interface ProgressApiService {
-    @GET("api/progress/daily-details") // Replace with your actual endpoint
+    @GET("/progress/getDailyProgressDetail") // Replace with your actual endpoint
     Call<List<DailyProgressEntry>> getDailyProgressDetails(@Query("userId") String userId);
 }

@@ -1,6 +1,8 @@
 package nlu.fit.studyappr.model.vocabulary;
 
-public class VocabularyTopic {
+import java.io.Serializable;
+
+public class VocabularyTopic implements Serializable {
     private Long id;
     private String title;
 
