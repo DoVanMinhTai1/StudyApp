@@ -1,4 +1,4 @@
-package com.nlu.fit.service;
+package com.nlu.fit.service.grammar;
 
 import com.nlu.fit.model.grammar.GrammarTopic;
 import com.nlu.fit.repository.grammar.GrammarTopicRepository;

@@ -226,12 +226,27 @@
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/buttonViewByDay"
                     style="@style/DetailLinkButton"
-                    android:text="Xem theo ngày"/>
+                    android:text="Xem chi tiết bài học"/>
+
+<!--                <com.google.android.material.button.MaterialButton-->
+<!--                    android:id="@+id/buttonViewByTopic"-->
+<!--                    style="@style/DetailLinkButton"-->
+<!--                    android:text="Xem theo chủ đề"/>-->
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp"
+                android:divider="@drawable/grammar_review_spacer_medium"
+                android:showDividers="middle">
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/buttonViewByTopic"
+                    android:id="@+id/action_progress_setup"
                     style="@style/DetailLinkButton"
-                    android:text="Xem theo chủ đề"/>
+                    android:text="Điều chỉnh lại lộ trình"/>
+
+
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
