@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="#E3F2FD"
+    android:padding="12dp"
+    android:fitsSystemWindows="true"
+    android:layout_marginBottom="16dp">
+
+    <TextView
+        android:id="@+id/textResumeSessionTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tiếp tục buổi học dang dở?"
+        android:textStyle="bold"
+        android:textColor="#1E88E5"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/textResumeSessionDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textColor="#1E88E5"
+        tools:text="Chủ đề: Du lịch cơ bản (5/15 từ)" />
+
+    <Button
+        android:id="@+id/buttonResumeSession"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tiếp tục học"
+        android:layout_marginTop="8dp" />
+</LinearLayout>

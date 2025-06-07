@@ -1,0 +1,44 @@
+<!-- res/values/styles.xml or style_practice_screen.xml -->
+<resources>
+    <!-- ... other styles ... -->
+    <style name="PracticeListItemTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">17sp</item> <!-- font-size: 1.05em -->
+        <item name="android:textStyle">bold</item> <!-- font-weight: 500 -->
+        <item name="android:textColor">@color/practiceListItemTitleText</item>
+    </style>
+
+    <style name="PracticeListItemDetails">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14sp</item> <!-- font-size: 0.85em -->
+        <item name="android:textColor">@color/practiceListItemDetailsText</item>
+        <item name="android:layout_marginTop">2dp</item>
+    </style>
+
+
+    <!-- res/values/styles.xml or style_practice_set_screen.xml -->
+    <!-- ... other styles ... -->
+    <style name="PracticeSetListItemTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/practiceSetListItemTitleText</item>
+    </style>
+
+    <style name="PracticeSetListItemDetails">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/practiceSetListItemDetailsText</item>
+        <item name="android:layout_marginTop">2dp</item>
+    </style>
+
+    <style name="PracticeSetListItemStatus" parent="PracticeSetListItemDetails">
+        <!-- This style can be used for the "Đã hoàn thành (7/10)" part -->
+        <!-- Color can be set dynamically based on status or use a specific color like green -->
+        <item name="android:textStyle">italic</item>
+    </style>
+</resources>

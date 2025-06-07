@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="2dp"
+    android:fitsSystemWindows="true"
+    app:cardBackgroundColor="@color/quizCardBackground"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/questionText"
+            style="@style/QuizQuestionText"
+            tools:text="1. She _______ English very well."/>
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/optionA"
+                style="@style/QuizRadioButton"
+                android:text="speak"/>
+            <RadioButton
+                android:id="@+id/optionB"
+                style="@style/QuizRadioButton"
+                android:text="speaks"/>
+            <RadioButton
+                android:id="@+id/optionC"
+                style="@style/QuizRadioButton"
+                android:text="is speaking"/>
+            <RadioButton
+                android:id="@+id/optionD"
+                style="@style/QuizRadioButton"
+                android:text="speaking"/>
+        </RadioGroup>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

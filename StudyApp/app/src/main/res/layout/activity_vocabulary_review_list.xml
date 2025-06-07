@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:padding="16dp"
+    android:fitsSystemWindows="true"
+    tools:context=".activity.vocabulary.VocabularyReviewList">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Header -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ôn Tập Từ Vựng"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Resume Session Banner (give the include tag an ID) -->
+        <include layout="@layout/activity_vocabulary_review_list_al1"
+            android:id="@+id/resumeSessionBanner"
+            android:visibility="gone"
+            tools:visibility="visible"/><!-- Initially hidden -->
+
+
+        <!-- Word List Section -->
+        <TextView
+            android:id="@+id/textWordsToReviewCount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Cần ôn tập (15 từ)"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:background="#F0F2F5"
+            android:textColor="#6D6D72"
+            android:padding="10dp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Container for sample words (or replace with RecyclerView) -->
+        <LinearLayout
+            android:id="@+id/sampleWordsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="20dp">
+            <!-- Sample words will be added here programmatically or use tools:text for preview -->
+            <TextView tools:text="Accommodation - Chỗ ở" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <TextView tools:text="... (và X từ khác)" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/textMoreWords"/>
+        </LinearLayout>
+
+
+        <!-- Review Method Selection -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chọn phương pháp ôn tập:"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <RadioGroup
+            android:id="@+id/reviewMethodGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/radioFlashcard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Flashcard"
+                android:checked="true" />
+            <RadioButton
+                android:id="@+id/radioQuiz"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Trắc nghiệm" />
+            <RadioButton
+                android:id="@+id/radioRewrite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gõ lại từ / nghĩa" />
+        </RadioGroup>
+
+        <!-- Start Button -->
+        <Button
+            android:id="@+id/buttonStartReview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bắt đầu ôn tập"
+            android:layout_marginTop="24dp" />
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,90 @@
+<!-- res/layout/activity_review_results.xml -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    android:background="@color/resultsBodyBackground"
+    tools:context=".activity.grammar.GrammarExerciseResult"> <!-- Replace with your Activity name -->
+
+    <!-- Header Toolbar -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar_results"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/resultsHeaderBackground"
+        app:title="Kết Quả Ôn Tập"
+        app:titleTextColor="@color/resultsHeaderText"
+        app:titleCentered="true"
+        app:navigationIcon="@drawable/ic_search"
+        app:navigationIconTint="@color/resultsHeaderText"
+        android:elevation="4dp"/>
+
+    <!-- Content Container (mimics div.container) -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"> <!-- Important for centering content vertically if it's short -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="24dp"
+            android:layout_margin="16dp"
+            android:background="@drawable/grammar_review_container_card_background"> <!-- Re-use or create new for white card -->
+
+            <TextView
+                android:id="@+id/topicNameTextView"
+                style="@style/ResultsTopicNameText"
+                tools:text="Chủ điểm: Thì Hiện tại đơn"/>
+
+            <TextView
+                android:id="@+id/congratsMessageTextView11"
+                style="@style/ResultsMessageText"
+                android:text="Chúc mừng bạn đã hoàn thành phần ôn tập!"/>
+
+            <TextView
+                android:id="@+id/scoreTextView1"
+                style="@style/ResultsScoreText"
+                tools:text="Điểm của bạn: 8 / 10"/>
+
+            <TextView
+                android:id="@+id/saveConfirmationTextView1"
+                style="@style/ResultsMessageText"
+                android:textSize="14sp"
+                android:text="Kết quả ôn tập đã được lưu lại."
+                android:layout_marginBottom="24dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Actions Footer -->
+    <LinearLayout
+        android:id="@+id/actions_footer_results_layout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/resultsContainerBackground"
+        android:padding="12dp"
+        android:elevation="4dp"
+        android:divider="@drawable/grammar_review_spacer_medium"
+        android:showDividers="middle"> <!-- Adds space between buttons -->
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonBackToList1"
+            style="@style/ButtonBackToList"
+            android:text="Ôn tập chủ điểm khác"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonBackToHome1"
+            style="@style/ButtonBackToHome"
+            android:text="Về Trang chủ"/>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,34 @@
+<!-- res/layout/activity_select_practice_set.xml -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/practiceBodyBackground"
+    tools:context=".SelectPracticeSetActivity"> <!-- Replace with your Activity name -->
+
+    <!-- Header Toolbar -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar_practice_set1"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/practiceSetHeaderBackground"
+        app:titleTextColor="@color/practiceSetHeaderText"
+        app:titleCentered="true"
+        app:navigationIcon="@drawable/ic_search"
+        app:navigationIconTint="@color/practiceSetHeaderText"
+        android:elevation="4dp"
+        tools:title="Đọc hiểu - Chọn bài làm"/> <!-- tools:title for preview -->
+
+    <!-- RecyclerView for the list of practice sets -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/practiceSetRecyclerView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="12dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/activity_practice_list_item_set"/>
+
+</LinearLayout>

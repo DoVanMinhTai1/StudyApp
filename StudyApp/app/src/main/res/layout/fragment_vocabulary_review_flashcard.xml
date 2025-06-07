@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Header -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ôn tập: Flashcard"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Progress Bar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:background="#D1D1D6"
+            android:layout_marginBottom="8dp">
+
+            <View
+                android:id="@+id/progressBarFill"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.15"
+                android:background="#007AFF" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Từ 2 / 15"
+            android:textSize="14sp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Card Content -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="#F8F8F8"
+            android:elevation="2dp"
+            android:layout_marginBottom="20dp"
+            android:clipToOutline="true"
+            android:backgroundTint="#F2F2F7">
+
+            <TextView
+                android:id="@+id/wordDisplay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Itinerary"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="10dp" />
+
+            <TextView
+                android:id="@+id/meaningDisplay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(Bấm Hiện đáp án\ để xem)"
+            android:textSize="16sp"
+            android:textColor="#999999"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="/aɪˈtɪnəreri/"
+                    android:textSize="16sp"
+                    android:layout_marginEnd="10dp" />
+
+                <Button
+                    android:id="@+id/pronounceButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🔊"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:padding="4dp"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:src="@drawable/ic_home"
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="Hình minh họa: Lịch trình"
+                android:layout_marginBottom="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ví dụ: Let's check the itinerary for our trip to Paris."
+                android:textStyle="italic"
+                android:textSize="14sp"
+                android:layout_gravity="center_horizontal" />
+        </LinearLayout>
+
+        <!-- Show Answer Button -->
+        <Button
+            android:id="@+id/showAnswerButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hiện đáp án"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Action Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:weightSum="2"
+            android:layout_marginBottom="16dp">
+
+            <Button
+                android:id="@+id/buttonReviewAgain"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Cần ôn lại"
+                android:backgroundTint="#E74C3C"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/buttonRemembered"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Nhớ tốt" />
+        </LinearLayout>
+
+        <!-- Early Finish -->
+        <Button
+            android:id="@+id/buttonFinishEarly"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kết thúc sớm"
+            android:backgroundTint="#7f8c8d"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+</ScrollView>

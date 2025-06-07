@@ -1,0 +1,42 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="16dp">
+
+    <!-- Câu hỏi nếu có -->
+    <TextView
+        android:id="@+id/questionTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        android:paddingBottom="8dp"/>
+
+    <!-- Nhóm đáp án -->
+    <RadioGroup
+        android:id="@+id/optionRadioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/optionA"
+            style="@style/CustomRadioButton"/>
+
+        <RadioButton
+            android:id="@+id/optionB"
+            style="@style/CustomRadioButton"/>
+
+        <RadioButton
+            android:id="@+id/optionC"
+            style="@style/CustomRadioButton"/>
+
+        <RadioButton
+            android:id="@+id/optionD"
+            style="@style/CustomRadioButton"/>
+    </RadioGroup>
+</LinearLayout>

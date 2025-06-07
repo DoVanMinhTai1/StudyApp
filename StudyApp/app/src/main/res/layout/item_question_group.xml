@@ -1,0 +1,25 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/questionGroupLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="24dp">
+
+    <!-- Đoạn văn hoặc đề bài lớn (có thể ẩn nếu không cần) -->
+    <TextView
+        android:id="@+id/passageTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:paddingBottom="8dp"
+        android:visibility="gone"/>
+
+    <!-- Layout chứa các câu hỏi con -->
+    <LinearLayout
+        android:id="@+id/subQuestionsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" />
+</LinearLayout>

@@ -1,0 +1,114 @@
+<!-- res/layout/activity_quiz_review.xml -->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/quizBodyBackground"
+    tools:context=".activity.grammar.GrammarExerciseActivity"> <!-- Replace with your Activity name -->
+
+    <LinearLayout
+        android:id="@+id/header_info_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/quizTopicTitleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Thì Hiện tại đơn - Kết quả"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/quizTopicTitleColor"
+        android:gravity="center"
+        android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/quizScoreTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Điểm: 0 / 0"
+        android:textSize="16sp"
+        android:textColor="@color/quizProgressTextColor"
+        android:gravity="center"
+        android:layout_marginBottom="10dp"/>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/questionsRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:clipToPadding="false"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/activity_grammar_list_item_grammar_question_review_card"/>
+
+    <!--        android:layout_below="@id/header_info_layout12"-->
+    <!--        android:layout_above="@+id/actions_footer_layout_review211"-->
+
+    <!-- Actions Footer -->
+    <LinearLayout
+        android:id="@+id/actions_footer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/quizFooterBackground"
+        android:padding="12dp"
+        android:elevation="4dp"
+        android:layout_alignParentBottom="true"
+        android:divider="@drawable/grammar_review_spacer_medium"
+        android:showDividers="middle"> <!-- Adds space between buttons -->
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/quizExitButton"
+            style="@style/QuizExitButton"
+            android:text="Thoát"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/quizSubmitButton1"
+            style="@style/QuizSubmitButton"
+            android:text="Nộp bài"/>
+    </LinearLayout>
+    <!-- Inside your root RelativeLayout, likely before the RecyclerView -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/errorTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Error loading data"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="16sp"
+        android:visibility="gone"
+        android:padding="16dp"
+        android:gravity="center"/>
+
+    <!-- Wrap your existing header_info_layout and questionsRecyclerView in this LinearLayout -->
+    <LinearLayout
+        android:id="@+id/contentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible">
+<!--        android:layout_below="@id/toolbar_quiz_review"-->
+<!--        android:layout_above="@+id/actions_footer_layout_review"-->
+         <!-- Initially visible or set in code -->
+
+        <!-- Your existing LinearLayout with id header_info_layout goes here -->
+        <!-- Your existing RecyclerView with id questionsRecyclerView goes here -->
+
+    </LinearLayout>
+
+</RelativeLayout>

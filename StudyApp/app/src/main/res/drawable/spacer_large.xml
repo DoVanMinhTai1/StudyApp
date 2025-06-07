@@ -1,0 +1,4 @@
+<!-- res/drawable/spacer_large.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <size android:width="16dp"/> <!-- Or whatever size you intended -->
+</shape>

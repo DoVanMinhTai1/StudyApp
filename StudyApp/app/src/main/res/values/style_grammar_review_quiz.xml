@@ -1,0 +1,51 @@
+<!-- res/values/styles.xml or themes.xml -->
+<resources>
+    <!-- ... other styles ... -->
+    <style name="QuizQuestionText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/quizTextColor</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item> <!-- font-weight: 500 -->
+        <item name="android:layout_marginBottom">12dp</item>
+    </style>
+
+    <style name="QuizRadioButton" parent="Widget.MaterialComponents.CompoundButton.RadioButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:background">@drawable/grammar_review_quiz_option_selector</item> <!-- See drawable -->
+        <item name="android:textColor">@color/quizTextColor</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:button">@null</item> <!-- Hide default radio button circle if custom BG handles selection -->
+        <item name="android:drawableStart">@android:drawable/btn_radio</item> <!-- Or your custom radio drawable -->
+        <item name="android:drawablePadding">8dp</item>
+    </style>
+
+    <style name="QuizButton" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="cornerRadius">6dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+    </style>
+
+    <style name="QuizSubmitButton" parent="QuizButton">
+        <item name="android:backgroundTint">@color/quizButtonSubmitBackground</item>
+        <item name="android:textColor">@color/quizButtonSubmitText</item>
+    </style>
+
+    <style name="QuizExitButton" parent="QuizButton">
+        <item name="android:backgroundTint">@color/quizButtonExitBackground</item>
+        <item name="android:textColor">@color/quizButtonExitText</item>
+    </style>
+</resources>

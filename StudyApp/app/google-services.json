@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "800102698845",
+    "firebase_url": "https://awesome-advice-438006-v3-default-rtdb.firebaseio.com",
+    "project_id": "awesome-advice-438006-v3",
+    "storage_bucket": "awesome-advice-438006-v3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:800102698845:android:b031b6449d453d0def62b4",
+        "android_client_info": {
+          "package_name": "nlu.fit.studyappr.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "800102698845-bqjavg41jl9d8qf00s85ekirggutppmq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAK6gt6s8mA4Npqlvs0bSFwMsAgqATw0LA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "800102698845-bqjavg41jl9d8qf00s85ekirggutppmq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

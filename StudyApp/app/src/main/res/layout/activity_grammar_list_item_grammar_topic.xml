@@ -1,0 +1,26 @@
+<!-- res/layout/list_item_grammar_topic.xml -->
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginBottom="10dp"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="2dp"
+    android:fitsSystemWindows="true"
+    android:foreground="?attr/selectableItemBackground"> <!-- Ripple effect on the whole card -->
+
+    <TextView
+        android:id="@+id/topicNameTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:textSize="16sp"
+        android:textColor="@color/list_item_text_color"
+        android:background="@color/list_item_background"
+        tools:text="Thì Hiện tại đơn (Present Simple)" />
+    <!-- Note: The background selector for hover effect on TextView is tricky if CardView has its own foreground.
+         It's often better to handle visual feedback on the CardView itself.
+         If you don't use CardView, apply the style/selector directly to TextView.
+    -->
+</androidx.cardview.widget.CardView>

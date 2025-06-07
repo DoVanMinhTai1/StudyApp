@@ -1,0 +1,83 @@
+<!-- res/values/styles.xml or style_mock_exam_results.xml -->
+<resources>
+    <!-- ... other styles ... -->
+    <style name="MockExamResultsScoreTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/mockExamResultsScoreColor</item>
+        <item name="android:layout_marginBottom">4dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="MockExamResultsInfoText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/mockExamResultsTextColor</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="MockExamResultsTimeText" parent="MockExamResultsInfoText">
+        <item name="android:textColor">@color/mockExamResultsTimeColor</item>
+        <item name="android:layout_marginBottom">16dp</item>
+    </style>
+
+    <style name="MockExamResultsButtonBase" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="cornerRadius">5dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="ButtonRetryExam" parent="MockExamResultsButtonBase">
+        <item name="android:backgroundTint">@color/buttonRetryExamBackground</item>
+        <item name="android:textColor">@color/buttonRetryExamText</item>
+    </style>
+
+    <style name="ButtonSelectOtherExam" parent="MockExamResultsButtonBase">
+        <item name="android:backgroundTint">@color/buttonSelectOtherExamBackground</item>
+        <item name="android:textColor">@color/buttonSelectOtherExamText</item>
+    </style>
+
+    <!-- Styles for Question Review (can be reused/adapted from ldb-ket-qua.html translation) -->
+    <style name="ReviewQuestionCard" parent="Widget.MaterialComponents.CardView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="cardCornerRadius">8dp</item>
+        <item name="cardElevation">2dp</item>
+        <item name="android:layout_marginBottom">12dp</item>
+        <item name="cardBackgroundColor">@color/white</item>
+    </style>
+
+    <style name="ReviewQuestionHeaderText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#444444</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginBottom">8dp</item>
+    </style>
+
+    <style name="ReviewQuestionText" parent="DoExerciseQuestionText"> <!-- Assuming DoExerciseQuestionText is defined -->
+        <item name="android:layout_marginBottom">12dp</item>
+    </style>
+
+    <style name="ReviewAnswerOptionBase">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:layout_marginBottom">6dp</item>
+        <item name="android:background">@drawable/review_option_default_bg</item> <!-- See drawable -->
+    </style>
+    <!-- Specific styles for correct, incorrect, user_selected will be applied via drawables -->
+</resources>
