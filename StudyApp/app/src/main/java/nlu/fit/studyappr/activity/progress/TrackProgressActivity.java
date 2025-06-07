@@ -1,5 +1,6 @@
 package nlu.fit.studyappr.activity.progress;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
@@ -23,6 +24,7 @@ import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.button.MaterialButton;
 
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -33,6 +35,7 @@ import java.util.List;
 import java.util.Map;
 
 import nlu.fit.studyappr.R;
+import nlu.fit.studyappr.adapter.progress.DailyDetailsAdapter;
 import nlu.fit.studyappr.api.initRetrofit.InitializeRetrofit;
 import nlu.fit.studyappr.api.learningpath.LearningPathApiService;
 import nlu.fit.studyappr.model.learningProgress.ChartDataPoint;
@@ -56,6 +59,12 @@ public class TrackProgressActivity extends AppCompatActivity {
     private LineChart weeklyProgressChart;
 
     private TextView chartPlaceHolderText;
+
+    // Khai báo một key hằng số để tránh lỗi chính tả khi truyền và nhận dữ liệu
+    public static final String EXTRA_INITIAL_FILTER_TYPE = "nlu.fit.studyappr.INITIAL_FILTER_TYPE";
+    private MaterialButton buttonViewByDay;
+
+    private MaterialButton buttonSetup;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -103,6 +112,40 @@ public class TrackProgressActivity extends AppCompatActivity {
         // You might need to inflate or add the LineChart programmatically if it's not directly in XML,
         // or ensure your XML has <com.github.mikephil.charting.charts.LineChart .../>
         // For now, let's assume it's directly in the XML:
+
+        // 1. Ánh xạ (Find) nút bấm từ layout
+        buttonViewByDay = findViewById(R.id.buttonViewByDay);
+        // Có thể bạn cũng cần ánh xạ các view khác ở đây để set dữ liệu
+        // ví dụ: TextView statLearnedVocabValue = findViewById(R.id.statLearnedVocabValue);
+
+        // 2. Thiết lập listener để xử lý sự kiện click
+        buttonViewByDay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Gọi phương thức để mở màn hình chi tiết
+                openDailyDetailsScreen("DATE");
+            }
+
+
+        });
+
+        buttonSetup = findViewById(R.id.action_progress_setup);
+        buttonSetup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TrackProgressActivity.this, ProgressSetup.class);
+                startActivity(intent);
+
+            }
+        });
+
+
+    }
+
+    private void openDailyDetailsScreen(String type) {
+        Intent intent = new Intent(TrackProgressActivity.this, DailyDetailsActivity.class);
+        intent.putExtra(EXTRA_INITIAL_FILTER_TYPE, type);
+        startActivity(intent);
     }
 
     private void loadAndDisplayProgressData(String pathId) {
@@ -127,12 +170,8 @@ public class TrackProgressActivity extends AppCompatActivity {
             public void onResponse(Call<UserLearningPath> call, Response<UserLearningPath> response) {
                 if (response.isSuccessful()) {
                     userLearningPath = response.body();
-                    // For now, using mock data as in your HTML's JS
-                    int learnedVocab = 125;
-                    int exercisesDone = 30;
-                    int exercisesCompleted = 25;
-                    int pathCompletionPercentage = 40; // Example
-                    // ... set text for other stat TextViews ...
+
+
                     TextView statExercisesDone = findViewById(R.id.statExercisesDoneValue);
                     TextView statExercisesCompleted = findViewById(R.id.statExercisesCompletedValue);
                     TextView statPathCompletion = findViewById(R.id.statPathCompletionValue);
@@ -146,6 +185,7 @@ public class TrackProgressActivity extends AppCompatActivity {
                     overallProgressBarText.setText(userLearningPath.getProgressStats().getCompletionPercentage() + "%");
 
                     List<ChartDataPoint> chartDataPoints = new ArrayList<>();
+                    chartDataPoints = userLearningPath.getChartData();
                     if (weeklyProgressChart != null && chartDataPoints != null && !chartDataPoints.isEmpty()) {
                         chartPlaceHolderText.setVisibility(View.GONE);
                         weeklyProgressChart.setVisibility(View.VISIBLE);

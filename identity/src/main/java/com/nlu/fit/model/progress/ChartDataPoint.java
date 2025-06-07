@@ -1,5 +1,6 @@
 package com.nlu.fit.model.progress;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -24,5 +25,6 @@ public class ChartDataPoint {
 
     @ManyToOne
     @JoinColumn(name = "chartData")
+    @JsonIgnore
     private UserLearningPath userLearningPath;
 }
