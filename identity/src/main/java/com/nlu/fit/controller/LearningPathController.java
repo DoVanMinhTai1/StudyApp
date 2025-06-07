@@ -22,7 +22,7 @@ public class LearningPathController {
         return ResponseEntity.ok(progressService.getLearningPathProposal(request));
     }
 
-    @PostMapping("/learning-path/confirm") // Your actual endpoint for confirming
+    @PostMapping("/learning-path/confirm")
     public ResponseEntity<UserLearningPath> saveCurrentPathInfoLocally(@RequestBody ConfirmPathRequest request) {
         return ResponseEntity.ok(progressService.saveCurrentPathInfoLocally(request));
     }

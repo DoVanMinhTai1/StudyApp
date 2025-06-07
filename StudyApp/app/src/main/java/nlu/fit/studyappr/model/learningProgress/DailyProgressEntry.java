@@ -3,7 +3,9 @@ package nlu.fit.studyappr.model.learningProgress; // Your package
 import java.io.Serializable;
 import java.util.List;
 
-public class DailyProgressEntry implements Serializable {
+import nlu.fit.studyappr.model.learningProgress.configView.DisplayableItem;
+
+public class DailyProgressEntry implements Serializable, DisplayableItem {
     private String date;
     private List<DailyActivityItem> activities;
 

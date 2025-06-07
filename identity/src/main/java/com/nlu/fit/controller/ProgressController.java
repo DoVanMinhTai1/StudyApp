@@ -2,13 +2,12 @@ package com.nlu.fit.controller;
 
 import com.nlu.fit.model.progress.DailyProgressEntry;
 import com.nlu.fit.service.progress.ProgressService;
+import com.nlu.fit.viewmodel.learningPath.ProgressOverviewViewModel;
+import com.nlu.fit.viewmodel.learningPath.UpdateProgress;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,6 +21,17 @@ public class ProgressController {
     @GetMapping("/progress/getDailyProgressDetail")
     public ResponseEntity<List<DailyProgressEntry>> getDailyProgressDetails(@RequestParam String userId) {
         return ResponseEntity.ok(progressService.getDailyProgressDetails(userId));
+    }
+
+    @GetMapping("/progress/getProgressOverView")
+    public ResponseEntity<ProgressOverviewViewModel> getProgressOverView(@RequestParam String userId) {
+        return ResponseEntity.ok(progressService.getProgressOverView(userId));
+    }
+
+    @PostMapping("/progress/updateProgress")
+    public ResponseEntity<Void> updateProgress(@RequestBody UpdateProgress updateProgress ) {
+        progressService.recordTopicCompletion(updateProgress);
+        return ResponseEntity.ok().build();
     }
 }
 

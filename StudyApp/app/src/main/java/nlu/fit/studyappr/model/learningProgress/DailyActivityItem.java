@@ -3,6 +3,8 @@ package nlu.fit.studyappr.model.learningProgress;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+import nlu.fit.studyappr.model.learningProgress.configView.DisplayableItem;
+
 public class DailyActivityItem implements Serializable {
     private String activityId;
     private String title;

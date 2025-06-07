@@ -2,6 +2,7 @@ package nlu.fit.studyappr.activity.progress; // Your package
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,7 +18,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.appbar.MaterialToolbar;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import nlu.fit.studyappr.R;
@@ -37,9 +40,6 @@ public class DailyDetailsActivity extends AppCompatActivity {
     private DailyDetailsAdapter adapter;
     private ProgressApiService progressApiService;
 
-    private ProgressBar progressBarDailyDetails;
-    private TextView textViewDailyDetailsError;
-
     List<DailyProgressEntry> dailyEntries;
     private final String TOPIC_TYPE_DATE = "DATE";
 
@@ -47,6 +47,7 @@ public class DailyDetailsActivity extends AppCompatActivity {
 
     private final String TOPIC_TYPE_GRAMMAR = "GRAMMAR";
 
+    private String initialFilterType;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -55,9 +56,6 @@ public class DailyDetailsActivity extends AppCompatActivity {
 
         toolbar = findViewById(R.id.toolbar_daily_details);
         dailyDetailsRecyclerView = findViewById(R.id.dailyDetailsRecyclerView);
-        // Initialize ProgressBar and Error TextView if you add them to activity_daily_details.xml
-        // progressBarDailyDetails = findViewById(R.id.progressBarDailyDetails);
-        // textViewDailyDetailsError = findViewById(R.id.textViewDailyDetailsError);
 
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
@@ -68,9 +66,21 @@ public class DailyDetailsActivity extends AppCompatActivity {
 
 
         dailyDetailsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        adapter = new DailyDetailsAdapter(this); // Không cần truyền list lúc đầu
+        dailyDetailsRecyclerView.setAdapter(adapter);
+
+        Intent intent = getIntent();
+        // Lấy giá trị từ key, nếu không có thì mặc định là "DATE"
+        initialFilterType = intent.getStringExtra(TrackProgressActivity.EXTRA_INITIAL_FILTER_TYPE);
+        if (initialFilterType == null) {
+            initialFilterType = TOPIC_TYPE_DATE; // Giá trị mặc định để tránh lỗi
+        }
+
+        updateToolbarTitle(initialFilterType);
+
         progressApiService = InitializeRetrofit.getInstance().create(ProgressApiService.class);
 
-        // Get userId (from SharedPreferences or Intent)
 //        SharedPreferences prefs = getSharedPreferences("app_prefs", MODE_PRIVATE);
 //        String userId = prefs.getString("user_id", null);
 
@@ -81,6 +91,16 @@ public class DailyDetailsActivity extends AppCompatActivity {
             Toast.makeText(this, "Lỗi: Không tìm thấy User ID.", Toast.LENGTH_LONG).show();
             // Handle error, maybe finish activity
             showErrorState("Không thể tải dữ liệu người dùng.");
+        }
+    }
+
+    private void updateToolbarTitle(String initialFilterType) {
+        if (TOPIC_TYPE_VOCABULARY.equals(initialFilterType)) {
+            toolbar.setTitle("Chi tiết học theo từ vựng");
+        } else if (TOPIC_TYPE_GRAMMAR.equals(initialFilterType)) {
+            toolbar.setTitle("Chi tiết học theo ngữ pháp");
+        } else { // Mặc định là theo ngày
+            toolbar.setTitle("Chi tiết học theo ngày");
         }
     }
 
@@ -108,12 +128,26 @@ public class DailyDetailsActivity extends AppCompatActivity {
             public void onResponse(@NonNull Call<List<DailyProgressEntry>> call, @NonNull Response<List<DailyProgressEntry>> response) {
                 showLoadingState(false);
                 if (response.isSuccessful() && response.body() != null) {
-                   dailyEntries = response.body();
+                    dailyEntries = response.body();
                     if (dailyEntries.isEmpty()) {
                         showErrorState("Không có hoạt động nào được ghi nhận.");
                     } else {
-                        adapter = new DailyDetailsAdapter(DailyDetailsActivity.this, new ArrayList<>(dailyEntries), TOPIC_TYPE_DATE);
-                        dailyDetailsRecyclerView.setAdapter(adapter);
+
+                        Collections.sort(dailyEntries, (entry1, entry2) -> {
+                            try {
+                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                                    LocalDateTime date1 = LocalDateTime.parse(entry1.getDate());
+                                    LocalDateTime date2 = LocalDateTime.parse(entry1.getDate());
+                                    return date2.compareTo(date1);
+                                }
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                                return 0;
+                            }
+                            return 0;
+                        });
+
+                        adapter.setData(dailyEntries, TOPIC_TYPE_DATE);
                         // if (dailyDetailsRecyclerView != null) dailyDetailsRecyclerView.setVisibility(View.VISIBLE);
                     }
                 } else {
@@ -140,14 +174,14 @@ public class DailyDetailsActivity extends AppCompatActivity {
             startActivity(intent);
         } else if (item.getItemId() == R.id.action_filter_date) {
             applyTopicTypeFilter(TOPIC_TYPE_DATE);
-            toolbar.setTitle("Chi tiết học theo ngày");
+            updateToolbarTitle(TOPIC_TYPE_DATE);
             return true;
         } else if (item.getItemId() == R.id.action_filter_topic_type_vocab) {
-            toolbar.setTitle("Chi tiết học theo từ vựng");
             applyTopicTypeFilter(TOPIC_TYPE_VOCABULARY);
+            updateToolbarTitle(TOPIC_TYPE_VOCABULARY);
             return true;
         } else if (item.getItemId() == R.id.action_filter_topic_type_grammar) {
-            toolbar.setTitle("Chi tiết học theo ngữ pháp");
+            updateToolbarTitle(TOPIC_TYPE_GRAMMAR);
             applyTopicTypeFilter(TOPIC_TYPE_GRAMMAR);
             return true;
         } else {
@@ -157,15 +191,11 @@ public class DailyDetailsActivity extends AppCompatActivity {
     }
 
     private void applyTopicTypeFilter(String topicType) {
-        if (adapter != null) {
-            // The adapter needs to be aware of the master list and the filter
-            adapter.updateData(new ArrayList<>(dailyEntries), topicType);
-        } else if (!dailyEntries.isEmpty()){
-            // If adapter was not yet created but data is loaded
-            adapter = new DailyDetailsAdapter(DailyDetailsActivity.this, new ArrayList<>(dailyEntries), topicType);
-            dailyDetailsRecyclerView.setAdapter(adapter);
+        if (adapter != null && dailyEntries != null) {
+            // Chỉ cần gọi setData, adapter sẽ tự xử lý mọi thứ
+            adapter.setData(dailyEntries, topicType);
         }
-        Toast.makeText(this, "Lọc theo: " + topicType, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Đã lọc theo: " + topicType, Toast.LENGTH_SHORT).show();
     }
 
     @Override

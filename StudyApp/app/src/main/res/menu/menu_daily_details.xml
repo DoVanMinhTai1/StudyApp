@@ -4,28 +4,24 @@
 
 
 
-    <item
-        android:id="@+id/action_filter_by_topic_type_main"
-        android:title="Menu">
 
+        <item
+            android:id="@+id/action_filter_date"
+            android:orderInCategory="100"
+            android:title="Lọc theo ngày"
+            app:showAsAction="never" />
 
-        <menu>
-            <item
-                android:id="@+id/action_filter_date"
-                android:title="Lọc theo ngày"
-                app:showAsAction="ifRoom" />
-            <item
-                android:id="@+id/action_filter_topic_type_vocab"
-                android:title="Chủ đề Từ vựng" />
-            <item
-                android:id="@+id/action_filter_topic_type_grammar"
-                android:title="Chủ đề Ngữ pháp" />
-            <item
-                android:id="@+id/action_progress_setup"
-                android:title="Điều chỉnh lại lộ trình"
-                app:showAsAction="ifRoom" />
-        </menu>
-    </item>
+        <item
+            android:id="@+id/action_filter_topic_type_vocab"
+            android:orderInCategory="101"
+            android:title="Chủ đề Từ vựng"
+            app:showAsAction="never" />
+
+        <item
+            android:id="@+id/action_filter_topic_type_grammar"
+            android:orderInCategory="102"
+            android:title="Chủ đề Ngữ pháp"
+            app:showAsAction="never" />
 
 
 
