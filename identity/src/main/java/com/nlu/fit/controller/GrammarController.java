@@ -4,7 +4,7 @@ import com.nlu.fit.model.*;
 import com.nlu.fit.model.grammar.GrammarLesson;
 import com.nlu.fit.model.grammar.GrammarReviewResult;
 import com.nlu.fit.model.grammar.GrammarTopic;
-import com.nlu.fit.service.*;
+import com.nlu.fit.service.grammar.*;
 import com.nlu.fit.viewmodel.grammarexercise.AnswerSubmissionRequest;
 import com.nlu.fit.viewmodel.grammarexercise.ExerciseResult;
 import com.nlu.fit.viewmodel.grammarexercise.GrammarLessonVm;
@@ -20,11 +20,11 @@ import java.util.List;
 @RequestMapping
 @AllArgsConstructor
 public class GrammarController {
-    private  GrammarExerciseService grammarExerciseService;
-    private  GrammarExplanationService grammarExplanationService;
-    private  GrammarTopicService grammarTopicService;
-    private  GrammarLessonService grammarLessonService;
-    private  UserAnswerService userAnswerService;
+    private GrammarExerciseService grammarExerciseService;
+    private GrammarExplanationService grammarExplanationService;
+    private GrammarTopicService grammarTopicService;
+    private GrammarLessonService grammarLessonService;
+    private UserAnswerService userAnswerService;
     
     @GetMapping("/getAllGrammarTopics")
     public ResponseEntity<List<GrammarTopic>> getAllGrammarTopics() {
@@ -55,10 +55,4 @@ public class GrammarController {
     public ResponseEntity<GrammarReviewResult> saveGrammarReviewResult(@RequestBody GrammarReviewResult grammarReviewResult) {
         return ResponseEntity.ok(grammarExerciseService.saveGrammarReviewResult(grammarReviewResult));
     }
-    
-
-    
-
-
-    
 }

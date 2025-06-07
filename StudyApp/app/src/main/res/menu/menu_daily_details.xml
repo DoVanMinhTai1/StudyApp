@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+    <item
+        android:id="@+id/action_filter_by_topic_type_main"
+        android:title="Menu">
+
+
+        <menu>
+            <item
+                android:id="@+id/action_filter_date"
+                android:title="Lọc theo ngày"
+                app:showAsAction="ifRoom" />
+            <item
+                android:id="@+id/action_filter_topic_type_vocab"
+                android:title="Chủ đề Từ vựng" />
+            <item
+                android:id="@+id/action_filter_topic_type_grammar"
+                android:title="Chủ đề Ngữ pháp" />
+            <item
+                android:id="@+id/action_progress_setup"
+                android:title="Điều chỉnh lại lộ trình"
+                app:showAsAction="ifRoom" />
+        </menu>
+    </item>
+
+
+
+</menu>

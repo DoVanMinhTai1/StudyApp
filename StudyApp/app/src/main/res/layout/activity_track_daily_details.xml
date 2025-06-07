@@ -1,38 +1,38 @@
-<!-- res/layout/activity_daily_details.xml -->
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/dailyDetailBodyBackground"
-    tools:context=".activity.progress.DailyDetailsActivity">
-
-    <!-- Header Toolbar -->
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/toolbar_daily_details"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/dailyDetailHeaderBackground"
-        app:title="Chi tiết học theo ngày"
-        app:titleTextColor="@color/dailyDetailHeaderText"
-        app:titleCentered="true"
-        app:navigationIcon="@drawable/ic_search"
-        app:navigationIconTint="@color/dailyDetailHeaderText"
-        android:elevation="4dp"/>
-
-
-    <!-- RecyclerView for the list of dates and activities -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/dailyDetailsRecyclerView"
+    <!-- res/layout/activity_daily_details.xml -->
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:paddingTop="8dp"
-        android:clipToPadding="false"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/activity_track_list_item_activity_detail"/> <!-- Can also use tools:listitem for header -->
+        android:orientation="vertical"
+        android:background="@color/dailyDetailBodyBackground"
+        tools:context=".activity.progress.DailyDetailsActivity">
 
-</LinearLayout>
+        <!-- Header Toolbar -->
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar_daily_details"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/dailyDetailHeaderBackground"
+            app:title="Chi tiết học theo ngày"
+            app:titleTextColor="@color/dailyDetailHeaderText"
+            app:titleCentered="true"
+            app:navigationIcon="@drawable/ic_search"
+            app:navigationIconTint="@color/dailyDetailHeaderText"
+            android:elevation="4dp"/>
+
+
+        <!-- RecyclerView for the list of dates and activities -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/dailyDetailsRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="8dp"
+            android:clipToPadding="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/activity_track_list_item_activity_detail"/> <!-- Can also use tools:listitem for header -->
+
+    </LinearLayout>

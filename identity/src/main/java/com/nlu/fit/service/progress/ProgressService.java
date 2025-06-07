@@ -1,9 +1,7 @@
 package com.nlu.fit.service.progress;
 
-import com.nlu.fit.model.progress.ChartDataPoint;
-import com.nlu.fit.model.progress.LearningPathProposal;
-import com.nlu.fit.model.progress.ProgressStats;
-import com.nlu.fit.model.progress.UserLearningPath;
+import com.nlu.fit.model.progress.*;
+import com.nlu.fit.repository.progress.DailyProgressEntryRepository;
 import com.nlu.fit.repository.progress.LearningPathProposalRepository;
 import com.nlu.fit.repository.progress.UserLearningPathRepository;
 import com.nlu.fit.viewmodel.learningPath.ConfirmPathRequest;
@@ -24,7 +22,7 @@ import java.util.stream.Collectors;
 public class ProgressService {
     private final LearningPathProposalRepository learningPathProposalRepository;
     private final UserLearningPathRepository userLearningPathRepository;
-
+    private final DailyProgressEntryRepository dailyProgressEntryRepository;
 
     public LearningPathProposalResponse getLearningPathProposal(LearningPathRequest request) {
         double hoursPerDay = request.hoursPerWeek() / 7;
@@ -91,5 +89,10 @@ public class ProgressService {
             return new UserLearningPath();
         }
         return learningPathProposal;
+    }
+
+    public List<DailyProgressEntry> getDailyProgressDetails(String userId) {
+        List<DailyProgressEntry> dailyProgressEntry = dailyProgressEntryRepository.findByUserIdOrderByDate(userId);
+        return dailyProgressEntry;
     }
 }

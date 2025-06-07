@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.nlu.fit.model.grammar.GrammarExerciseQuestion;
 import com.nlu.fit.model.grammar.GrammarTopic;
-import com.nlu.fit.service.GrammarReviewService;
+import com.nlu.fit.service.grammar.GrammarReviewService;
 
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;

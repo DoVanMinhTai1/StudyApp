@@ -1,4 +1,4 @@
-package com.nlu.fit.service;
+package com.nlu.fit.service.grammar;
 
 import java.util.ArrayList;
 import java.util.List;
