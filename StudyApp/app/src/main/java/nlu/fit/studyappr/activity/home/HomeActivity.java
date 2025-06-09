@@ -2,6 +2,8 @@ package nlu.fit.studyappr.activity.home;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,8 +18,10 @@ import nlu.fit.studyappr.R;
 import nlu.fit.studyappr.activity.grammar.GrammarTopicLearn;
 import nlu.fit.studyappr.activity.grammar.GrammarTopicReview;
 import nlu.fit.studyappr.activity.practice.PracticeList;
+import nlu.fit.studyappr.activity.profile.SettingsActivity;
 import nlu.fit.studyappr.activity.progress.DailyDetailsActivity;
 import nlu.fit.studyappr.activity.progress.ProgressSetup;
+import nlu.fit.studyappr.activity.vocabulary.DictionaryLookupActivity;
 import nlu.fit.studyappr.activity.vocabulary.VocabularyLearnSetupActivity;
 import nlu.fit.studyappr.activity.vocabulary.VocabularyReviewList;
 import nlu.fit.studyappr.adapter.home.LearningOptionAdapter;
@@ -29,18 +33,31 @@ import nlu.fit.studyappr.model.learningProgress.UserLearningPath;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class HomeActivity extends AppCompatActivity {
 
     private RecyclerView rvLearningOptions;
-
+private ImageView imageViewSettng;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home); // Gắn layout ở đây
 
-
+        imageViewSettng=findViewById(R.id.ivProfileIcon);
         rvLearningOptions = findViewById(R.id.rvLearningOptions);
+        TextView tvGreeting = findViewById(R.id.tvGreeting);
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (currentUser != null) {
+            String displayName = currentUser.getDisplayName();
+            if (displayName == null || displayName.isEmpty()) {
+                displayName = "Người dùng"; // fallback nếu user không có tên hiển thị
+            }
+            tvGreeting.setText("Xin chào, " + displayName + "!");
+        } else {
+            tvGreeting.setText("Xin chào!");
+        }
 
         List<LearningOption> optionList = new ArrayList<LearningOption>();
         optionList.add(new LearningOption("Học Ngữ Pháp", R.drawable.book));
@@ -50,11 +67,17 @@ public class HomeActivity extends AppCompatActivity {
         optionList.add(new LearningOption("Luyện Theo Dạng Bài", R.drawable.ic_test));
         optionList.add(new LearningOption("Thi Thử", R.drawable.ic_test));
         optionList.add(new LearningOption("Lộ Trình Học", R.drawable.ic_journey));
+        optionList.add(new LearningOption("Tra cứu từ vựng", R.drawable.ic_vocabulary)); // Bổ sung dòng này
 
         LearningOptionAdapter adapter = new LearningOptionAdapter(this, optionList);
         rvLearningOptions.setLayoutManager(new GridLayoutManager(this, 2));
         rvLearningOptions.setAdapter(adapter);
-
+        imageViewSettng.setOnClickListener(v -> {
+            Intent intent = new Intent(HomeActivity.this, SettingsActivity.class); // hoặc HomeActivity
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(intent);
+            finish();
+        });
         adapter.setOnItemClickListener(option -> {
             switch (option.getTitle()) {
                 case "Học Ngữ Pháp":
@@ -75,6 +98,10 @@ public class HomeActivity extends AppCompatActivity {
                 case "Lộ Trình Học":
                     checkLearningPathAndNavigate();
                     break;
+                case "Tra cứu từ vựng":
+                    startActivity(new Intent(this, DictionaryLookupActivity.class));
+                    break;
+
             }
         });
     }

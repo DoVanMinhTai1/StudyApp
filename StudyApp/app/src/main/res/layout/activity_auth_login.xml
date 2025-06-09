@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:padding="24dp"
-    tools:context=".activity.home.MainActivity">
+    tools:context=".activity.login.LoginActivity">
 
 
     <ImageView
@@ -135,14 +135,14 @@
                     android:layout_height="40dp"
                     android:layout_marginEnd="16dp"
                     android:contentDescription="@string/login_with_google"
-                    android:src="@drawable/facebook" />
+                    android:src="@drawable/google" />
 
                 <ImageView
                     android:id="@+id/ivFacebookLogin"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:contentDescription="@string/login_with_facebook"
-                    android:src="@drawable/google" />
+                    android:src="@drawable/facebook" />
             </LinearLayout>
 
             <TextView

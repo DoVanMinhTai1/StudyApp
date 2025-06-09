@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Toolbar với icon và chữ "Quay lại" -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/primary_color">
+
+
+        <TextView
+            android:id="@+id/tv_back_text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:text="Quay lại"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:paddingStart="8dp" />
+    </RelativeLayout>
+
+    <!-- Nội dung tra từ -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/edtWord"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nhập từ tiếng Anh"
+            android:inputType="text" />
+
+        <Button
+            android:id="@+id/btnLookup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Tra cứu" />
+
+        <TextView
+            android:id="@+id/tvResult"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="16dp"
+            android:text="Kết quả sẽ hiển thị ở đây"
+            android:textSize="16sp"
+            android:scrollbars="vertical" />
+    </LinearLayout>
+</LinearLayout>

@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".activity.HomeActivity">
+    tools:context=".activity.home.HomeActivity">
 
     <!-- Main Content -->
     <LinearLayout
@@ -26,13 +26,24 @@
             app:titleTextColor="@color/white"/>
 
         <!-- User Greeting -->
+
+        <!-- Progress Overview -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/primary_light_color"
             android:orientation="vertical"
-            android:padding="16dp"
-            android:background="@color/primary_light_color">
-
+            android:padding="16dp">
+            <ImageView
+                android:id="@+id/ivProfileIcon"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="60dp"
+                android:clickable="true"
+                android:contentDescription="Profile Icon"
+                android:focusable="true"
+                android:src="@drawable/ic_profile" />
             <TextView
                 android:id="@+id/tvGreeting"
                 android:layout_width="wrap_content"
@@ -40,7 +51,10 @@
                 android:text="Xin chào, Nguyễn Văn A!"
                 android:textColor="@color/black"
                 android:textSize="18sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
+
+
+
 
             <TextView
                 android:id="@+id/tvLevel"
@@ -49,10 +63,10 @@
                 android:layout_marginTop="4dp"
                 android:text="Trình độ: Intermediate"
                 android:textColor="@color/gray_dark"
-                android:textSize="14sp"/>
+                android:textSize="14sp" />
+
         </LinearLayout>
 
-        <!-- Progress Overview -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -195,6 +209,7 @@
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:spanCount="2"
             tools:listitem="@layout/item_learn_option" />
+
     </LinearLayout>
 
     <!-- Navigation Drawer -->

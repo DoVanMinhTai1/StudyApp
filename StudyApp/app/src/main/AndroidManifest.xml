@@ -17,7 +17,7 @@
         android:theme="@style/Theme.AppEnglishNew"
         tools:targetApi="31">
         <activity
-            android:name=".activity.home.HomeActivity"
+            android:name=".activity.login.LoginActivity"
             android:exported="true"
             android:theme="@style/Theme.AppEnglishNew">
             <intent-filter>
@@ -27,11 +27,32 @@
             </intent-filter>
         </activity>
 
-        <!--        <activity-->
-        <!--                android:name=".activity.home.HomeActivity"-->
-        <!--                android:exported="true"-->
-        <!--                android:theme="@style/Theme.AppEnglishNew">-->
-        <!--        </activity>-->
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <!-- Facebook Client Token (nếu có) -->
+        <meta-data
+            android:name="com.facebook.sdk.ClientToken"
+            android:value="@string/fb_login_protocol_scheme" />
+
+
+        <!-- Facebook SDK Activities -->
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
         <activity android:name=".activity.vocabulary.VocabularyLearnSetupActivity" />
         <activity android:name=".activity.vocabulary.VocabularyLearnItemSummaryActivity" />
         <activity android:name=".activity.vocabulary.VocabularyLearnSummaryActivity" />
@@ -41,9 +62,13 @@
         <activity android:name=".activity.vocabulary.VocabularyReviewList" />
         <activity android:name=".activity.vocabulary.VocabularyReviewFlashCardActivity" />
         <activity android:name=".activity.vocabulary.VocabularyReviewSummaryActivity" />
+        <activity android:name=".activity.vocabulary.DictionaryLookupActivity" />
 
+
+        <activity android:name="nlu.fit.studyappr.activity.home.HomeActivity" />
 
         <activity android:name=".activity.progress.TrackProgressActivity" />
+        <activity android:name=".activity.profile.SettingsActivity" />
         <activity android:name=".activity.progress.ProgressSetup" />
         <activity android:name=".activity.progress.LearningPathProposalActivity" />
         <activity android:name=".activity.progress.DailyDetailsActivity" />
@@ -53,36 +78,10 @@
         <activity android:name=".activity.grammar.GrammarExerciseActivity" />
         <activity android:name=".activity.grammar.GrammarTopicReview" />
         <activity android:name=".activity.grammar.GrammarExerciseResult" />
-        <activity
-            android:name=".activity.login.ForgotPasswordActivity"
-            android:exported="true"
-            android:theme="@style/Theme.AppEnglishNew">
-            <!--            <intent-filter>-->
-            <!--                <action android:name="android.intent.action.MAIN" />-->
+        <activity android:name=".activity.login.RegisterActivity" />
+        <activity android:name=".activity.login.ForgotPasswordActivity" />
 
-            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
-            <!--            </intent-filter>-->
-        </activity>
-        <activity
-            android:name=".activity.login.RegisterActivity"
-            android:exported="true"
-            android:theme="@style/Theme.AppEnglishNew"></activity>
-        <activity
-            android:name=".activity.login.LoginActivity"
-            android:exported="true"
-            android:theme="@style/Theme.AppEnglishNew">
 
-        </activity>
-        <!--        <activity-->
-        <!--                android:name=".activity.home.HomeActivity"-->
-        <!--                android:exported="true"-->
-        <!--                android:theme="@style/Theme.AppEnglishNew">-->
-        <!--            <intent-filter>-->
-        <!--                <action android:name="android.intent.action.MAIN" />-->
-
-        <!--                <category android:name="android.intent.category.LAUNCHER" />-->
-        <!--            </intent-filter>-->
-        <!--        </activity>-->
 
 
     </application>
