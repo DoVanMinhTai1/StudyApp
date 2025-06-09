@@ -1,13 +1,17 @@
 package nlu.fit.studyappr.activity.exam;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +30,8 @@ public class ExamActivity extends AppCompatActivity {
     private ExamAdapter examAdapter;
 
     private ImageView exit_btn;
+
+    private FloatingActionButton btn_add_exam;
     private List<Exam> examList = new ArrayList<>();
     private static final String TAG = "ExamActivity";
 
@@ -39,6 +45,13 @@ public class ExamActivity extends AppCompatActivity {
         examAdapter = new ExamAdapter(this, examList);
         recyclerView.setAdapter(examAdapter);
         exit_btn=findViewById(R.id.ExitButton);
+
+        btn_add_exam=findViewById(R.id.fab_add);
+
+        btn_add_exam.setOnClickListener(v->{
+            Intent intent=new Intent(this, CreateExamActivity.class);
+            startActivity(intent);
+        });
 
         exit_btn.setOnClickListener(v->{
             finish();

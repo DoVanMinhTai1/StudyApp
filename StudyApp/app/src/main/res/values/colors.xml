@@ -4,6 +4,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="black">#FF000000</color>
     <color name="gray">#FF9E9E9E</color>
+    <color name="upload_background">#F8F9FA</color>
 
     <!-- Màu chủ đạo -->
     <color name="primary_color">#FF4285F4</color>  <!-- Google Blue -->

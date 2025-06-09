@@ -39,7 +39,7 @@ public class InitializeRetrofit {
 
     public static Retrofit getNodeApiInstance() {
         return new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:3000/api/v1/") // đổi thành IP máy chủ thực tế nếu cần
+                .baseUrl("http://10.0.2.2:3000/api/v1/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
     }
